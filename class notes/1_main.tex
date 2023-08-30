@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Week One}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week One}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Science vs math: science is evidence base math is proof based. In science, you observe things lots of times and can \textbf{reject} hypothesis based on that evidence. However, in science you cannot \textbf{prove/conclude} anything. In math, you do not need lots of evidence. Instead, you can do a \textbf{proof} and \textit{can} conclude something. 
+
+\section{Vocabulary}
+
+\subsection{Sets}
+"The element $x$ is in the set $X$":
+\begin{align*}
+    x \in X
+\end{align*}
+
+You may indicate different elements as $x_1, x_2, x_3...$ and all are in the set $X$:
+\begin{align*}
+    x_1, x_2, x_3... \in X
+\end{align*}
+
+Sets can be any collections of things 
+\begin{align*}
+    dogs \in Pets
+\end{align*}
+
+You can have two different sets, $X$ and $Y$, and can talk about the \textbf{intersection} of the two sets which would be all the elements are in $X$ AND in $Y$ 
+\begin{align*}
+    X \cap Y
+\end{align*}
+
+You could also talk about the \textbf{union} of two sets, which would be element in $X$ OR in $Y$
+\begin{align*}
+    X \cup Y
+\end{align*}
+
+there is also the \textbf{complement} to set, which are all the elements in the \textit{space} you are working with but NOT in your set. 
+\begin{align*}
+    X^\complement
+\end{align*}
+
+\subsection{spaces of numbers}
+
+Real numbers: $\mathbb{R} \simeq [- \infty, \infty]$
+
+Positive real numbers: $\mathbb{R}^+ \simeq [0, \infty]$
+
+Positive real numbers in $(x,y)$ space: $\mathbb{R}^{++} \simeq  x \in [0, \infty]\ and\ y \in [0, \infty]$
+
+\section{Properties}
+Communicative:
+\begin{align*}
+    a+b = b+ a
+\end{align*}
+
+Associative: 
+\begin{align*}
+    a+ (b+c) = (a+b) +c
+\end{align*}
+
+Distributive:
+\begin{align*}
+    a(b+c) = ac+ bc
+\end{align*}
+
+Rules with zero:
+\begin{align*}
+    a+ 0 = a \\
+    0a = 0
+\end{align*}
+
+Rules with one:
+\begin{align*}
+    1*a = a
+\end{align*}
+
+Inverse property:
+\begin{align*}
+    a* \frac{1}{a} = 1
+\end{align*}
+
+A note on equal signs: equals signs only mean that the two things on either side of the equal sign with evaluate to the same thing. It's not like a function, where you elements in and get something out. 
+
+\section{Convex set}
+A set is \textbf{convex} if you are able to draw a line between \textit{any two} elements in the set and all elements intersected by the line are elements in the set. A circle is a convex set. A cresent is not a convex set. \\
+
+Convex sets are important if you're operating with a \textbf{non-convex} set, you can fall into tipping points where you arrive at states of the world that are completely unfamiliar. The new state of the world was not in your original set of possible states of the world. In climate change, we don't want to go into unknown states of the world. We'd like to stay in our current states of the world and move smoothly from state to state. \\
+
+However, there are some issues where you may want to cross a tipping point. For instance, when addressing environmental justice or systemic discrimination issues, you may want to tip into a state of the world (where there are no inequities) and have it be difficult to return to your original state of the world. 
+
+\section{Functions}
+
+\subsection{Functions map to ONE output}
+
+A function is something that returns a single element from it's inputs. For example 
+\begin{align*}
+    f(x) = x+2 \\
+x \in \mathbb{R}^1  \text{ (domain)}
+\end{align*}
+
+is a function because we give it one element $x$ and it will return a single element. \\
+
+\textbf{Domain} is what $x$ is permissible to be. The \textbf{co-domain} is anything that $f(x)$ may be equivalent to. The \textbf{range} is what $f(x)$ can take the value of given the domain. Therefore, the range is a subset of the co-domain (and may be equal to the co-domain): 
+\begin{align*}
+    \text{range} \subseteq \text{co-domain}
+\end{align*}
+\\
+
+The domain of $f(x) = x+2$ was given as $x \in \mathbb{R}^1$. The co-domain will be $\mathbb{R}^1$ because $f(x)$ could be real number in 1-dimensional space. In this case, the range of $f(x)$ will also be the co-domain.\\
+
+Something that is is NOT a function would be some bizarre thing where if you defined the function $g$ as 
+\begin{align*}
+    g(x) = x+2
+\end{align*}
+
+but $g(2) = 4 \And 5$. This operator $g$ is saying 2+2 = 4 and 2+2 = 5. This makes no sense, it's not a functions. \\
+
+\subsection{Functions can map many inputs to one output}
+
+We've established that functions output ONE element. However, they can have \textit{many} inputs, 
+
+\begin{align*}
+    f(x,y) = x + y\\
+    \mathbb{R}^2 \rightarrow \mathbb{R}^1
+\end{align*}
+the function above takes two inputs $(x,y) \in \mathbb{R}^2$ and maps those inputs into a single element (one dimensional real number, $\mathbb{R}^1$)
+
+\section{More vocab}
+\subsection{Explicit functions}
+\begin{align*}
+    y = a + b x\\
+    x = c + dy
+\end{align*}
+
+\subsection{Implicit function}
+\begin{align*}
+    G(x, y; a, b, c, d) = g
+\end{align*}
+
+where $G$ is a function that has \textbf{endogenous} variables $x$ and $y$ and \textbf{exogenous} variables $a, b, c, d$. \\
+
+\textbf{Endogenous} variables are determined by the system. \textbf{Exogenous} variables are \textbf{parameters} that we take as "given" in the system. 
+
+
+
+
+\end{document}`
