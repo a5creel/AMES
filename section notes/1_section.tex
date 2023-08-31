@@ -1,0 +1,256 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Week One}
+\rhead{AMES}
+
+\title{AMES Section Notes -- Week One/Two }
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Review from Wednesday}
+
+\textit{First, any questions??
+}
+\subsection{Major Sets}
+\begin{itemize}
+    \item $\mathbb{R}^1$ is the real number line. The superset 1 indicates we're thinking in one-dimensional space. 
+    \item $\mathbb{N}^1$ is only integers 
+    \item $\mathbb{R}^2$ is real numbers in two dimensional space. If you think of a graph with an $x$ axis and a $y$ axis, then a point $(x,y)$ would be an element in this space, $(x,y) \in \mathbb{R}^2$.
+    \item $\mathbb{R}^N$ is real numbers in $N$ dimensional space. 
+    \item $\mathbb{N}^+$ would be positive integers. 
+\end{itemize}
+
+\subsection{Domain, Co-Domain, Range}
+
+\textbf{Domain:}\\
+The "domain" of a function refers to the set of all possible input values for which the function is defined. In other words, it's the set of values that you can plug into the function to obtain meaningful output. The domain defines the scope of validity for a function.\\
+
+Technically, whenever you define a function, you are supposed to define the domain that the function is defined for 
+
+\begin{align*}
+    f(x) = y = -x^2  \\
+    x \in \mathbb{R}^1
+\end{align*}
+
+so the domain for $f(x)$ is all real numbers. \\
+
+\textbf{Codomain:}\\
+The codomain of a function is the set that contains all possible values that the function could potentially output. It's like a set of all possible targets for the function's values. When defining a function, you specify its domain (the set of input values) and its codomain. The codomain is a broader set than the actual set of values the function may take on (its range).\\
+
+The codomain for this function would also be all real numbers, $\mathbb{R}$.\\
+
+\textbf{Range:}\\
+The range of a function is the set of all actual values that the function produces when you plug in the elements of the domain. It's the set of output values that the function actually reaches. In other words, the range is the subset of the codomain that the function's outputs belong to.\\
+
+The range of this function is only negative numbers, $\mathbb{R}^- \simeq (-\infty, 0]$.
+
+\subsection{Convex and Non-Convex sets}
+A set is \textbf{convex} if every point on the line segment connecting any two points within the set is also contained in the set.\\
+
+\textit{Draw some examples on board.}
+
+
+\section{Open Set vs Closed Set}
+
+A set is \textbf{open} if it contains all the points up to a boundary but does not contain the boundary point. We indicate an open set using round parentheses, $(a,b)$. $a$ and $b$ are the \textbf{boundary points} of this set. For the set $(a,b)$, all elements between $a$ and $b$ are included, BUT element $a$ and element $b$ \underline{are not} included. \\
+
+A set is \textbf{closed} if it does include its boundary point. We indicate a closed set using square parentheses, $[a, b]$. For the set $[a, b]$, all elements between $a$ and $b$ are included, AND elements $a$ and $b$ \underline{are} included. 
+
+
+\section{Example of Solving System of Equations}
+Consider the system of equations:
+
+\begin{align*}
+\text{Equation 1: } & 2x + 3y = 7 \\
+\text{Equation 2: } & x - y = 1
+\end{align*}
+
+We'll solve this system using the substitution method:
+
+\textbf{Step 1:} Solve Equation 2 for \(x\):
+\[x = y + 1\]
+
+\textbf{Step 2:} Substitute the expression from Step 1 into Equation 1:
+\[2(y + 1) + 3y = 7\]
+
+\textbf{Step 3:} Solve the resulting equation for \(y\):
+\begin{align*}
+2y + 2 + 3y &= 7 \\
+5y + 2 &= 7 \\
+5y &= 5 \\
+y &= 1
+\end{align*}
+
+\textbf{Step 4:} Substitute the value of \(y\) back into the expression for \(x\) from Step 1:
+\[x = y + 1 = 1 + 1 = 2\]
+
+So, the solution to the system of equations is \(x = 2\) and \(y = 1\).
+
+
+\section{Example of Solving for Roots}
+Consider the quadratic equation:
+
+\[x^2 - 5x + 6 = 0\]
+
+If we are solving for the roots, we want to find the values of $x$ that make the above equation "true" (\textit{i.e.,} the equation on the left-hand side \underline{does} equal zero).\\
+
+\textbf{Step 1:} Factor the quadratic equation:
+\[(x - 2)(x - 3) = 0\]
+
+\textbf{Step 2:} Apply the zero product property:
+In order for the product of two factors to be zero, at least one of the factors must be zero. So, set each factor equal to zero and solve for \(x\):
+\[x - 2 = 0 \quad \text{or} \quad x - 3 = 0\]
+Solving these equations:
+\[x = 2 \quad \text{or} \quad x = 3\]
+
+So, the quadratic equation has two roots: \(x = 2\) and \(x = 3\).
+
+\subsection{Quadratic formula}
+You can use the quadratic \underline{formula} to solve for the roots of any quadratic \underline{equation}.\\
+
+Consider the quadratic equation
+\[ax^2 + bx + c = 0\]
+
+The general quadratic formula to solve for the roots is
+\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
+
+Note that because of the "plus or minus" in the numerator, this will return two roots. 
+
+\subsection{Polynomials and number of roots}
+A quadratic equation is a 2nd-order polynomial. If you had a term in your equation that contains $x^3$, then you would have a 3rd-order polynomial (and so on and so forth). \\
+
+The number of roots can be up to the order of your polynomial. 
+
+\section{Study Groups}
+\textit{Use this time to potentially make study groups, exchange contact info, etc.}
+
+
+
+\end{document}`
