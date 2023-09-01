@@ -15,6 +15,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 ### Week one 
 
 -  [class notes](class_notes/1_introduction_class.pdf)
-
+-  [section notes](section_notes/1_section.pdf)
+- [zoom recording of section](https://yale.zoom.us/rec/share/WQ-3BEzd_GEec7FepNDbEjXUDq56v_cYkZhugw8Vyfyl_eyRB9_R9hB5xzVZoTKS.CntB5Aa1t5buY-hc?startTime=1693578615000)
 
 
