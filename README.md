@@ -8,3 +8,13 @@ Note: You can ignore the .tex files. The PDFs are what are viewable and what you
 
 ### Office hours
 My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
+
+
+# Contents 
+
+### Week one 
+
+- \url[class notes](class\_notes/1_introduction_class.pdf)
+
+
+
