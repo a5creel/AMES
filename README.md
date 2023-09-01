@@ -14,7 +14,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 ### Week one 
 
-- \url[class notes](class\_notes/1_introduction_class.pdf)
+- \url[class notes](class notes/1_introduction_class.pdf)
 
 
 
