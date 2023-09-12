@@ -25,7 +25,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 ### Week three 
 
-- [day one slides](class_notes/3_Thinking Like a Computer_2023.pptx)
+- [day one slides](<class_notes/3_Thinking Like a Computer_2023.pptx>)
 - [R Tutorial](https://github.com/a5creel/nature_as_capital/blob/main/section_notes/1_review/3_r_tutorial/r_tutorial.pdf)
 - [R in-class exercises](https://github.com/a5creel/AMES_R_intro)
 
