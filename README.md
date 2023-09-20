@@ -30,7 +30,8 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [R in-class exercises](https://github.com/a5creel/AMES_R_intro)
 
 ### Week four
-- [Monday class notes](class_notes/4_week/4_week.pdf)
+- [Monday class notes](class_notes/4_mon_week/4_week.pdf)
 - [Section notes](section_notes/4_section/main.pdf)
 - [Zoom recording of lecture](https://yale.zoom.us/rec/share/EsTXAibjWFbX8EsFYbNeWClFm-wou-zKEPr6SC1Sib3OSCFIr4QU1X5UeE3AbQ3q.qWEfPqRKr6SK4TiC?startTime=1695073198000)
+-[monday class notes](class_notes/4_weds_class.pdf)
 

@@ -1,0 +1,287 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Week Four}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week Four, Day 2}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+Notation: \\
+w.r.t: with respect to
+
+
+\section{Definition of derivative}
+You can always use the definition of a derivative to find the derivative. We will talk about many derivative rules, but this one will \textit{always} work.\\
+
+The \textbf{definition of a derivative} is 
+\begin{align}
+    \frac{ds}{dw} \equiv \lim_{\epsilon \to \infty} \frac{f(w+\epsilon) - f(w)}{\epsilon}
+\end{align}
+where $s = f(w)$. \\
+
+The derivative tells us what the change in $s$ (or $f(w)$ because $s = f(w)$) is for a small change in $w$. The small change is $\epsilon$. \\
+
+Consider the function $f(x) = ax$. We can find the derivative of $f(x)$ using our derivative definition. \\
+
+\begin{align}
+    \frac{df(x)}{dx} &\equiv \lim_{\epsilon \to \infty} \frac{f(x+ \epsilon) - f(x)}{\epsilon}\\
+    &= \lim_{\epsilon \to \infty} \frac{a*(x + \epsilon) - ax}{\epsilon}\\
+    &= \lim_{\epsilon \to \infty} \frac{ax + a\epsilon - ax}{\epsilon}\\
+    &= \lim_{\epsilon \to \infty} a\\
+    &= a \\
+    \frac{df(x)}{dx} &= a
+\end{align}
+
+So the derivative for $f(x)$ w.r.t. $x$ is a. \\
+
+No matter what function you are dealing with, you can \textit{always} use the definition of a derivative to find the derivative. This rule will \textit{always} work. However, there are derivative rules that are likely worth memorizing because those rules will help you find the derivative faster than using the definition. That said, using the definition is never a wrong way of taking the derivative.  \\
+
+In class, we considered the function $f(x) = -ax^2$. We used the  definition of a derivative to show that $\frac{df(x)}{dx} = -2ax$ in a similar way to equations 2-7.
+
+\section{Notation}
+\subsection{First derivative}
+
+There are many ways to notate a derivative
+\begin{align}
+    \frac{dF(x)}{dx} = f'(x) = f^1(x)
+\end{align}
+
+In sustainable development, we often think about trends through time and therefore consider functions of time. We naturally are then interested in how that function \textit{changes} through time. Therefore, take the derivative of that function w.r.t time also has it's own fancy notation (that comes from Newton)
+
+\begin{align}
+    \frac{d x(t)}{dt} = \dot x
+\end{align}
+
+\subsection{Second derivative}
+
+We can also take second derivatives, which also has a few different ways to denote it:
+\begin{align}
+    f''(x) = f^2(x) = \frac{d^2 f(x)}{dx^2}
+\end{align}
+
+Example: 
+\begin{align*}
+    f(x) &= x^3\\
+    f'(x) &= 3x^2\\
+    f''(x) &= 6x\\
+    f'''(x) &= 6\\
+    f''''(x) &= 0
+\end{align*}
+
+\section{Chain Rule}
+The chain rule feels intimidating, but we have been using it all our lives. \\
+
+Math is about making things \textit{elegant}, not simpler. Yes, sometimes simplifying something can make it more elegant. But sometimes having an additional step is what makes the process more elegant (refer to IKEA furniture for proof). \\
+
+Consider $f(g(x))$. We're interested in $\frac{df}{dx}$. We can add some steps to make this more \textit{elegant} (although it may be less "simpler")
+\begin{align}
+    \frac{df}{dx}  = \frac{df}{dg}\frac{dg}{dx}  \\
+\end{align}
+while we don't know what $\frac{df}{dx}$, we can more easily get $\frac{df}{dg}$ and $\frac{dg}{dx}$ and use those derivatives to arrive at what $\frac{df}{dx}$ is. \\
+
+Another way of writing this is 
+\begin{align}
+    \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)
+\end{align}
+
+\section{Product rule}
+The product rule is that if $u$ and $v$ are differentiable functions, then the derivative of their product is given by:
+\[
+(uv)' = u'v + uv'
+\]
+
+\section{Logs and derivatives}
+Consider the function: 
+\begin{align}
+    f(x) = ln(x)
+\end{align}
+The derivative is 
+\begin{align}
+    f'(x) = \frac{1}{x}.
+\end{align}
+
+Now consider the function 
+\begin{align}
+    f(x) &= ln(g(x)).
+\end{align}
+To find the derivative we will use a log rule and the chain rule 
+\begin{align}
+    f'(x) &= \frac{1}{g(x)} g'(x) \\
+    &= \frac{g'(x)}{g(x)} \label{perc_change}
+\end{align}
+This is an extremely important result! Because \ref{perc_change}
+is the \textbf{PERCENT CHANGE}. Percent change is a very useful statistic that we think about all the time. \\
+
+\subsection{Percent change}
+
+\begin{align}
+    \frac{d ln(f(x))}{dx} = \frac{f'(x)}{f(x)} = \text{percent change}
+\end{align}
+
+Taking the derivative of the log of a function w.r.t $x$ is a great way to find the percent change. \\
+
+\textbf{But recognize how you changed the unit}: Once you have taken the log of a function, you have changed the units. You are now considering relative changes (rather than absolute changes). For many questions, knowing the relative change of you function as compared to a baseline is a very useful statistic! But recognize your question is now in terms of relative units, not absolute units. \\
+
+Relative to what (\textit{you should ask!})? Whatever is in your denominator. If $f(x)$ measures the population of wolves, you've found the percent change \textit{in the population of wolves}.
+
+\section{Log rules and e}
+Recall how we defined $e$ using a series:
+\begin{align}
+    e = \lim_{N \to \infty} (1 + \frac{1}{N})^N
+\end{align}
+
+Now consider the function $ln(x)$ and the definition of a derivative. We will show $\frac{d ln(x)}{dx} = \frac{1}{x}$.\\
+
+Proof
+\begin{align}
+    \frac{dln(x)}{dx} &= \lim_{\epsilon \to 0} \frac{ln(x+\epsilon) - ln(x)}{\epsilon} \\
+    &= \lim_{\epsilon \to 0} \frac{1}{\epsilon} ln\Bigg(\frac{x+\epsilon}{x} \Bigg) \\
+    &= \lim_{\epsilon \to 0}  ln\Bigg(1+ \frac{\epsilon}{x} \Bigg)^{\frac{1}{\epsilon}}
+\end{align}
+
+Make up a useful substitution: $u = \frac{\epsilon}{x}$
+\begin{align}
+    &= \lim_{\epsilon \to 0} \frac{1}{x} ln\Bigg(1+ u \Bigg)^{\frac{1}{u}}
+\end{align}
+
+Now make up another useful subsitution: $u = \frac{1}{N}$
+\begin{align}
+    &= \frac{1}{x} ln\Bigg(\lim_{N \to \infty}  (1+ N)^{\frac{1}{N}}\Bigg)
+\end{align}
+
+use the definition of $e$ 
+\begin{align}
+    &= \frac{1}{x} ln(e)\\
+    &= \frac{1}{x}
+\end{align}
+
+Ta da! We've used the definition of a derivative to prove our derivative rule for logs, $ln(x)$. 
+
+\end{document}
