@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Week Five}
+\rhead{AMES}
+
+\title{AMES Section Notes -- Week Five}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{The language of limits}
+
+When we say that a sequence of numbers tends to a limit L as n tends to infinity, we mean that as n grows larger and larger, the terms of the sequence get closer and closer to the number L.\\
+
+Let $f(n)$ be our sequence of numbers.
+
+\[ \lim_{n \to \infty} f(n) = L \]
+
+Example. Let $f(n) = 1/n$. Then $L = 0$
+
+\[\lim_{n \to \infty} \frac{1}{n} = 0\]
+
+\section{Problem set}
+\subsection{Question 4}
+
+The key in question four is "The probability can be thought of as the fraction of acorns that geminates on average". \\
+
+In question a, we're asked to find the distance from the tree with the highest \textit{density} or \textit{germinated} acorns. If we think of the probability as a fraction of gernminated acorns, what's our objective function? $F(X) = D(X)P(X)$
+
+\subsection{Question 8}
+\textit{Have we talked about taylor series approximations?} A taylor series can be used to approximate any continuous function as a polynomial function. A line is a first order taylor series approximations. Typically, we never have rich enough data to approximate any function beyond a second order taylor series. In very rare cases, we may see a third order. 
+
+\subsection{Question 9}
+Let's say we have data on $y$ and $x$. We want to estimate the relationship between $y$ and $x$ using a first order taylor series (aka a line). Typically, applied researchers do this using linear regression. But, what is linear regression really doing?? \\
+
+What does the estimating equation look like? 
+\begin{align}
+    y_i = a + b x_i + \epsilon_i
+\end{align}
+
+The goal of linear regression is to minimize the sum of squared errors (similar to finding an average, which we did in class today). If the goal is minimizing the sum of squared errors, what's our objective function? 
+
+Let's first solve for our error term:
+
+\begin{align}
+    \epsilon_i = y_i - a - bx_i
+\end{align}
+
+If the objective is to minimize the sum of squared errors, our objective function would be: 
+\begin{align}
+    F(a,b) &= \sum_i^n (\epsilon_i)^2\\
+    &= \sum_i^n (y_i - a - bx_i)^2
+\end{align}
+
+The solution is a solution for $a$ as a function of the data $\{x_i, y_i\}$ and $b$ as a function of the data $\{x_i, y_i\}$. 
+
+We can define the solutions as 
+\begin{align}
+    (a,b) = \arg \min_{a,b} \sum_i^n (y_i - a - bx_i)^2
+\end{align}
+
+Solutions set up:
+\begin{align}
+    F_a = ... = 0\\
+    F_b = ... = 0
+\end{align}
+
+You have a system of two equations and two unknowns. Solve for $a(x,y)$ and $b(x,y)$. \\
+
+\textbf{The major trick} of this problem is the trick of statistics. The \textit{parameters} $a$ and $b$ are now unknown and the variables $x$ and $y$ are known. Realizing that we're solving for the parameter as a funciton of the data is the trick here (because we did the opposite on pset 1). 
+
+
+
+\end{document}
