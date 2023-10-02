@@ -1,0 +1,242 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{empty}
+
+\lhead{Creel}
+\chead{Week Six}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week Six, Day 1}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Integrals}
+
+\subsection{Reimann Sums}
+An integral is the area under a curve. A reimann sum approximates this area by using rectangles of different heights whose width gets smaller and smaller (\textit{ie} width goes to zero).\\
+
+Let $A(\cdot)$ be an area function. $A$ returns the area under a curve. \\
+
+Recall that small changes in $x$ are equal to $\epsilon$ but also can be written as $\partial x$, $\Delta x = \epsilon = \partial x$.
+
+\begin{align}
+    f(a) = \frac{A(a+\epsilon)-A(a)}{\epsilon}
+\end{align}
+
+If we take the limit of this function as $\epsilon \to 0$, we get the definition of a derivative 
+\begin{align}
+    \lim_{\epsilon \to 0} f(a) = \frac{A(a+\epsilon)-A(a)}{\epsilon} \implies\\
+    A'(x) = \frac{\partial A}{\partial x} \implies \\
+    A'(x) \partial x = \partial A \implies \\
+    A'(x) \epsilon = \partial A 
+\end{align}
+where all of these steps come from knowing $\epsilon = \partial x$ and treating a derivative like a fraction. What is $A'(x)$? If $A(\cdot)$ is the area under the curve, then the derivative is the curve which is $f(x)$ therefore $A'(x) = f(x)$. 
+
+Therfore, a change in area can be written as
+\begin{align}
+    \partial A = f(x) \epsilon
+\end{align}
+which is just a rectangle where $f(x)$ is the height and $\epsilon$ is the width. \\
+
+We can rewrite this as 
+\begin{align}
+    \partial A =  \sum_{x=a}^{b}f(x) \epsilon.
+\end{align}
+if you want to want to find the area under the curve from the point where $x =a $ to the point where $x = b$. This is a sum of rectangles. \\
+
+Integration is just fancy summation! So, as $\epsilon$ gets really small and we move from discrete changes to arbitrarily small changes (smooth). We can then write this as 
+\begin{align}
+    \partial A =  \int_{a}^{b} f(x) \partial x.
+\end{align}
+
+\subsection{Additively separable}
+Consider a function 
+\begin{align}
+    f(x) = h(x) + g(x)
+\end{align}
+where $f(x)$ can be separated into two simpler functions. For instance, any polynomial would take this form (\textit{e.g.} $f(x) = 3x^2 + 6x$). \\
+
+The function $A(\cdot)$ is still returning the area under the curve $f(x)$. Then, we can write the function as 
+
+\begin{align}
+    dA = \int h(x) + g(x) dx
+\end{align}
+
+Because the integral is a linear operator, we do not need to worry about Jensen's inequality and we can pass the integral sign through the addition 
+\begin{align}
+    dA = \int h(x) dx + \int g(x) dx
+\end{align}
+
+\subsection{Considering constants}
+Remember that when you take the derivative of a constant, it's zero. When you integrate a function, you will not be able to get the constant back out (you don't know what the constant is),
+
+\begin{align}
+    F(x) + C = \int f(x) dx.
+\end{align}
+When ever you take an integral, remember to add on your unidentified constant $C$. \\
+
+If you're doing a \textbf{definite} integral meaning you have the bounds $a$ and $b$ you do NOT need to worry about the unidentified constant $C$ because it will difference out. However, if you are taking an \textbf{indefinite} integral then we don't know the bounds and so we do need to keep track of the unidentified constant.\\
+
+\subsection{Example }
+
+Consider this the function $f(x) = 3$, 
+\begin{align}
+    F(x) &= \int f(x) dx\\
+    &=  \int 3 dx\\
+    &= 3 \int dx \\
+    &= 3 \int 1 dx\\
+    &= 3x + C
+\end{align}
+
+\section{Derivative rules}
+
+\begin{align}
+    f(x) = X^n \implies f'(x) = Nx^{N - 1}\\
+    f(x) = e^x \implies f'(x) = e^x
+\end{align}
+
+\section{Integral rules}
+\textbf{Integration by U-substitution}
+
+\begin{align}
+    \int f(u) \frac{du}{dx}dx = \int f(u) du
+\end{align}
+
+\textbf{Example}
+\begin{align}
+    \int x e^{x^2}
+\end{align}
+Let $u = x^2$, $du = 2x dx$, $\frac{du}{dx} = 2x$
+\begin{align}
+   &= \int e^{x^2} x dx \\
+    &= \int \frac{e^u}{2}du \\
+    &= \frac{1}{2} \int e^u du \\
+    &= \frac{1}{2} e^u \\
+    &= \frac{1}{2} e^{x^2}
+\end{align}
+
+\end{document}
