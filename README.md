@@ -45,6 +45,9 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Monday class notes](class_notes/6_mon_class.pdf)
 - [Wednesday class notes](class_notes/6_weds/main.pdf)
 
+### Week seven 
+- [Monday class notes](class_notes/7_mon.pdf)
+
 
 
 
