@@ -50,8 +50,9 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
 - [Wednesday class note](class_notes/7_weds.pdf): derivative and integral rules, implicit function theorem
 
-## Week eight 
+### Week eight 
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
+- [midterm review](section_notes/miterm.pdf)
 
 
 
