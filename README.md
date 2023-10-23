@@ -52,7 +52,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 ### Week eight 
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
-- [midterm review](section_notes/miterm.pdf)
+- [midterm review](section_notes/midterm.pdf)
 
 
 
