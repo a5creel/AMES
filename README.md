@@ -55,6 +55,9 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [midterm review](section_notes/midterm.pdf): exponential function, percent change with derivative of log of function, importance of graphs, find max and min, find inflection points, taylor series, integration by parts
 - [Zoom of midterm review](https://yale.zoom.us/rec/share/06grQMktcnp_WvWAtPB1kWkS86RMxa1D4So1NVFy21KPg756QL7ERTOLxK114-in.F1GW-HFe-6dGorGa?startTime=1698096961000)
 
+### Week nine 
+- [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, kronecker product, trace, linear regression (OLS), Life cycle assessment
+
 
 
 

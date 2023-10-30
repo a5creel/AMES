@@ -1,0 +1,284 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Linar Algebra, cont}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week 9, Monday: Linear Algebra, cont}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Squaring matrices}
+
+Consider a matrix $\underset{N \times 1}{V}$ that you'd like to square. 
+
+\begin{align}
+    V^2 &= \underset{1 \times N} V^T  \underset{N \times 1}V\\
+    &= \underset{ 1 \times 1} Z
+\end{align}
+
+Sometimes you'll have a weighting matrix, $\underset{ N \times N}M$
+
+\begin{align}
+   \underset{1 \times N} V^T \underset{ N \times N}M  \underset{N\times 1}V = \underset{ 1 \times 1}  Z   
+\end{align}
+
+
+\section{Idempotent matrix}
+Defn: A matrix that when squared equals itself 
+\begin{align}
+    Z^T Z = Z
+\end{align}
+
+\section{Kronecker product}
+
+Kronecker products expand out. You see this is computer algorithms and data management problems. It's a common trick. \\
+
+Let
+\begin{align}
+    A = \begin{bmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+        \end{bmatrix} \\
+    Z = \begin{bmatrix}
+        Z_1 \\
+        Z_3 
+    \end{bmatrix}\\
+    A \otimes Z = \begin{bmatrix}
+                    a_11 z_1 & a_12 z_1 \\
+                    a_11 z_2 & a_12 z_2 \\
+                    a_21 z_1 & a_22 z_1 \\
+                    a_21 z_2 & a_22 z_2
+                \end{bmatrix}
+\end{align}
+
+\section{Trace}
+Defn: the product of all diagonal elements. The trace of $A$ is $a_{11} * a_{22}$
+
+\section{Linear regression}
+Consider the equation estimating equation 
+\begin{align}
+    y = a + bx + cz + \epsilon
+\end{align}
+
+We can rewrite this as
+
+\begin{align}
+    \underset{N \times 1} Y = \underset{N \times K } X 
+                              \underset{K \times 1} \beta +  \underset{ N \times 1} \epsilon\\
+\end{align} 
+where 
+\begin{align}
+    \beta = \begin{bmatrix}
+        a\\
+        b\\
+        c
+    \end{bmatrix}\\
+    X = \begin{bmatrix}
+        1 & x_1& z_1\\
+        1 & x_2 & z_2\\
+        \vdots & ...
+    \end{bmatrix}\\
+    Y = \begin{bmatrix}
+        y_1\\
+        y_2\\
+        \vdots
+    \end{bmatrix}
+\end{align}
+
+\textbf{Goal:} Solve for $\beta$ by minimizing the sum of square errors. \\
+
+Solve for the error term:
+\begin{align}
+    \underset{N \times 1} Y - \underset{N \times K}{X \beta} = \underset{N \times 1} \epsilon
+\end{align}
+
+Square the error term:
+\begin{align}
+    \underset{1 \times N} \epsilon^T  \underset{N \times 1}\epsilon &= 
+        \underset{1 \times N}{(Y - X \beta)^T} \underset{N \times 1}{(Y - X \beta)} \\
+    &= \underset{1 \times N}Y^T \underset{N \times 1} Y - \underset{1 \times K} \beta^T \underset{K \times N} X^T \underset{N \times 1} Y - \underset{1 \times N} Y^T \underset{N \times K} X \underset{K \times 1}\beta + \underset{1 \times K}\beta^T \underset{K \times N}X^T \underset{N \times K}X \underset{K \times 1}\beta\\
+    &= \underset{1 \times 1}{Y^T Y} - \underset{1 \times 1}{2 \beta^T X^T Y} + \underset{1 \times 1}{\beta^T X^T X \beta}
+\end{align}
+
+The squared error term is a scalar $\underset{(1 \times 1)}{\epsilon^T \epsilon}$. \\
+
+We want to minimize the squared error term by choosing $\beta$. To do so, take derivative of squared error and set equal to zero, solve for $\beta$. 
+
+\begin{align}
+    \frac{\partial \epsilon^T  \epsilon }{ \partial \beta} = 0 - \underset{K \times 1}{2X^T Y} + \underset{K \times 1}{2 X^T X \beta} = 0 \implies \\
+    2X^T Y = 2 X^T X \beta \implies \\
+    \beta = {(X^T X)}^{-1} X^T Y
+\end{align}
+
+Where ${(X^T X)}^{-1}$ is an inversion (because we cannot divide matrices). 
+
+\section{Life cycle assessment example}
+
+Let's consider and input output table (Ag, Transportation, Manufactured)
+\begin{align}
+    A = \underset{ 3 \times 3}{\begin{bmatrix}
+         & A & T & M \\
+         A \\
+         T\\
+         M
+    \end{bmatrix}}
+\end{align}
+
+And our final demand (the demand for goods by consumers) 
+\begin{align}
+    d = \underset{3 \times 1}{\begin{bmatrix}
+        A \\
+        T\\
+        M
+    \end{bmatrix}}
+\end{align}
+
+Total amount of goods $X$ is, 
+\begin{align}
+    \underset{3 \times 1}{X} = \underset{3 \times 3}{A} \underset{3 \times 1}{X} + \underset{3 \times 1}{d}
+ \end{align}
+Solve for X by multiplying with the identity matrix 
+\begin{align}
+    \underset{3 \times 3}{I} X - AX = d\\
+    (I - A) X = d\\
+    \implies (I - A)^{-1}d = X
+\end{align}
+
+Total amount of goods is different than final demand because we need input good for the final good. A bunch of intermediate products are required to make a computer. 
+
+
+\section{R and Excel}
+Watch the video! Couple of notes \\
+- to invert a matrix in R you use the solve() command
+
+
+\end{document}
