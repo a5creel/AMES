@@ -57,6 +57,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 ### Week nine 
 - [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, kronecker product, trace, linear regression (OLS), Life cycle assessment
+- [Section recording](https://yale.zoom.us/rec/play/eFOC3kVkqWOvfn6lNGsQSpsFmvCFk_lqj5lHqviVeIC__t9VlTMNapesMmQYWvlQpBSsNDrbfQE0ND4K.4mQcji2-5eJAkylI?autoplay=true&startTime=1698701474000): review of u-substitutions (week 6, Monday class notes) and discussion of weighting matrices and how they apply to linear regression (week nine, Monday class notes)
 
 
 
