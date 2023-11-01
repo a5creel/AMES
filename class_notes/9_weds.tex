@@ -1,0 +1,311 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Linar Algebra, cont}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week 9, Wednesday: Linear Algebra, cont}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Pset 1 Q1}
+Consider a population where the population level can be modeled: 
+\begin{align}
+    N_t = (b-d)N_{t-1}
+\end{align}
+
+And survival rate is:
+\begin{align}
+    S_ij = 1 -d
+\end{align}
+Where $S_ij$ is the survival rate of individuals $i$ years old make it to $j$ years old.\\
+
+Everyone dies after 3 years. \\
+
+We can model this as:
+\begin{align}
+    \overset{t+1}{N_{0_{t+1}}} &= \overset{t}{b_0 N_{0_t}} + b_1  N_{1_t}+ b_2  N_{3_t} + b_3  N_{3_t}\\
+    N_{1_{t+1}} &= S_{0,1} N_{0_t} + 0 + 0 + 0\\
+    N_{2_{t+1}} &= 0+ S_{1,2} N_{1_t}+ 0 + 0\\
+    N_{3_{t+1}} &= 0 + 0 + S_{2,3} N_{2_t} + 0
+\end{align}
+
+Where we're looking at the number of individuals that are $m$ years old in time period $t+1$, $N_{m_{t+1}}$.\\
+
+Can we write this more clearly with matrices?
+
+\begin{align}
+    \begin{bmatrix}
+        N_{0_{t+1}}\\
+        N_{1_{t+1}} \\
+        N_{2_{t+1}} \\
+        N_{3_{t+1}}\\
+    \end{bmatrix} &= 
+    \begin{bmatrix}
+        b_0 & b_1 & b_2 & b_3\\
+        S_{0,1} & 0 & 0 &0 \\
+        0 & S_{1,2} & 0 &0 \\
+        0 & 0 & S_{2,3} &0 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        N_{0_{t}}\\
+        N_{1_{t}} \\
+        N_{2_{t}} \\
+        N_{3_{t}}\\
+    \end{bmatrix} \\
+    \underset{4 \times 1}{N_{t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_t}
+\end{align}
+
+\section{Inverting a matrix}
+
+\subsection{$2 \times 2$ matrix}
+
+Remember rules with 1. They have equivalents with the identity matrix. 
+\begin{align}
+    \frac{1}{a} a = 1\\
+    a^{-1}a = 1 \\
+    \underset{1 \times 1}a^{-1} \underset{1 \times 1}a = \underset{1 \times 1}I = 1\\
+    \underset{n \times n}A^{-1} \underset{n \times n}A = \underset{n \times n}I
+\end{align}
+
+Consider the matrix $A$ and a matrix $B$ 
+\begin{align}
+    A = \begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{bmatrix}\\
+    A^{-1} = B = \begin{bmatrix}
+        b_{11} & b_{12} \\
+        b_{21} & b_{22}
+    \end{bmatrix}
+\end{align}
+
+What is $BA = A^{-1}A = I$?
+\begin{align}
+    \begin{bmatrix}
+        b_{11} & b_{12} \\
+        b_{21} & b_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{bmatrix}
+    =     \begin{bmatrix}
+        b_{11}a_{11} + b_{12}a_{21} & b_{11}a_{12} + b_{12}a_{22} \\
+        ... & ...
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+\end{align}
+
+The first element in the first row of $AB$ implies 
+\begin{align}
+    b_{11}a_{11} + b_{12}a_{21} = 0\\
+    \implies b_{11} = \frac{1 - b_{12} a_{21}}{a_{11}} 
+\end{align}
+
+The second element in the first row of $AB$ implies 
+\begin{align}
+    b_{11}a_{12} + b_{12}a_{22} = 0 
+\end{align}
+we can plug in what we got for $b_{11}$ earlier to get 
+\begin{align}
+     \frac{1 - b_{12} a_{21}}{a_{11}} a_{12} + b_{12}a_{22} = 0 \\
+     \implies b_{12} = \frac{a_{22}}{a_{11} a_{22} - a_{12} a_{21}}
+\end{align}
+which we can plug into eqn 17 to get rid of the $b_{12}$. 
+\begin{align}
+    b_{11} = \frac{1 - \frac{a_{22}}{a_{11} a_{22} - a_{12} a_{21}} a_{21}}{a_{11}} \\
+    = - \frac{a_{12}}{a_{11} a_{22} - a_{12} a_{21}} 
+\end{align}
+
+a pattern is beginning to emerge, and we can see that 
+\begin{align}
+    \frac{1}{a_{11} a_{22} - a_{12} a_{21}} \begin{bmatrix}
+        a_{22} & -a_{12}\\
+        -a_{21} & a_{11}
+    \end{bmatrix} = 
+    A^{-1}
+\end{align}
+
+The the first term is the inverse of the determinant \[a_{11} a_{22} - a_{12} a_{21}\] and the second term is the adjoint matrix \[\begin{bmatrix}
+        a_{22} & -a_{12}\\
+        -a_{21} & a_{11}
+    \end{bmatrix}.\]
+
+Notice that if the determinant is 0, which will happen if you have a row of zeros \textit{aka} if your matrix is not full rank, then your inverse matrix will not be defined because you'll have $\frac{1}{0}.$\\
+
+\subsection{Determinants}
+
+The \textit{determinant} will \textit{determine} if you can invert a matrix. \\
+
+Previously in class we would solve a system of equations for where two lines crossed. If the lines were different (and not parallel), then they would cross somewhere and we could find a point where the two lines are equal at that point. However, if you had two lines that were equal, aka they are the same line, then there is no single point where the two are equal. A \textbf{determinant} will let you know if your system of equations has a solution. If the determinant is 0, then two lines are the same or they are parallel (not unique). \\
+
+This issue shows up if some of your variables are perfectly co-linear aka parallel. If you have variables that are co-linear, you won't be able to do a multi-variate regression and the determinant will be zero (unless you have tons and tons of data). 
+
+
+\subsection{Inverting $3 \times 3$ matrix}
+
+\begin{align}
+    A = \begin{bmatrix}
+                a_{11} & a_{12} & a_{13} \\
+                a_{21} & a_{22} & a_{23} \\
+                a_{31} & a_{32} & a_{33}
+    \end{bmatrix}
+\end{align}
+
+Take the minors: 
+\begin{align}
+    M_{11} = \Bigg| \begin{bmatrix}
+                    a_{22} & a_{23} \\
+                    a_{32} & a_{33}
+    \end{bmatrix} \Bigg| = a_{22}a_{33} - a_{23} a_{32} \\
+    M_{23} = \Bigg| \begin{bmatrix}
+                    a_{11} & a_{12} \\
+                    a_{31} & a_{32}
+    \end{bmatrix} \Bigg|   = a_{11} a_{32} - a_{12} a_{31}
+\end{align}
+
+Get the cofactors: 
+\begin{align}
+    C_{ij} = (-1)^{i + j} M_{ij}
+\end{align}
+
+To be continued! 
+
+
+
+
+
+
+\end{document}
