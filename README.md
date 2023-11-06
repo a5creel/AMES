@@ -62,6 +62,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 
 ### Week ten 
-- [Monday class notes](class_notes/10_mon.pdf): steps to invert a 3 by 3 matrix, Cramer's rule, jacobian and Hessians (convexity and concavity, quasi) 
+- [Monday class notes](class_notes/10_mon.pdf): steps to invert a 3 by 3 matrix, Cramer's rule, jacobian and Hessians (convexity and concavity, quasi)
+- [Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
 
 
