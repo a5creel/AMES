@@ -61,6 +61,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Wednesday class notes](class_notes/9_weds.pdf): setting up a population growth problem (pset 4), inverting matrices 
 
 
-
+### Week ten 
+- [Monday class notes](class_notes/10_mon.pdf): steps to invert a 3 by 3 matrix, Cramer's rule, jacobian and Hessians (convexity and concavity, quasi) 
 
 

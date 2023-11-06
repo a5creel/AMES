@@ -1,0 +1,306 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Linar Algebra, cont}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week 10, Monday: Linear Algebra, cont}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Inverting $3 \times 3$ matrix}
+Consider the matrix A. 
+\begin{align}
+    A = \begin{bmatrix}
+                a_{11} & a_{12} & a_{13} \\
+                a_{21} & a_{22} & a_{23} \\
+                a_{31} & a_{32} & a_{33}
+    \end{bmatrix}
+\end{align}
+
+The goal is to solve for the inverse of A, $A^{-1}$.\\
+
+
+Step 1: Take the all minors: 
+\begin{align}
+    M_{11} = \Bigg| \begin{bmatrix}
+                    a_{22} & a_{23} \\
+                    a_{32} & a_{33}
+    \end{bmatrix} \Bigg| = a_{22}a_{33} - a_{23} a_{32} \\
+    M_{23} = \Bigg| \begin{bmatrix}
+                    a_{11} & a_{12} \\
+                    a_{31} & a_{32}
+    \end{bmatrix} \Bigg|   = a_{11} a_{32} - a_{12} a_{31}
+\end{align}
+and so on... \\
+
+Step 2: Get the co-factors to construct the co-factor matrix: 
+\begin{align}
+    C_{ij} = (-1)^{i + j} | M_{ij} |  \\
+    = \begin{bmatrix}
+        c_{11} & c_{12} & c_{13}\\
+        c_{21} & c_{22} & c_{23}\\
+        c_{31} & c_{32} & c_{33}\\
+    \end{bmatrix}
+\end{align}
+
+Step 4: Then transpose the co-factor matrix, which equals the adjoint matrix of A
+\begin{align}
+    adj(A) = C^T = \begin{bmatrix}
+        c_{11} & c_{21} & c_{31}\\
+        c_{12} & c_{22} & c_{32}\\
+        c_{13} & c_{23} & c_{33}\\
+    \end{bmatrix}
+\end{align}
+
+Step 5: Find the determinant of A, which can conveniently be written as 
+\begin{align}
+    |A| &= a_{11}c_{11} + a_{12} c_{12} + a_{13} c_{13}\\
+        &= a_{12}c_{12} + a_{22} c_{22} + a_{32} c_{32} \\
+        &= ...
+\end{align}
+so you have a bunch of easy ways to solve for the determinant (choose any row or column). \\
+
+Step 6: Finally, you can solve for inverse of A, 
+\begin{align}
+    A^{-1} = \frac{1}{|A|}adj(A)
+\end{align}
+
+\section{Cramer's rule}
+
+Cramer's Rule is a mathematical theorem and a method for solving a system of linear equations with as many equations as unknowns (a square system). It provides an explicit formula for each of the unknown variables in terms of determinants. Cramer's Rule is named after the Swiss mathematician Gabriel Cramer.\\
+
+Here's how Cramer's Rule works for a system of linear equations with $n$ variables ($x_1, x_2, \ldots, x_n$) and $n$ equations:\\
+
+1. Write the system of equations in matrix form as $Ax = b$, where $A$ is the coefficient matrix, $x$ is the vector of unknowns, and $b$ is the vector of constants on the right-hand side.\\
+
+2. Compute the determinant of the coefficient matrix $A$, denoted as $|A|$.\\
+
+3. Create $n$ new matrices by replacing each column of $A$ with the column vector $b$. These matrices are denoted as $A_1, A_2, \ldots, A_n$.\\
+
+4. Compute the determinants of these matrices: $|A_1|, |A_2|, \ldots, |A_n|$.\\
+
+5. The solution to the system of equations is given by $x_i = \frac{|A_i|}{|A|}$ for each variable $x_i$.\\
+
+It's important to note that Cramer's Rule only works when the determinant of the coefficient matrix $A$ ($|A|$) is non-zero, meaning the system of equations has a unique solution. If $|A|$ is zero, it means that the system of equations is either inconsistent (no solution) or has infinitely many solutions, and Cramer's Rule cannot be applied.\\
+
+Cramer's Rule can be computationally intensive for larger systems because it involves calculating multiple determinants. In practice, other methods like Gaussian elimination or matrix factorization techniques are often preferred for solving systems of linear equations.\\
+
+\section{Jacobian and Hessians}
+
+Consider a function $F(x,y)$ and $G(x,y)$. \\
+
+The gradient of the function has multiple notations. \\
+
+The gradient of $F$ is: 
+\begin{align}
+    \triangledown F = \begin{bmatrix}
+        F_x \\
+        F_y
+    \end{bmatrix}
+    = \begin{bmatrix}
+        \frac{\partial F}{\partial x}\\
+        \frac{\partial F}{\partial y}
+    \end{bmatrix}
+\end{align}
+
+The gradient of $G$ is: 
+\begin{align}
+    \triangledown G = \begin{bmatrix}
+        G_x \\
+        G_y
+    \end{bmatrix}
+\end{align}
+
+The jacobian of the system of equations $F$ and $G$ is 
+\begin{align}
+    J = \begin{bmatrix}
+        F_x & F_y\\
+        G_x & G_y 
+    \end{bmatrix}
+\end{align}
+
+The Hessian matrix of $F$ is 
+\begin{align}
+    H = \triangledown^2 F = \begin{bmatrix}
+        F_{xx} &  F_{xy} \\
+        F_{yx} & F_{yy}
+    \end{bmatrix}
+\end{align}
+
+\subsection{Convex and concavity of $F$}
+Now consider if you wanted to determine if the function $F$ is convex or concave. Also consider if $F$ was a function of $n$ variables. \\
+
+you would set up the Hessian matrix: 
+\begin{align}
+    H = \triangledown^2 F = \begin{bmatrix}
+        F_{xx} &  F_{xy} & F_{xz} & ... & F_{xn} \\
+        F_{yx} & F_{yy} &F_{yz} & ... & F_{yn}\\
+        F_{zx} & F_{zy} &F_{zz} & ... & F_{zn}\\
+        \vdots & & & & 
+    \end{bmatrix}
+\end{align}
+
+And you would take the deterinant of all of the principle minors. So the determinant of a $1 \times 1$ matrix, a $2 \times 2$ matrix, a $3 \times 3$ matrix, ... a $n \times n$ matrix. \\
+
+To determine if the function $F$ is convex or concave you would look at the pattern of the determinants of the principle minors. If all those determinants are positive, the function is \textbf{convex}. If the determinant of the first principle is negative, then the determinant of the second principle minor is positive, and it follows this pattern for all the determinants, it's \textbf{concave}. \\
+
+Pattern of determinants of principle minors:\\
+convex : +, +, +, ...\\
+concave: $-$, +, $-$, +, ...
+
+\subsection{Quasi convex and quasi concave}
+
+Quasi-convexity and quasi-concavity is a weaker condition then convexity or concavity. To determine if a function is quasi-concave or quasi-convex, you will set up the bordered hessian. \\
+
+The Bordered Hessian is: 
+
+\begin{align}
+    \begin{bmatrix}
+        0 & F_{x} & F_{y} & F_{z}\\
+        F_{x} & F_{xx} &  F_{xy} & F_{xz}\\
+        F_{y} & F_{yx} & F_{yy} &F_{yz}\\
+        F_{z} & F_{zx} & F_{zy} &F_{zz}\\
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        0 & \triangledown F^T\\
+        \triangledown F & H
+    \end{bmatrix}
+\end{align}
+
+You then take the determinants of the principle minors and determine the pattern. \\
+
+Pattern of determinants of principle minors:\\
+Quasi-convex: 0, 0, +, + \\
+Quasi-concave: 0, 0, $-$, +
+
+
+\end{document}
