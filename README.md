@@ -56,7 +56,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Zoom of midterm review](https://yale.zoom.us/rec/share/06grQMktcnp_WvWAtPB1kWkS86RMxa1D4So1NVFy21KPg756QL7ERTOLxK114-in.F1GW-HFe-6dGorGa?startTime=1698096961000)
 
 ### Week nine 
-- [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, kronecker product, trace, linear regression (OLS), Life cycle assessment
+- [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, Kronecker product, trace, linear regression (OLS), Life cycle assessment
 - [Section recording](https://yale.zoom.us/rec/play/eFOC3kVkqWOvfn6lNGsQSpsFmvCFk_lqj5lHqviVeIC__t9VlTMNapesMmQYWvlQpBSsNDrbfQE0ND4K.4mQcji2-5eJAkylI?autoplay=true&startTime=1698701474000): review of u-substitutions (week 6, Monday class notes) and discussion of weighting matrices and how they apply to linear regression (week nine, Monday class notes)
 - [Wednesday class notes](class_notes/9_weds.pdf): setting up a population growth problem (pset 4), inverting matrices 
 
@@ -66,3 +66,6 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
 
 
+
+### Week eleven 
+- [Monday class notes](class_notes/11_mon/main.pdf): Differential equation, recursion eqn, difference eqn, differential eqn, using differential equation to find stock level in time period T, steady states

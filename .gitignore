@@ -4,3 +4,10 @@
 **/*.aux
 **/*.log
 **/*.synctex.gz
+
+midterm_and_answers.aux
+midterm_and_answers.log
+midterm_and_answers.out
+midterm_and_answers.pdf
+midterm_and_answers.synctex.gz
+midterm_and_answers.tex
