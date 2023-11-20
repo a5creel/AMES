@@ -1,0 +1,241 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Differential Equations}
+\rhead{AMES}
+
+\title{AMES Class Notes -- Week 11, Wednesday: Differential Equations, Cont.}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Review from last week}
+Consider we're at a \textbf{steady state} 
+\begin{align*}
+    \dot x = \frac{dx}{dt} = 0 
+\end{align*}
+
+solve for x to find the stock value that create a system where the stock doesn't change through time. (\textit{ie} a carrying capacity). \\
+
+Jarogon note: stable equilibrium =  global/local attractor $\subseteq$ steady states = equilibrium points  = fixed points \\
+
+Consider a population of $x$ that has a logistic growth rate. This growth rate is a second order Taylor series approximation to any arbitrary function. A second order taylor series approximation creates a "single global attractor" aka a unique stably steady state. You'll sometimes hear this called a fixed point, as well. A nice feature of second order taylor series is that they're defined over convex sets, and that gaurantee's the existence of a "single global attractor (a unique stable steady state), which is p fixed point theories. 
+
+\begin{align*}
+    \dot x = \frac{dx}{dt} = ax( 1 - x) 
+\end{align*}
+
+\textbf{Example}
+
+What are the levels of $x$ that produce equilibria/steady states of the following and what are stable and which are not, 
+\begin{align*}
+    \dot x = \frac{dx}{dt} &= ax (\frac{x}{b} -1)(1-x)?\\
+    x &= 0\\
+    x &= b \\
+    x &= 1
+\end{align*}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screen Shot 2023-11-15 at 11.03.06 AM.png}
+    \caption{phase line}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{Lotka Voltera Model}
+
+Consider a population of deer $x$ and a population of wolves $y$. 
+
+The growth rate of $x$ through time is 
+\begin{align*}
+     \dot x = \frac{dx}{dt} = ax (1 - \frac{x + \alpha y}{J}) \\
+     \dot y = \frac{dy}{dt} = by (1 - \frac{\beta x + y}{K})
+\end{align*}
+
+
+What are the equilibrium / steady states of this system? \textit{ie} what at the pairings of $(x,y)$ that lead to $\dot x = 0$ and $\dot y = 0$. \\
+
+From previous classes (problem set 1) we know it'll be $(0,0)$ , $(0, K)$, $(J, 0)$, $(y^*, x^*)$\\
+
+How does the population of $y$ change with respect to the population of $x$ \textit{around an equilibrium point}? AKA what is $\frac{dy}{dx}$, \textit{around the equilibrium}? \\
+
+Use the implicit function theorem because we're interested in the dynamics around the equilibrium aka  we're staying around $(x^*, y^*)$, which gives us: 
+\begin{align}
+    \frac{dy}{dx} = - \frac{\frac{d \dot x}{dx}}{\frac{d \dot x}{ d y}}
+\end{align}
+
+Notes on implicit function theorem: \url{https://github.com/a5creel/AMES/blob/main/class_notes/5_weds/main.pdf}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screen Shot 2023-11-15 at 11.22.55 AM.png}
+    \caption{Phase plane around $(x^*, y^*)$}
+    \label{fig:enter-label}
+\end{figure}
+
+Now that we have $dy/dx$ at the equilibrium $(x^*, y^*)$, we can plug in different $(x,y)$ pairs that are around the equilibrium to see if the system return to $(x^*, y^*)$ or if would it travel away. This is how you draw a phase plane. 
+
+
+\section{Bass and Crayfish Phase Plane}
+
+Let $x$ be the population of crayfish. Let $y$ be the population of bass. 
+
+\begin{align*}
+    \dot x = x (1 - x - \alpha y) - \frac{\delta - yx^2}{k^2 - x^2}\\
+    \dot y = ry (1 - \beta x - y) + \frac{\epsilon \delta y x^2 }{k ^2 - x^2}
+\end{align*}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screen Shot 2023-11-15 at 11.36.44 AM.png}
+    \caption{Phase plane for crayfish and bass}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\section{Different types of equilibrium in phase planes}
+
+There are stable, unstable, and conditionally stable equilibrium. There are different ways we can approach an equilibrium, like a spiral or a line. Sometimes, we have orbits aka stable limit cycles. 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screen Shot 2023-11-15 at 11.38.59 AM.png}
+    \caption{Types of equilibria}
+    \label{fig:enter-label}
+\end{figure}
+
+This is all really confusing! We're going to use eigen values and eigen vectors to determine what type of equilibrium a steady state is, and what the approach path to that steady state looks like (spiral vs line). 
+
+\section{Tipping points}
+
+Tipping points can only be modeled with non convex sets. HOWEVER, we will not work with non-convex state spaces if we're using \textit{linear} models and most \textit{quadratic} models. Linear models and quadratic models are great approximations (shout out, taylor). HOWEVER, they will never produce scenarios with tipping points. And so, \textbf{we need to expand out standard statistical techniques to models with higher order terms to model scenarios with tipping points}. 
+
+
+\end{document}
