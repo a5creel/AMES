@@ -10,9 +10,7 @@ Note: You can ignore the .tex files. The PDFs are what are viewable and what you
 My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
 
 
-# Contents 
-
-## Preliminaries 
+# Preliminaries 
 
 ### Week one 
 
@@ -25,7 +23,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [class notes](class_notes/2_mon/main.pdf): level sets, solving system of equations, quadratic formula, trig, expectation operator, Jensen's inequality, units
 - no section notes this week bc of labor day
 
-## Coding  
+# Coding  
 
 ### Week three 
 
@@ -33,7 +31,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [R Tutorial](https://github.com/a5creel/nature_as_capital/blob/main/section_notes/1_review/3_r_tutorial/r_tutorial.pdf)
 - [R in-class exercises](https://github.com/a5creel/AMES_R_intro)
 
-## Calculus: derivatives and integrals 
+# Calculus: derivatives and integrals 
 
 ### Week four
 - [Monday class notes](class_notes/4_mon_week/4_week.pdf): convex/concave, sequence and series 
@@ -56,7 +54,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
 - [Wednesday class note](class_notes/7_weds.pdf): derivative and integral rules, implicit function theorem
 
-## Linear Algebra 
+# Linear Algebra 
 
 ### Week eight 
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
@@ -73,7 +71,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Monday class notes](class_notes/10_mon.pdf): steps to invert a 3 by 3 matrix, Cramer's rule, jacobian and Hessians (convexity and concavity, quasi)
 - [Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
 
-## Differential Equations 
+# Differential Equations 
 
 ### Week eleven 
 - [Monday class notes](class_notes/11_mon/main.pdf): Differential equation, recursion eqn, difference eqn, differential eqn, using differential equation to find stock level in time period T, steady states
