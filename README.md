@@ -79,3 +79,4 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 
 ### Week twelve 
 - [Monday class notes](class_notes/12_mon.pdf): Eigen values and a bit on eigen vectors 
+- [Section](section_notes/12_section.pdf): Pset 5, Q1 and Q2

@@ -1,0 +1,226 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Section }
+\rhead{AMES}
+
+\title{AMES Week 12 Section - pset 5}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Q1 on PSet 5}
+In fisheries management it is common to assume that fish mortality is the sum of two constant instantaneous per capita mortality rates; “natural” mortality, $m$, and fishing mortality, $f $, (natural mortality is everything that is not fishing mortality). 
+
+\subsection{a}
+\textit{Consider a shellfish population, N (t). \underline{Assume a constant level of reproduction per unit time}, $A$, independent of the current population (assume that larva drift in from a larger external population due to currents), write an ordinary differential equation showing the change in the fish stock over time. }\\
+
+\textbf{What is an ODE}? It's the derivative of some stock of interest with respect to time, 
+\begin{align*}
+    \frac{\partial N(t)}{ \partial t} = \text{births minus deaths}\\
+    = A - (m +f)N
+\end{align*}
+Note that $A$ has a unit of constant reproduction per unit of \textit{time}. This is different than a lot of \textit{birth rates} we've seen in class. 
+
+\subsection{b}
+\textit{Solve the ordinary differential equation to get $N(T)$, where T is an arbitrary future time.}\\
+
+\textbf{Solution intuition:} We need to get the population level in time period $T$, which is $N(T)$. To get this, we could integrate the \textit{changes} in population through time to get $N(T)$. \\
+
+Problem set up:
+\begin{align*}
+    \frac{\partial N(t)}{\partial t} = A - (m +f)N \\
+\end{align*}
+Separate the variables 
+\[ \frac{1}{A - (m+f)N} d N = 1 dt\]
+Integrate both sides from $N(0)$ to $N(T)$
+\[\int_{N(0)}^{N(T)} \frac{1}{A - (m+f)N} d N = \int_{N(0)}^{N(T)} 1 dt\]
+
+You will need to do integration by substitution here. Then evaluate the integral from $N(0)$ to $N(T)$ and solve for $N(T)$. Assume $N(0)$ is known. 
+
+
+\subsection{c}
+\textit{Find the equilibrium solution for $N$.}\\
+
+\textbf{Solution intuition:} What level of $N(t)$ leads to the population to in equilibrium \textit{i.e.} not changing? When $\frac{dN(t)}{dt} = 0 $
+
+\begin{align*}
+   \frac{dN(t)}{dt} = A - (m +f)N = 0 
+\end{align*}
+
+Solve for $N^*$.
+
+\subsection{d}
+\textit{What is the sensitivity of the equilibrium to fishing mortality?}\\
+
+\textbf{Solution intuition:} What is the equilibrium? $N^*$ from part c. What sensitivity mean in math? How $N^*$ changes with respect to fishing mortality, $f$. Therefore, what you want to look at is $\frac{d N^*}{d f}$
+
+\section{Q2 on PSet 5}
+Let $y(t)$ be the reserves of oil left in an oil well at time $t$. Suppose extraction takes place at a \textit{constant continuous rate per unit of time} of $\alpha$. 
+
+\subsection{a}
+\textit{Write a differential equation for this problem.}\\
+
+\textbf{What's an ODE?} Derivative of stock wrt to time. 
+\begin{align*}
+    \frac{d y(t)}{dt} = - \alpha
+\end{align*}
+
+\subsection{b}
+\textit{If there were initially 500 million barrels of oil, then solve for the amount of oil at arbitrary time $T$.}\\
+
+\textbf{Intuition:} This is the same as problem 1b. We need to get the stock level in time period T , which is $y(T)$. To get this, we
+could integrate the changes in the stock through time. 
+
+\subsection{c}
+\textit{If $\alpha = 2.5$, then when will 75\% of the oil in the well be used up? Note from AC: continue to assume $y(0) = 500$.} \\
+
+\textbf{Solution intuition:} We want to know when 500 minus the changes in reserve is 25\% of the original amount. 
+
+Take the ODE and do separation of variables. Which can work with whichever variable we want (\textit{i.e.} $dy$ or $dt$). Because we're interested in the time period that 75\%, I'm going to use $dt$. 
+\begin{align}
+    \frac{d y(t)}{dt} = - \alpha \\
+    d y(t) = - \alpha dt\\
+    \int_0^T dy(t) = \int_0^T - \alpha dt 
+\end{align}
+At this stage, we can see that the change in $y$ from 0 to $T$ is equal to $\int_0^T - \alpha dt $
+\begin{align}
+    \Delta y &= \int_0^T - \alpha dt\\
+    &= - \alpha T
+\end{align}
+
+So now we can set up our intuitive problem where we have 25\% is left and we see how many time steps it takes to get there. 
+\begin{align*}
+    0.25 y(0) = y(0) + \Delta y\\
+    0.25 * 500 = 500 - \alpha T
+\end{align*}
+Solve for $T$. 
+
+\end{document}
