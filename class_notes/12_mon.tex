@@ -1,0 +1,318 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Differential Equations}
+\rhead{AMES}
+
+\title{AMES Week 12 class notes -- Eigenvalues and Eigenvectors }
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+\section{Introduction example }
+
+Consider the equation 
+\begin{align*}
+    N(t+1) = N(t) e^{\lambda \epsilon} \\
+    \frac{\partial N(t) e^{\lambda \epsilon}}{\partial \lambda} = \lambda  N(t) e^{\lambda \epsilon} \\
+    \lim_{\epsilon \rightarrow 0 }  \lambda  N(t) e^{\lambda \epsilon} = \lambda  N(t) 
+\end{align*}
+
+by taking the derivative, we were able to linearize this equation so we can estimate the slope of this function (locally) in a linear manner. 
+
+\section{Motivation of eigen values}
+The Eigen values will tell us about the dynamics around an equilibrium. They don't help us solve for the equilibrium, we do that by solving system of equations for the stock levels in the system that lead to it not changing, \textit{i.e.} $\frac{d x}{d t} = 0 \implies x^*$. The eigen values will tell us if the equilibrium is stable, unstable, conditionally stable, as well as information about if the system approaches the equilibrium in a spiral or straight on. 
+
+\section{Solving for Eigen values}
+Consider two stocks, $x$ and $y$, that are changing through time. The equations for how they change through time are given, 
+\begin{align}
+    \frac{\partial x}{\partial t} = \dot x = -0.1x + y \\
+    \frac{\partial y}{\partial t} = \dot y = \frac{-100}{x} + 0.1 y = -100 x^{-1} + 0.1 y
+\end{align}
+
+What is a our Jacobian matrix? Remember, the Jacobian matrix tells us about the dynamics at an equilibrium. 
+
+\begin{align}
+    J &= \begin{bmatrix}
+            \frac{\partial \dot x}{\partial x} & \frac{\partial \dot x}{\partial y}\\
+            \frac{\partial \dot y}{\partial x} & \frac{\partial \dot t}{\partial y}
+    \end{bmatrix}\\
+        & = \begin{bmatrix}
+            -0.1& 1\\
+            100 x ^{-2} & 0.1
+    \end{bmatrix}
+\end{align}
+
+We want to know the behavior at the equilibrium, \textit{i.e.} when the stocks $x$ and $y$ are not changing. Find the values of $x$ and $y$ that lead to an equilibrium and plug them into $J$. 
+
+\begin{align}
+    \dot x = -0.1x + y = 0 \\
+    \dot y = \frac{-100}{x} + 0.1 y = -100 x^{-1} + 0.1 y = 0\\
+    \implies x^* = 100 \\
+    \implies y^* = 10
+\end{align}
+
+This solutions means the Jacobian is 
+\begin{align}
+    J = \begin{bmatrix}
+            -0.1& 1\\
+            0.01 & 0.1
+    \end{bmatrix} \label{jacobian}
+\end{align}
+
+Let's now solve for our Eigen values. Consider how $\dot N = \begin{bmatrix}
+    \dot x\\
+    \dot y
+\end{bmatrix}$ changes. We can rewrite this as 
+
+\begin{align}
+    \dot N = \begin{bmatrix}
+        \dot x\\
+        \dot y
+\end{bmatrix}  = J \begin{bmatrix}
+        x\\
+        y
+\end{bmatrix} = \lambda q  = \lambda \begin{bmatrix}
+        q_1\\
+        q_2
+\end{bmatrix} \label{setup}
+\end{align}
+
+where $q$ are special values of $x ( = q_1)$ and $y (= q_2)$ and $\lambda$ will be our eigenvalues and it is a scalar. \\
+
+From \ref{setup}, we get 
+\begin{align}
+    Jq = \lambda q
+\end{align}
+
+Let's rename $J = A$. 
+\begin{align}
+    Aq = \lambda q
+\end{align}
+plug this back $Jq = \lambda q$. \\
+
+Do a bunch of linear algebra manipulation: 
+\begin{align}
+    \lambda \begin{bmatrix}
+        q_1\\
+        q_2
+\end{bmatrix} = \begin{bmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22} 
+\end{bmatrix} 
+\begin{bmatrix}
+        q_1\\
+        q_2
+\end{bmatrix} \implies \\
+a_{11} q_1 + a_{12} q_2 = \lambda q_1 \implies  (a_{11} - \lambda) q_1 + a_{12} q_2 = 0 \\
+a_{21} q_1 + a_{22} q_2 = \lambda q_2 \implies (a_{21} q_1) + (a_{22} - \lambda) q_2 = 0\\
+\implies \begin{bmatrix}
+    \begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{bmatrix} - \begin{bmatrix}
+        \lambda & 0 \\
+        0 & \lambda
+    \end{bmatrix}
+\end{bmatrix} \begin{bmatrix}
+    q_1 \\
+    q_2
+\end{bmatrix} = 0 \\
+(A - \lambda I) q = 0 \label{vector} \\
+(A - \lambda I) = 0 \label{det}
+\end{align}
+If $q$ is zero, $x$ and $y$ need to be zero and that's not interesting. \\
+
+If we want \ref{det} to be 0, that means we want the determinant of the LHS to equal zero 
+\begin{align}
+    Det(A - \lambda I) = (a_{11} - \lambda)(a_{22} - \lambda) - a_{12} a_{21} = 0 \\
+    0 = \lambda^2 + \lambda (-a_{11} - a_{22}) + (a_{11}a_{22} - a_{12}a_{21}) \label{solution} \\
+    \lambda = \frac{1}{2} \Bigg[(a_{11} + a_{22}) \pm \sqrt{(-a_{11} - a_{22})^2 - 4 (a_{11}a_{22} - a_{12} a_{21})}\Bigg] \label{eigenvals}
+\end{align}
+We now have both of our eigen values from \ref{eigenvals}. \\
+
+\textbf{Evaluating eigen values:}\\
+If both eigen values are positive, it's unstable. \\
+If both eigen values are negative, it's stable. \\
+If one is positive, and the other is negative, it's conditionally stable. \\
+If in eigen value has an imaginary number in it $i = \sqrt{-1}$ such that $\lambda = R + Zi$ that means we have a spiraling equilibrium. If $R$ is positive is spirals out, if $R$ is negative it spirals in. \\
+
+Now, let's plug in the numbers from our original problem and our Jacobian \ref{jacobian} into our solution for the eigen values from \ref{solution}, 
+\begin{align}
+    \lambda^2 + \lambda (0.1 - 0.1) + (-0.1(0.1) - 0.01) = \lambda^2 + 0 \lambda - 0.02 = 0 \\
+    \implies \lambda = \frac{-0 \pm \sqrt{0 - 4(0.02)}}{2} = \pm \sqrt{0.02}
+\end{align}
+Our eigen values are positive and negative, therefore our system is conditionally system.\\ 
+
+\textbf{A few notes on jargon}\\
+Eigen values are sometimes called \textit{characteristic value}. Also, \ref{solution} will be called the \textit{characteristic polynomial}. \\
+
+You may see the \textit{Routh-Horwitz Condition}, which means the system is stables. \\
+
+May also see the \textit{Jury Condition}, which has to do with systems where time is discrete. If eigen value is less than one in absolute terms then the system is stable and unstable otherwise. \\
+
+If you end up with an eigen value that is $Zi$ (instead of $R + Zi$) then your system will have an \textit{orbit} instead of a spiral. \\
+
+\textit{Hopf bifurcation}: You can change a parameter so that there are multiple equilibrium in a system. Eli doesn't think much of these, but a lot of people tend to think they're clever. You can get deterministic chaos in these systems. You don't know where you'll go from the start point because the system keeps bifurcating.  
+
+\subsection{Finding eigen values in R}
+Set up your matrix: \\
+M = rbind(c(first row with commas), c(second row with commas), ...) \\
+eigen(M)  will give you the eigen values and the eigen vectors. 
+
+\section{Solving for eigen vectors}
+Recall the $q$ that dropped out of \ref{vector}.  The $q$ is our eigen vector. 
+
+\begin{align}
+    (A - \lambda I ) q = 0 \\
+    \begin{bmatrix}
+        a_{11} - \lambda & a_{12} \\
+        a_{21} & a_{22} - \lambda
+    \end{bmatrix}
+    \begin{bmatrix}
+        q_1 \\
+        q_2
+    \end{bmatrix} = 0 \\
+    \implies (a_{11} - \lambda) q_1 + a_{12} q_2 = 0 \label{system} \\
+    a_{21} q_1 + (a_{22} - \lambda) q_2 = 0 
+\end{align}
+
+The $q$ is only defined relative to another. Conditioned on a given $\lambda$, there is a $q_2$ for any $q_1$ that solves this system. \\
+
+So we will say the vector length is 1 for convenience. This sets up the equation 
+\begin{align}
+    q_1^2 + q_2^2 = 1 \label{pythag}
+\end{align}
+
+So solve the system of equations in \ref{system} then plug them into \ref{pythag} to get your values of $q$. 
+
+
+
+
+\end{document}

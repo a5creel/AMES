@@ -76,3 +76,6 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 ### Week eleven 
 - [Monday class notes](class_notes/11_mon/main.pdf): Differential equation, recursion eqn, difference eqn, differential eqn, using differential equation to find stock level in time period T, steady states
 - [Wednesday class notes](class_notes/11_weds/main.pdf): Review stable and unstable equilibrium (steady states), equilibrium in a lotka voltera model (use of implicit function theorem to determine dynamics around an equilibrium), different types of equilibrium in phase planes, modeling tipping points 
+
+### Week twelve 
+- [Monday class notes](class_notes/12_mon.pdf): Eigen values and a bit on eigen vectors 
