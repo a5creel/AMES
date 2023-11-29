@@ -81,3 +81,4 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 - [Monday class notes](class_notes/12_mon.pdf): Eigen values and a bit on eigen vectors 
 - [Section](section_notes/12_section.pdf): Pset 5, Q1 and Q2
 - [recording of section](https://yale.zoom.us/rec/share/Lc1Mm89IJ7RyrpwzBJlflfnh-GRtfqk3fbrPsxELvOM5jo99JsztRlKfdWk58zHW.RjZ9c2j--2hYFGFg?startTime=1701124522000)
+- [Wednesday class notes](class_notes/12_weds/main.pdf): summary of eigenvalues and eigenvectors, solve for eigenvector, variance and covariance matrices, principle component analysis, graph analysis 
