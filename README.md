@@ -88,6 +88,6 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 # Constrained Optimization 
 
 ### Week thirteen 
-- [Monday class notes](class_notes/13_weds/main.pdf): constrained optimization, lagrangian, FOCs
+- [Monday class notes](class_notes/13_mon/main.pdf): constrained optimization, lagrangian, FOCs
 
 
