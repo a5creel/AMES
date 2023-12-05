@@ -90,5 +90,6 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 ### Week thirteen 
 - [Monday class notes](class_notes/13_mon/main.pdf): constrained optimization, lagrangian, FOCs
 - [Final Review](section_notes/13_section.pdf): calling "bs" on units, aged staged population model, life cycle analyses (input-output table), means and OLS w/ calculus and linear algebra, test strategy
+- [Section recording for final review](https://yale.zoom.us/rec/share/9MXTvjsXExL-Q6PMpZLXZ5tPWTuH8paPSICmrbnuA7FvV1A4V4BZwUoIZvw4DrJx.iezbrCrm4UNp6oZ3): age-stage population models, means and OLS, pset 5 Q3 and first part of Q6
 
 
