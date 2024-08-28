@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
 
@@ -68,19 +68,25 @@
 \chead{Week One}
 \rhead{AMES}
 
-\title{AMES Class Notes -- Week One }
+\title{AMES Class Notes -- Week One}
 \author{Andie Creel}
 
 \begin{document}
 \maketitle
+\section{What is the goal of this course?}
+This course aims to give you the tools to formalize problems and "speak math", so that you can understand and engage more fully with interdisciplinary problems elsewhere. \\
 
-\section{Introduction}
-Science vs math: science is evidence base math is proof based. In science, you observe things lots of times and can \textbf{reject} hypothesis based on that evidence. However, in science you cannot \textbf{prove/conclude} anything. In math, you do not need lots of evidence. Instead, you can do a \textbf{proof} and \textit{can} conclude something. 
+This class will help you choose which "math" approach should be applied to a given problem. We don't require you to memorize equations for regurgitation. Instead, you are familiarized with solution strategies and trained in how to apply them to environmental problems. \\
 
-\section{Vocabulary}
+\section{Introduction: Science vs Math}
+Science is evidence (data) base. Math is proof-based. In science, you observe things many times and can reject the hypothesis based on that evidence. However, in science, one cannot prove/conclude anything. In math, you do not need much evidence. Instead, you can do a proof and conclude something. \\
 
-\subsection{Sets}
-"The element $x$ is in the set $X$":
+Math builds conclusions off of a few simple assumptions. Science rejects alternative explanations based on many observations.  
+
+\section{Sets}
+Sets are collections of elements.  
+
+The \textbf{element} $x$ is in the \textbf{set} $X$:
 \begin{align*}
     x \in X
 \end{align*}
@@ -92,15 +98,25 @@ You may indicate different elements as $x_1, x_2, x_3...$ and all are in the set
 
 Sets can be any collections of things 
 \begin{align*}
-    dogs \in Pets
+    dogs \in Pets.
 \end{align*}
+You may hear the term \textbf{class} which is a set of sets. For instances, the "set" of pets is in the "class" of animals. \\
+
+Let's say you have set $X$ and set $Y$. If any element of $X$ is contained in $Y$ then we $X$ a \textbf{subset} of $Y$, 
+\begin{align*}
+    X \subset Y.
+\end{align*}
+Your set $X$ may equal set $Y$ in certain cases, in which you can indicate a subset as 
+\begin{align}
+    X \subseteq Y.
+\end{align}
 
 You can have two different sets, $X$ and $Y$, and can talk about the \textbf{intersection} of the two sets which would be all the elements are in $X$ AND in $Y$ 
 \begin{align*}
     X \cap Y
 \end{align*}
 
-You could also talk about the \textbf{union} of two sets, which would be element in $X$ OR in $Y$
+You could also talk about the \textbf{union} of two sets, which would be all elements in $X$ OR in $Y$
 \begin{align*}
     X \cup Y
 \end{align*}
@@ -110,47 +126,75 @@ there is also the \textbf{complement} to set, which are all the elements in the 
     X^\complement
 \end{align*}
 
-\subsection{major sets of numbers}
+\section{Spaces of Numbers}
+
+Note: The symbol $\simeq$ means that two sets are equal or the same. \\
 
 Real numbers: $\mathbb{R} \simeq [- \infty, \infty]$
 
 Positive real numbers: $\mathbb{R}^+ \simeq [0, \infty]$
 
-Positive real numbers in $(x,y)$ space: $\mathbb{R}^{++} \simeq  \{x \in [0, \infty]\ and\ y \in [0, \infty]\}$
+Positive real numbers in $(x,y)$ space: $\mathbb{R}^{++} \simeq  x \in [0, \infty]\ \text{and}\ y \in [0, \infty]$
+
+Counting Numbers/Integers: $[1,2,3,4,...) \in \mathbb{N}$, $\mathbb{N} \subset \mathbb{R}$ 
+
+Rational numbers: can be written as a fraction. 
+
+Irrational numbers: cannot be written as a fraction. Examples are $\pi, e$.
 
 \section{Properties}
-Communicative:
+\textbf{Communicative}:
 \begin{align*}
     a+b = b+ a
 \end{align*}
 
-Associative: 
+\textbf{Associative}: 
 \begin{align*}
     a+ (b+c) = (a+b) +c
 \end{align*}
 
-Distributive:
+\textbf{Distributive}:
 \begin{align*}
     a(b+c) = ac+ bc
 \end{align*}
+An application of the distributive property is 
+\begin{align*}
+    (a +b) (c+d) = ac + ad + bc + bd.
+\end{align*}
+When we learned this, we all shrugged and said "sure".  But if we return to how we were originally taught multiplication, 
+\begin{align*}
+    15 \\
+    \underline{\times 12} \\
+    10\\
+    20 \\
+    50\\
+   \underline{+ 100}\\
+   180
+\end{align*}
+this is actually an application of the distributive property, 
+\begin{align}
+    (2+10)(5+10) = 10 + 20 +50 + 100 = 180.
+\end{align}
 
-Rules with zero:
+
+
+\textbf{Rules with zero}:
 \begin{align*}
     a+ 0 = a \\
     0a = 0
 \end{align*}
 
-Rules with one:
+\textbf{Rules with one}:
 \begin{align*}
     1*a = a
 \end{align*}
 
-Inverse property:
+\textbf{Inverse property}:
 \begin{align*}
     a* \frac{1}{a} = 1
 \end{align*}
 
-A note on equal signs: equals signs only mean that the two things on either side of the equal sign with evaluate to the same thing. It's not like a function, where you elements in and get something out. 
+\textbf{A note on equal signs}: The equal sign means that the two things on either side of the equal sign will evaluate to the same thing. It is not like a function where you put elements in and get something out. It is an identity, the two items on each side of the "=" literally are the same thing.
 
 \section{Convex set}
 A set is \textbf{convex} if you are able to draw a line between \textit{any two} elements in the set and all elements intersected by the line are elements in the set. A circle is a convex set. A cresent is not a convex set. \\
@@ -213,4 +257,6 @@ where $G$ is a function that has \textbf{endogenous} variables $x$ and $y$ and \
 \textbf{Endogenous} variables are determined by the system. \textbf{Exogenous} variables are \textbf{parameters} that we take as "given" in the system. 
 
 
-\end{document}`
+
+
+\end{document}
