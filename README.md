@@ -7,7 +7,9 @@ Note: You can ignore the .tex files. The PDFs are what are viewable and what you
 
 
 ### Office hours
-My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will typically be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
+My office hours are Mondays from 5:15 - 6:45 p.m. in Kroon 319. The first half will typically be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
+
+Email: andie.creel\@yale.edu 
 
 
 # Preliminaries 
@@ -21,7 +23,7 @@ My office hours are Mondays from 5:30 - 7 p.m. in Kroon G01. The first half will
 ### Week two 
 
 - [class notes](class_notes/2_mon/main.pdf): level sets, solving system of equations, quadratic formula, trig, expectation operator, Jensen's inequality, units
-- no section notes this week bc of labor day
+
 
 # Coding  
 
