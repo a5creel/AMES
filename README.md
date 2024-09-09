@@ -27,7 +27,8 @@ Email: andie.creel\@yale.edu
 ### Week Three (Sept 9)
 
 - [Monday class notes](class_notes/4_mon_week/4_week.pdf): convex/concave, sequence and series 
-- [Andie's Section](section_notes/year_2024/1_section/main.pdf)
+- [Andie's Section Notes](section_notes/year_2024/1_section/main.pdf): Intuition for problems 1, 2, 5, 6 on pset 1
+- [Zoom Recording of Section](https://yale.zoom.us/rec/share/gUQNJ1kNDebQq2aXWslJHU2wFPFWBTi4olNlTUgDE0Ujd80VCx-hXr2S5dynKjE4.XGbJordD-2tSOGaY?startTime=1725917730000)
 
 # ------- THE FUTURE -------
  
