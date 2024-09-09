@@ -128,7 +128,7 @@
 \chead{Week Four}
 \rhead{AMES}
 
-\title{AMES Class Notes -- Week Four}
+\title{AMES Class Notes}
 \author{Andie Creel}
 
 \begin{document}
@@ -148,11 +148,12 @@
 
 Note: $F(x)$ is $R^1$ (\textit{i.e.,} 1-dimensional) because there is only one input. But we're drawing it in $R^2$ (\textit{i.e.,} 2-dimensional) because we're using an x-y graph. To visualize a $n$ dimensional function you need a $n+1$ dimensions because you need an additional dimension for the output.
 
-\section{Quasi-Concavity/Convexity in $R^2$}
+\section{Quasi-Concavity/Convexity}
 
-If a function is in $R^2$ (\textit{i.e.} it takes two inputs) then you must evaluate if  the function is convex or concave in $R^3$. That will determine if the function is convex or concave. But then if you graph you function in $R^2$ space (meaning you're not using an additional dimension for the output) the function may look convex or concave in the lower dimension. Despite how it looks in the lower dimension, you must determine if it's quasi-convex or quasi-concave from the higher dimension.  \\
+If a function is in $R^2$ (\textit{i.e.} it takes two inputs), then you must evaluate whether the function is convex or concave in $R^3$. That will determine if the function is convex or concave. But then if you graph the function in the $R^2$ space (meaning you are not using an additional dimension for the output), the function may look convex or concave in the lower dimension. Despite how it looks in the lower dimension, you must determine if it's quasi-convex or quasi-concave from the higher dimension.  \\
 
-If the function is convex in $R^3$, when you graph it in $R^2$ it's quasi-convex. If the function is concave in $R^3$, when graphed in $R^2$ it's quasi-concave. 
+The lower-dimension level sets of a quasi-concave or quasi-convex function will be convex. You determine if the 3-D function is quasi-concave or quasi-convex but determining if the 3-D function looks like a dome when graphed (quasi-concave) or a bowl (quasi-convex). In other words, as the level sets move away from the origin, if the value of the level sets increases, then the function is quasi-concave. If the value of the level sets decreases, the function is quasi-convex. 
+
 
 \section{Sequences and Series}
 
@@ -214,19 +215,39 @@ Building intuition on a complicated limit:
     N \rightarrow \infty \implies e \approx 2.7182...
 \end{align*}
 
-Here we built intuition here by looking at the difference in output between N=1 and N=2, then N=2 and N=3. The difference between outputs got smaller as we moved forward, so intuited that this limit would be bounded above by \textit{something}. 
+Here we built intuition here by looking at the difference in output between N=1 and N=2, then N=2 and N=3. The difference between outputs became smaller as we went forward, so we intuited that this limit would be bounded above by \textit{something} (\textit{i.e.,} the limit). \\
+
+The number $e$ is \textit{irrational} and \textit{real}.
+
+
 
 \subsection{Why do we care? Future generations}
-If we think about sustainable development (non-declining welfare for future generations) then how many future generations do we actually care about?? \textit{All} of the future generations? Realistically, that's probably not true. You'd probably prefer keeping you own kids healthy more than you'd care about your great-great-great-grand kids. \\
+If we think about sustainable development (non-declining welfare for future generations), then how many future generations do we actually care about?? \textit{All} of the future generations? Realistically, that is probably not true. You would probably prefer to keep your own children healthy more than to care about your great-great-great-grandchildren.\\
 
-If you don't prefer the immediate generation at least a little more than the future, you would let everyone starve today in order to save all resources for future generations. That doesn't seem right either. This gets to why we use discount rates, which we'll talk about more later in class. 
+If you do not prefer the immediate generation at least a little more than the future, you would let everyone starve today in order to save all resources for future generations. That doesn't seem right either. This leads us to the reason why we use discount rates, which we will discuss more later in class. \\
 
-\subsection{Why do we care? Science}
-The more data you have the better approximation you have of real relationships. \\
+For example, consider a fish population that we are trying to conserve forever. If the value of that fish population is \textit{infinite}, then we would give up everything and anything else just to save the fish. That is insane. 
+
+\section{Science}
+
+Consider two positive real value numbers, 
+\begin{align*}
+    s \in S \in \mathbf{R}^{++}\\
+    w \in W \in \mathbf{R}^{++}.\\
+\end{align*}
+
+If $S,W$ are two variables that you are collecting data on, then you may be measuring them with error. Say, $W$ is water, and $S$ is the survival rate of a species. \\
+
+What we're going to learn in this class is that, often times, the "best" way to approximate the relationship between two variables is a line. 
+
+
+
+\subsection{Intermediate Value Theorem}
+The more data you have, the better approximation you have of real relationships.\\
 
 \textbf{Intermediate value theorem} tells us that we should want more data. Assuming x is continuous, we can always find another x that will help us approximate the relationship between x and y more accurately. \\
 
-Let think about slope. Consider the funciton: 
+Let's consider the slope. Consider the function: 
 \begin{align}
     S = F(w) 
 \end{align}

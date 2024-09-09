@@ -14,17 +14,24 @@ Email: andie.creel\@yale.edu
 
 # Preliminaries 
 
-### Week one 
+### Week One (Aug 28)
 
 -  [class notes](class_notes/1_introduction_class.pdf): sets, properties, functions and vocab
 -  [section notes](section_notes/1_section.pdf): sets, solving system of equations, quadratic equations, domain/range
 - [zoom recording of section](https://yale.zoom.us/rec/share/WQ-3BEzd_GEec7FepNDbEjXUDq56v_cYkZhugw8Vyfyl_eyRB9_R9hB5xzVZoTKS.CntB5Aa1t5buY-hc?startTime=1693578615000)
 
-### Week two 
+### Week Two (Sept 2)
 
 - [class notes](class_notes/2_mon/main.pdf): level sets, solving system of equations, quadratic formula, trig, expectation operator, Jensen's inequality, units
 
+## Week Three (Sept 9)
 
+- [Monday class notes](class_notes/4_mon_week/4_week.pdf): convex/concave, sequence and series 
+
+
+
+# THE FUTURE ---------------------
+ 
 # Coding  
 
 ### Week three 
