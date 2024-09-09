@@ -24,13 +24,13 @@ Email: andie.creel\@yale.edu
 
 - [class notes](class_notes/2_mon/main.pdf): level sets, solving system of equations, quadratic formula, trig, expectation operator, Jensen's inequality, units
 
-## Week Three (Sept 9)
+### Week Three (Sept 9)
 
 - [Monday class notes](class_notes/4_mon_week/4_week.pdf): convex/concave, sequence and series 
 
 
 
-# THE FUTURE ---------------------
+# ------- THE FUTURE -------
  
 # Coding  
 
