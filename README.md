@@ -30,15 +30,22 @@ Email: andie.creel\@yale.edu
 - [Andie's Section Notes](section_notes/year_2024/1_section/main.pdf): Intuition for problems 1, 2, 5, 6 on pset 1
 - [Zoom Recording of Section](https://yale.zoom.us/rec/share/gUQNJ1kNDebQq2aXWslJHU2wFPFWBTi4olNlTUgDE0Ujd80VCx-hXr2S5dynKjE4.XGbJordD-2tSOGaY?startTime=1725917730000)
 
-# ------- THE FUTURE -------
  
 # Coding  
 
-### Week three 
+### Week Three (Sept 11)
 
-- [day one slides](<class_notes/3_Thinking Like a Computer_2023.pptx>): thinking like a computer
+- [day one slides](<class_notes/3_think_like_computer.pptx>): thinking like a computer
+
+
+### Week Four
+
 - [R Tutorial](https://github.com/a5creel/nature_as_capital/blob/main/section_notes/1_review/3_r_tutorial/r_tutorial.pdf)
 - [R in-class exercises](https://github.com/a5creel/AMES_R_intro)
+
+
+# ------- THE FUTURE -------
+
 
 # Calculus: derivatives and integrals 
 
