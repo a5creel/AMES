@@ -38,10 +38,11 @@ Email: andie.creel\@yale.edu
 - [day one slides](<class_notes/3_think_like_computer.pptx>): thinking like a computer
 
 
-### Week Four
+### Week Four (Sept 16)
 
-- [R Tutorial](https://github.com/a5creel/nature_as_capital/blob/main/section_notes/1_review/3_r_tutorial/r_tutorial.pdf)
-- [R in-class exercises](https://github.com/a5creel/AMES_R_intro)
+- [R Tutorial](class_notes/4_base_R.pdf)
+- [R in-class exercises](class_notes/4_in_class_exercise.R)
+- [R in-class excercises answers](class_notes/4_in_class_answers.R)
 
 
 # ------- THE FUTURE -------
