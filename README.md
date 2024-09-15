@@ -40,7 +40,7 @@ Email: andie.creel\@yale.edu
 
 ### Week Four (Sept 16)
 
-- [R Tutorial](class_notes/4_base_R.pdf)
+- [R Tutorial](class_notes/4_base_R.pdf): write and run scripts, basic data types, ways to make collections of data, variable assignment, Functions, Loops, If Else statements
 - [R in-class exercises](class_notes/4_in_class_exercise.R)
 - [R in-class excercises answers](class_notes/4_in_class_answers.R)
 
