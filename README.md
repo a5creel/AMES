@@ -45,16 +45,14 @@ Email: andie.creel\@yale.edu
 - [R in-class excercises answers](class_notes/4_in_class_answers.R)
 
 
-# ------- THE FUTURE -------
-
 
 # Calculus: derivatives and integrals 
 
-### Week four
-- [Monday class notes](class_notes/4_mon_week/4_week.pdf): convex/concave, sequence and series 
-- [Section notes](section_notes/4_section/main.pdf): quasi-convex/concave, log rules
+- [Old Section notes](section_notes/4_section/main.pdf): quasi-convex/concave, log rules
 - [Zoom recording of section](https://yale.zoom.us/rec/share/EsTXAibjWFbX8EsFYbNeWClFm-wou-zKEPr6SC1Sib3OSCFIr4QU1X5UeE3AbQ3q.qWEfPqRKr6SK4TiC?startTime=1695073198000)
 - [wednesday class notes](class_notes/4_weds_class.pdf): defn of derivative, notation, chain rule, product rule, derivative of log, percent change, log rules and e
+
+# ------- THE FUTURE -------
 
 ### Week five
 - [Monday class notes](class_notes/5_mon_class.pdf): treating derivative like a fraction, finding max and min, eqn for mean derivation, partial derivatives

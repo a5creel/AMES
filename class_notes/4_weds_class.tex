@@ -20,6 +20,7 @@
 \usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
 \usepackage{comment} % Comments
 \usepackage{fancyhdr} % Headers and footers
+\usepackage{amsmath}
 
 % Tables
 \usepackage{array}
@@ -28,6 +29,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float} 
+\usepackage{amsmath}
 
 % Graphing
 \usepackage{pgfplots}
@@ -137,18 +139,34 @@ Notation: \\
 w.r.t: with respect to
 
 
-\section{Definition of derivative}
-You can always use the definition of a derivative to find the derivative. We will talk about many derivative rules, but this one will \textit{always} work.\\
+\section{Definition of Derivative}
+The more data you have, the better approximation you have of real relationships.\\
 
-The \textbf{definition of a derivative} is 
+\textbf{Intermediate value theorem} tells us that we should want more data. Assuming x is continuous, we can always find another x that will help us approximate the relationship between x and y more accurately. \\
+
+Let's consider the slope. Consider the function: 
 \begin{align}
-    \frac{ds}{dw} \equiv \lim_{\epsilon \to \infty} \frac{f(w+\epsilon) - f(w)}{\epsilon}
+    S = f(w) 
 \end{align}
-where $s = f(w)$. \\
+The slope is 
+\begin{align*}
+    \frac{f(w_2) - f(w_1)}{w_2-w_1} = \frac{\Delta S}{ \Delta w}
+\end{align*}
+Now consider if $w_2$ is arbitrarily smaller than $w_1$. $w_2 = w_1 + \epsilon$. We can write our slope equation as 
+\begin{align*}
+    \frac{f(w_1 + \epsilon) - f(w_1)}{\epsilon}
+\end{align*}
+
+This is the \textbf{definition of a derivative}, 
+\begin{align*}
+    \frac{ds}{dw} \equiv \lim_{\epsilon \to \ 0} \frac{f(w_1 + \epsilon) - f(w_1)}{\epsilon}
+\end{align*}
+
+\textbf{You can always use the definition of a derivative to find the derivative.} We will talk about many derivative rules, but this one will \textit{always} work.\\
 
 The derivative tells us what the change in $s$ (or $f(w)$ because $s = f(w)$) is for a small change in $w$. The small change is $\epsilon$. \\
 
-Consider the function $f(x) = ax$. We can find the derivative of $f(x)$ using our derivative definition. \\
+Consider the function $f(x) = ax$. We can find the derivative of $f(x) = ax$ using our derivative definition. \\
 
 \begin{align}
     \frac{df(x)}{dx} &\equiv \lim_{\epsilon \to \infty} \frac{f(x+ \epsilon) - f(x)}{\epsilon}\\
@@ -159,20 +177,48 @@ Consider the function $f(x) = ax$. We can find the derivative of $f(x)$ using ou
     \frac{df(x)}{dx} &= a
 \end{align}
 
-So the derivative for $f(x)$ w.r.t. $x$ is a. \\
+So the derivative for $f(x)$ w.r.t. $x$ is a. This makes sense based on what we already know about slopes. The slope of $f(x) = ax$ is $a$. The slope tells us how a function is changing, and the derivative also tells us how the functions is changing. So the derivative of a function at a specific point is the slope of the function at that point. In high school/secondary-school, you probably heard of derivatives referred to as the tangent line.  \\
 
 No matter what function you are dealing with, you can \textit{always} use the definition of a derivative to find the derivative. This rule will \textit{always} work. However, there are derivative rules that are likely worth memorizing because those rules will help you find the derivative faster than using the definition. That said, using the definition is never a wrong way of taking the derivative.  \\
 
 In class, we considered the function $f(x) = -ax^2$. We used the  definition of a derivative to show that $\frac{df(x)}{dx} = -2ax$ in a similar way to equations 2-7.
 
-\section{Notation}
-\subsection{First derivative}
+\section{Building Intuition}
+The derivative of an additive function is also additive. This is easier to see than to say. \\
 
-There are many ways to notate a derivative
+Consider the function 
 \begin{align}
-    \frac{dF(x)}{dx} = f'(x) = f^1(x)
+    f(x) = g(x) + h(x)
 \end{align}
+so the function $f(x)$ is two other functions of $x$ added together. The derivative of $f(x)$ is 
+\begin{align}
+    \frac{df(x)}{dx} = \frac{dg(x)}{dx}  + \frac{dh(x)}{dx}
+\end{align}
+ so the derivative of $f(x)$ is the derivative of $g(x)$ and the derivative of $h(x)$ added together. \\
 
+ A concrete example of this is 
+\begin{align*}
+    f(x) = a +bx
+\end{align*}
+and the derivative is 
+\begin{align*}
+    \frac{df(x)}{dx} &= \frac{d a }{dx} + \frac{d bx}{dx}\\
+    &= 0+b\\
+    &=b
+\end{align*}
+
+
+
+\section{Notation}
+\subsection{First Derivative}
+
+There are many ways to notate a first derivative
+\begin{align}
+    \frac{df(x)}{dx} = f'(x) = f^1(x) = \frac{\Delta f}{\Delta x} \lim_{\epsilon \rightarrow 0} f(x) = \frac{\text{rise}}{\text{run}}
+\end{align}
+It is not an accident that this looks like a fraction! But derivatives are just $\frac{\text{rise}}{\text{run}}$ fractions, where the change in the denominator is really really small. \\
+
+\subsection{First Derivative w.r.t. Time}
 In sustainable development, we often think about trends through time and therefore consider functions of time. We naturally are then interested in how that function \textit{changes} through time. Therefore, take the derivative of that function w.r.t time also has it's own fancy notation (that comes from Newton)
 
 \begin{align}
@@ -195,16 +241,30 @@ Example:
     f''''(x) &= 0
 \end{align*}
 
+\section{Power Rule}
+Consider the function \[f(x) = x^N.\] The power rule says the the first derivative of $f(x)$ is 
+\[\frac{d f(x)}{dx} = N x^{N-1}.\]
+An example would be 
+\begin{align}
+    f(x) &= x^5 \\
+    \frac{df(x)}{dx} &= 5x^4
+\end{align} 
+
 \section{Chain Rule}
 The chain rule feels intimidating, but we have been using it all our lives. \\
 
-Math is about making things \textit{elegant}, not simpler. Yes, sometimes simplifying something can make it more elegant. But sometimes having an additional step is what makes the process more elegant (refer to IKEA furniture for proof). \\
+Math is about making things \textit{elegant}, not simpler. Yes, sometimes simplifying something can make it more elegant. But sometimes having an additional step is what makes the process more elegant (refer to IKEA furniture for proof, because it could benefit from having a few more steps in it). \\
 
-Consider $f(g(x))$. We're interested in $\frac{df}{dx}$. We can add some steps to make this more \textit{elegant} (although it may be less "simpler")
+Consider \[F(x) = G(H(x)).\] We're interested in $\frac{dF(x)}{dx}$. We can add some steps to make finding this derivative more \textit{elegant} (although it may be less "simple")
 \begin{align}
-    \frac{df}{dx}  = \frac{df}{dg}\frac{dg}{dx}  \\
+    \frac{dF(x)}{dx}  = \frac{dF(x)}{dx} \times \frac{dH(x)}{d H(x)}
 \end{align}
-while we don't know what $\frac{df}{dx}$, we can more easily get $\frac{df}{dg}$ and $\frac{dg}{dx}$ and use those derivatives to arrive at what $\frac{df}{dx}$ is. \\
+where all we've done in this step is multiply by one, $1 = \frac{dH(x)}{d H(x)}$. We can rearrange these fractions to get the familiar chain rule. 
+\begin{align}
+    \frac{dF(x)}{dx}  = \frac{dF(x)}{dG(x)}  \frac{dH(x)}{d x}
+\end{align}
+
+while we don't easily know how to find $\frac{dF(x)}{dx}$, we do know how to find $\frac{dF(x)}{dG(x)}$ and how to find $ \frac{dH(x)}{d x}$, and the product of those two derivatives equals $\frac{dF(x)}{dx}$. \\
 
 Another way of writing this is 
 \begin{align}
@@ -212,9 +272,9 @@ Another way of writing this is
 \end{align}
 
 \section{Product rule}
-The product rule is that if $u$ and $v$ are differentiable functions, then the derivative of their product is given by:
+The product rule is that if $u(x)$ and $v(x)$ are differentiable functions, then the derivative of their product is given by:
 \[
-(uv)' = u'v + uv'
+\frac{d}{dx} u(x)v(x) = u'(x)v(x) + u(x)v'(x)
 \]
 
 \section{Logs and derivatives}
