@@ -56,7 +56,7 @@ Email: andie.creel\@yale.edu
 
 
 ### Week five (Sept 23rd - 25th)
-- [Monday class notes](class_notes/5_mon/5_mon_class.pdf): treating derivative like a fraction, finding max and min, eqn for mean derivation, partial derivatives
+- [Monday class notes](class_notes/5_mon/5_mon_class.pdf): treating derivative like a fraction, finding max and min, eqn for mean derivation, mean value theorem, taylor series, 
 - [Section notes](section_notes/5_section.pdf): Language of limits, setting up ordinary least squares (OLS) derivation
 - [audio from section](https://yale.zoom.us/rec/play/NOLE2ZiBVl5BScXTMXc0Ijanr2lc5EfyyAij7MJED6tI62Sdj83JC-hkKv7vv8v43faJPIn93px5oVHC.sO5IRxDvbjEc1J_p?autoplay=true)
 - [Wednesday class notes](class_notes/5_weds/main.pdf): total derivatives, implicit function theorem (envelope theorem), Taylor series, logistic grown 
