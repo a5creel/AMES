@@ -5,6 +5,7 @@
 %% Math and math fonts
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{bbm} % for \mathbbm{1}
+\usepackage{amsmath}
 
 % date
 \usepackage[nodayofweek]{datetime}
@@ -17,7 +18,7 @@
 \usepackage{graphicx} % \includegraphics options
 \usepackage{mdframed} % text boxes
 \usepackage{indentfirst} % Indent first paragraph after section header
-%\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
 \usepackage{comment} % Comments
 \usepackage{fancyhdr} % Headers and footers
 
@@ -134,81 +135,96 @@
 \begin{document}
 \maketitle
 
-\section{Total Derivatives}
-Total derivative in a function is equal to the sum of the partials multiplied by the change. 
-
-Consider the function $ F = f(x,y)$. We can get our partial derivatives. Recall that when we take a partial derivative wrt $x$, we're holding $y$ constant.
+\section{Mean Value Theorem and Taylor Series}
+Remember the Taylor series. A \textbf{Taylor Series} can approximate \textit{any continuous function $f(x)$}. The modeler decides if they wants to approximate $f(x)$ with a 0th order taylor series (mean), a 1st order taylor series (line), a 2nd order taylor series (parabola), a 3rd order taylor series (at this point, you better have a LOT of data!!). We can approximate $f(x)$ with our taylor series,
 \begin{align}
-    \frac{\partial f}{\partial x} = f_x\\
-    \frac{\partial f}{\partial y} = f_y
-\end{align}
-
-Now consider how we would calculate the change in $F$ if both $x$ and $y$ changed. We'd need to get a full derivative, 
-
-\begin{align}
-    df &= f_x dx + f_y dy \\
-    &= \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy\\
-    \Delta f = &= \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y
-\end{align}
-These are all equivalent ways of writing the full derivative. 
-
-
-\subsection{Implicit Function Theorem (envelope theorem in econ)}
-
-\begin{figure}[htp]
-    \centering
-        \includegraphics[width=0.5\textwidth]{Screen Shot 2023-09-27 at 10.59.32 AM.png}
-    % \caption{convex and concave }
-    % \label{fig:sample}
-\end{figure}
-
-Now consider if you want to stay on one level set. For example, if you wan to stay on a contour line or on a utility level. That would mean we want $F$ to stay the same, $df = \Delta f = 0$. 
-
-\begin{align}
-    d f = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy &= 0 \implies \\
-    dy \frac{\partial f}{\partial y} dy &= - dx \frac{\partial f}{\partial x} \implies \\
-    \frac{d y}{dx} &= \frac{- \frac{\partial f}{\partial x}}{\frac{\partial f}{\partial y}} \label{imp_func}
-\end{align}
-
-Equation \ref{imp_func} is the implicit function theorem. What equation \ref{imp_func} tells us is "if I want to stay on the same level set, and I change $x$, how do I need to change $y$ in order to stay on that level set".\\
-
-
-\textbf{The envelope theorem} is a special case of the implicit function theorem when first derivatives are set to zero. This leads to math simplifying because we can say that, at the optimum, a bunch of derivatives will equal zero. 
-
-\section{Taylor Series}
-
-We know that straight lines are good approximators because a line is a conditional mean, and means are good at minimizing error.\\
-
-Series are good approximators of sequences of numbers, because series are functions. \\
-
-A \textbf{Taylor Series} is an extremely useful series for approximating the relationship of sequence of numbers (data is a sequence of numbers). Taylor series underpins a lot of the math we do today, particularly for any relationship that isn't linear. 
-
-\begin{align}
-    f(x) = f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ... + \frac{f^k(a)}{k!}(x-a)^k + R
+    f(x) \approx f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ... + \frac{f^k(a)}{k!}(x-a)^k + R
 \end{align}
 where $R$ is the residual.\\
 
-
-\subsection{0th order Taylor Series}
-Consider a 0th order taylor series: it would be a mean aka just a flat line equal to $f(a)$. \\
-
-If you're only looking at the means of a dataset, that means you're doing a 0th order taylor approximation.
-
-\subsection{First order Taylor Series}
-
-Consider a first order taylor series: 
-\begin{align}
-    f(x) &= f(a) + \frac{f'(a)}{1!}(x-a)^1 \\
-    &= A + B (x-a) \\
-    &= A -aB + Bx\\
-    &= m + Bx
-\end{align}
-It's a line with a slope. A first order Taylor series is a linear approximation. Linear regression is a first order Taylor approximation. \\
+Remember that what the \textbf{Mean Value Theorem} tells us: If you have two points, the slope between those two points will be parallel to the tangent line of the original function. So, the taylor series is a large application of the mean value theorem, where a taylor series approximates for the slope at a point many many times. 
 
 \subsection{Discussion of models}
-Any Taylor Series approximation is a model. If someone says "I don't do models, let's only do means" they actually \textit{are} suggesting a model. A mean is a model, it's a zero order Taylor Series approximation! 
+Any Taylor Series approximation is a model. If someone says "I don't do models, let's only do means" they actually \textit{are} suggesting a model. A mean is a model, it's a zero order Taylor Series approximation! \\
 
 Higher order Taylor Series will approximate an underlying function better than a lower order. \textit{However,} we do not always have enough data to fit a higher order Taylor series because it would require more estimating parameters and your data set may not have enough power (aka enough data) to do so. 
+
+
+\subsection{Exercise: What is $\sqrt{10}$?}
+What's is $\sqrt{10}$? The function we are considering is
+\begin{align}
+    f(x) = \sqrt{x} = x^{\frac{1}{2}}.
+\end{align}
+
+We're interested when $x = 10$. Let's do a \textbf{0th order taylor series approximation}: 
+
+\begin{align}
+    f(x) = f(a)
+\end{align}
+
+what should we choose $a$ to be? Let's choose $a = 9$ because 9 is close to 10. 
+
+\begin{align}
+    f(10) & \approx f(a) \\
+    & \approx f(9)\\
+    & \approx \sqrt{9}\\
+    & \approx 3
+\end{align}
+
+So the 0th order approximation of $f(10) \approx f(9) = 3$. It's close! \\
+
+Now, let's do a \textbf{first order taylor series approximation} 
+\begin{align}
+    f(x) &\approx f(a) + \frac{f'(a)}{1!}(x-a)^1. \label{taylor}
+\end{align}
+
+We need to find $f'(a)$,
+\begin{align}
+    f(a) = a^{1/2}\\
+    f'(a) = \frac{1}{2} a^{-1/2} \label{f_prime}
+\end{align}
+
+We can plug \ref{f_prime} back into \ref{taylor} to get 
+
+\begin{align}
+    f(x) &\approx f(a) + \frac{1}{2} \frac{a^{-1/2}}{1} (x - a)^1
+\end{align}
+
+Now, let's find $f(10)$ where $x = 10$ by using the taylor expansion around $f(9)$ where $a = 9$,
+
+\begin{align}
+    f(10) &\approx f(9) +  \frac{f'(9)}{1!}(10-9)^1\\
+    &\approx \sqrt{9} + \frac{1}{2}(9)^{-1/2}\times1\\
+    &\approx 3 + \frac{1}{2}\frac{1}{(9)^{1/2}}\\
+    &\approx 3 \frac{1}{6}
+\end{align}
+
+So our first order approximation of $f(10) \approx 3 \frac{1}{6}$. This is even closer than our original approximation, which was 3!\\
+
+We can then do a \textbf{second order taylor series approximation} and get even closer.
+
+\begin{align}
+    f(x) &\approx f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!} (x-a)^2 \label{second_tay}
+\end{align}
+
+we already found what $f'(a)$ is. What's $f''(a)$? 
+\begin{align}
+    f(a) &= a^{1/2}\\
+    f'(a) &= \frac{1}{2} a^{-1/2} \text{ (power rule)}\\
+    f''(a) &= -\frac{1}{4} a^{-3/2} \text{ (power rule again)} \label{second_ord}
+\end{align}
+
+We can plug in \ref{second_ord} into \ref{second_tay} (along with what we found in our first order approximation) to get 
+\begin{align}
+     f(x) &\approx f(a) + \frac{1}{2} \frac{a^{-1/2}}{1} (x - a)^1 + \frac{1}{2} (-\frac{1}{4}) a^{-3/2} (x - a)^{2}
+\end{align}
+we know from our first order that the first two terms simplify to $3 \frac{1}{6}$. Lets simplify this expression 
+\begin{align}
+    f(10) &\approx 3 + \frac{1}{6} -\frac{1}{8}\frac{1}{9^{3/2}} (10 - 9)^2\\
+    &= 3 + \frac{1}{6} -\frac{1}{8}\frac{1}{27}\\
+    &= 3.16203703704
+\end{align}
+So what is $f(10) = \sqrt{10}$? $\sqrt{10} = 3.16227766017$. So we can see that our second order approximation got pretty close! 
 
 \subsection{Example: Logistic growth}
 Consider the logistic growth function: 
@@ -242,37 +258,86 @@ Let $G(a) = 0$  and rename $G'(a) = \frac{-r}{K}$
 
 And now we've shown that \ref{approx} is equivalent to \ref{per_cap}. Which means we've shown that we can derive the logistic growth equation using a Taylor series approximation.
 
-\subsection{Exercise}
-What's is $\sqrt{10}$? The function of consideration is
+
+
+\section{Total Derivatives}
+Total derivative in a function is equal to the sum of the partials multiplied by the change. 
+
+Consider the function $ F = f(x,y)$. We can get our partial derivatives. Recall that when we take a partial derivative wrt $x$, we're holding $y$ constant.
 \begin{align}
-    f(x) = \sqrt{x} = x^{\frac{1}{2}}.
+    \frac{\partial f}{\partial x} = f_x\\
+    \frac{\partial f}{\partial y} = f_y
 \end{align}
 
-We're interested when $x = 10$. Let's do a \textbf{0th order taylor series approximation}: 
+Now consider how we would calculate the change in $F$ if both $x$ and $y$ changed. We'd need to get a full derivative, 
 
 \begin{align}
-    f(x) = f(a)
+    df &= f_x dx + f_y dy \\
+    &= \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy\\
+    \Delta f = &= \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y
 \end{align}
+These are all equivalent ways of writing the full derivative. 
 
-what should we choose $a$ to be? Let's choose $a = 9$ because 9 is close to 10. 
+\subsection{Example of maximizing a multi-variate function}
+Consider the functions $F(x,y) = -x^2 -y^2$. Let's say that we want to maximize this function, and find the \textit{global} maximum. To do so, we need to take the partial derivatives and set them equal to zero, then solve for $x,y$. 
 
 \begin{align}
-    f(10) & \approx f(a) \\
-    & \approx f(9)\\
-    & \approx \sqrt{9}\\
-    & \approx 3
+    \frac{\partial F}{\partial x} = -2x = 0 \implies x = 0\\
+    \frac{\partial F}{\partial y} = -2y = 0 \implies y = 0
 \end{align}
 
-Let's do a \textbf{first order taylor series approximation} 
+So the maximum point of $F(x,y) = -x^2-y^2$ is $(0,0)$, where $x = 0 $ and $y = 0$. 
+
+\subsection{Implicit Function Theorem (envelope theorem in econ)}
+
+\begin{figure}[htp]
+    \centering
+        \includegraphics[width=0.5\textwidth]{Screen Shot 2023-09-27 at 10.59.32 AM.png}
+    \caption{The f=0 represents an altitude}
+    % \label{fig:sample}
+\end{figure}
+
+Now consider if you want to stay on one level set. For example, if you wan to stay on a contour line or on a utility level. That would mean we want the value of $f(x,y)$ to stay the same, $df = \Delta f = 0$, even when we change both the $x$ and $y$. We can set the full deriative to 0 in order to acheive this. 
+
 \begin{align}
-    f(x) &\approx f(a) + \frac{f'(a)}{1!}(x-a)^1\\
-    f(10) &\approx f(9) +  \frac{f'(9)}{1!}(10-9)^1\\
-    &\approx \sqrt{9} + \frac{1}{2}(9)^{-1/2}\\
-    &\approx 3 + \frac{1}{2}\frac{1}{(9)^{1/2}}\\
-    &\approx 3 \frac{1}{6}
+    d f = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy &= 0 \implies \\
+    dy \frac{\partial f}{\partial y} dy &= - dx \frac{\partial f}{\partial x} \implies \\
+    \frac{d y}{dx} &= \frac{- \frac{\partial f}{\partial x}}{\frac{\partial f}{\partial y}} \label{imp_func}
 \end{align}
 
-You could then do a second order taylor series approximation and get even closer.
+Equation \ref{imp_func} is the implicit function theorem. What equation \ref{imp_func} tells us is "if I want to stay at the original value of $f(x,y)$, and I change $x$, how do I need to change $y$ in order to stay at the original value of $f$". You could also think of this as you're hiking and you're at a certain altitude. The same questions would be "if I change my latitude, how do I need to change my longitude in order to stay at the same altitude?"\\
 
+
+\textbf{The envelope theorem} is a special case of the implicit function theorem when first derivatives are set to zero. This leads to math simplifying because we can say that, at the optimum, a bunch of derivatives will equal zero. 
+
+% \section{Taylor Series}
+
+% We know that straight lines are good approximators because a line is a conditional mean, and means are good at minimizing error.\\
+
+% Series are good approximators of sequences of numbers, because series are functions. \\
+
+% A \textbf{Taylor Series} is an extremely useful series for approximating the relationship of sequence of numbers (data is a sequence of numbers). Taylor series underpins a lot of the math we do today, particularly for any relationship that isn't linear. 
+
+% \begin{align}
+%     f(x) = f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ... + \frac{f^k(a)}{k!}(x-a)^k + R
+% \end{align}
+% where $R$ is the residual.\\
+
+
+% \subsection{0th order Taylor Series}
+% Consider a 0th order taylor series: it would be a mean aka just a flat line equal to $f(a)$. \\
+
+% If you're only looking at the means of a dataset, that means you're doing a 0th order taylor approximation.
+
+% \subsection{First order Taylor Series}
+
+% Consider a first order taylor series: 
+% \begin{align}
+%     f(x) &= f(a) + \frac{f'(a)}{1!}(x-a)^1 \\
+%     &= A + B (x-a) \\
+%     &= A -aB + Bx\\
+%     &= m + Bx
+% \end{align}
+% It's a line with a slope. A first order Taylor series is a linear approximation. Linear regression is a first order Taylor approximation. \\
 
 \end{document}
