@@ -1,0 +1,131 @@
+---
+title: "Week 6 -- Section Notes"
+author: "Andie Creel"
+date: "2024-09-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Q 4 on pset 2 
+A forest ecologist estimates that the density of acorns dropped near white oak trees decreases with distance $x$ from the tree, with the relationship 
+
+$$
+D(x) = \frac{a}{1 + x}
+$$
+
+where $D$ is in acorns $\text{m}^{-2}$ and $x$ is in meters. However, deer and squirrels are aware of this distribution and thus forage most intensely near the trees. As a result, the probability, $P$, of any given acorn remaining on the ground and germinating increases with distance from the tree as given by 
+
+$$P(x) = \frac{b x}{c + x}$$
+
+The probability can be thought of as the fraction of acorns that germinates on average.
+
+A.) Determine the distance $x^{\text{max}}$ where the density of germinating acorns (in number per meter squared) is greatest. Give your answer in terms of $a$, $b$, and $c$.
+
+The objective is to find the distance from the tree where the most acorns are germinating. So we need to consider the density of acorns, but also the probability of them being there (aka not eaten). What's the objective function?? 
+
+$$F(X) = D(x) P(x)$$
+which can be expressed as 
+$$F(x) = \frac{a}{1 + x}  \frac{b x}{c + x}$$
+and slightly simplified to 
+$$F(x) = \frac{abx}{(1 + x)(c + x)}.$$
+We can maximize this function by taking the derivative of $F(x)$ and setting it equal to zero 
+$$
+F'(x) = \frac{a b (1 + x)(c + x) - a b x (2x + c + 1)}{[(1 + x)(c + x)]^2} = 0 
+$$
+This can be simplified to 
+$$
+F'(x) = (1 + x)(c + x) -  x (2x + c + 1) = 0 \\
+ c + cx+x + x^2 - 2x^2 - cx - x = 0\\
+ c -1x^2 = 0 \\
+ x^{\text{max}} = \sqrt c
+$$
+
+B.) Explain how you know it's a maximum 
+
+We can take the second derivative of $F(X)$ and see if it is positive or negative. If the second derivative is negative, we know it's a maximum. 
+
+C.) Of the three parameters $a,b,c$ which is $x^{\text max}$ most sensitive to? 
+$c$, because it's not even a function of $a,b$. 
+
+# Q 5 on pset 2 
+
+**A.** Show that the solution to 
+
+\[
+y = 3x + 2
+\]
+
+for \(x\) is equivalent to the value of \(x\) that minimizes 
+
+\[
+f(x) = (3x + 2 - y)^2
+\]
+
+Part 1: solve for $x$ in $y = 3x +2$. $\implies$ 
+$$x = \frac{y - 2}{3}$$
+part 2: Find x that minimizes $f(x) = (3x + 2 - y)^2$. 
+
+Take derivative and set equal to zero. Using power and chain rule, 
+
+$$f'(x) = 2(3x + 2 - y)(3) = 0\\
+3x +2 - y = 0 \implies \\
+x = \frac{y - 2}{3}$$
+
+**B.)** For equations that have a root like this (the piece in the parentheses), this is a general property. 
+$3x +2 - y = 0 $
+
+
+**C.)** For equations with a root like this, where you can solve them with the power rule and chain rule, this is an alternative solution strategy. It's a shortcut. 
+
+
+# Q 10 pset 2 
+
+```{r}
+### load RCurl package (install it first if you haven't already!)
+## load crazy function script from github
+
+library(RCurl)
+script <- getURL("https://raw.githubusercontent.com/Yale-YSE-AMES/2020-Psets/master/Pset2/crazyFunction_onlyfunction.R")
+eval(parse(text = script))
+
+# first approximation
+
+y1 <- crazyfunction(3)
+y2 <- crazyfunction(4)
+
+(y2 - y1)/(4-3)
+
+### let's do better
+
+# create a function that will calculate the approximate derivative at a by calculating the slope between 2 points
+
+approx_deriv <- function(a, change) {
+        y1 <- crazyfunction(a)
+        y2 <- crazyfunction(a + change)
+        return((y2 - y1)/change)
+}
+
+# lets make sure it works
+
+approx_deriv(3, 1)
+
+# Ok let's do it for increasingly smaller changes from 1 to 1/500
+
+crazy_derivs_loop <- rep(NA, 500)
+
+for (i in c(1:500)) {
+        change <- 1/i
+        crazy_derivs_loop[i] <- approx_deriv(3, change)
+}
+
+crazy_derivs_loop
+
+```
+
+
+
+
+

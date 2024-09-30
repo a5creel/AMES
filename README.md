@@ -64,6 +64,7 @@ Email: andie.creel\@yale.edu
 
 ### Week six 
 - [Monday class notes](class_notes/6_mon_class.pdf): integrals, Riemann sums, additively separable, derivative rules, integral rules, u-substitution 
+- [Andie's section notes](section_notes/6_section.pdf): help with pset2
 - [Wednesday class notes](class_notes/6_weds/main.pdf): Importance of discount factor (exponential decay), thin and fat tails, integration by parts, integrating logs, double integrals  
 
 # ------- THE FUTURE -------
