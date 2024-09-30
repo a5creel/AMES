@@ -48,7 +48,7 @@ Email: andie.creel\@yale.edu
 
 # Calculus: derivatives and integrals 
 
-### Week Four (Sept 18)
+### Week Four (Sept 18) 
 
 - [Old Section notes](section_notes/4_section/main.pdf): quasi-convex/concave, log rules
 - [Zoom recording of section](https://yale.zoom.us/rec/share/EsTXAibjWFbX8EsFYbNeWClFm-wou-zKEPr6SC1Sib3OSCFIr4QU1X5UeE3AbQ3q.qWEfPqRKr6SK4TiC?startTime=1695073198000)
@@ -56,16 +56,17 @@ Email: andie.creel\@yale.edu
 
 
 ### Week five (Sept 23rd - 25th)
-- [Monday class notes](class_notes/5_mon/5_mon_class.pdf): treating derivative like a fraction, finding max and min, eqn for mean derivation, mean value theorem, taylor series, 
+- [Monday class notes](class_notes/5_mon/5_mon_class.pdf): treating derivative like a fraction, finding max and min, eqn for mean derivation, mean value theorem, taylor series 
 - [Section notes](section_notes/5_section.pdf): Language of limits, setting up ordinary least squares (OLS) derivation
 - [audio from section](https://yale.zoom.us/rec/play/NOLE2ZiBVl5BScXTMXc0Ijanr2lc5EfyyAij7MJED6tI62Sdj83JC-hkKv7vv8v43faJPIn93px5oVHC.sO5IRxDvbjEc1J_p?autoplay=true)
 - [Wednesday class notes](class_notes/5_weds/main.pdf): total derivatives, implicit function theorem (envelope theorem), Taylor series, logistic grown 
 
-# ------- THE FUTURE -------
 
 ### Week six 
 - [Monday class notes](class_notes/6_mon_class.pdf): integrals, Riemann sums, additively separable, derivative rules, integral rules, u-substitution 
 - [Wednesday class notes](class_notes/6_weds/main.pdf): Importance of discount factor (exponential decay), thin and fat tails, integration by parts, integrating logs, double integrals  
+
+# ------- THE FUTURE -------
 
 ### Week seven 
 - [Monday class notes](class_notes/7_mon/main.pdf): probability density function (pdf) and integrals, mean, median, uniform distribution example

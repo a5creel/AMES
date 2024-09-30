@@ -3,7 +3,7 @@
 \usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
 
 %% Math and math fonts
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{amsthm, amssymb, amsfonts, amsmath}
 \usepackage{bbm} % for \mathbbm{1}
 
 % date
@@ -134,14 +134,73 @@
 \begin{document}
 \maketitle
 
-\section{The importance of $e^{-rt}$}
+\section{Finishing "Additively Separable" Ex. from Monday}
+
+In this example, we will see how the constants from separate terms of the integral can be combined into one final constant. \\
+
+Consider the function 
+\begin{align}
+    f(x) = \int 7x^2 + 3x +6 dx.
+\end{align}
+
+The integral is a "linear operator" so we can integrate each of these terms that are separated by addition signs separately, 
+
+\begin{align}
+    f(x) = \int 7x^2 dx + \int 3x dx +\int 6dx.
+\end{align}
+We can now use the integral's version of the power rule to integrate these. \\
+
+\textbf{Integral power rule:}
+
+\begin{align}
+    \int x^n dx = \frac{1}{n}x^{n+1} + C
+\end{align}
+
+applying the power rule to each term gives us 
+\begin{align}
+    f(x) = (\frac{7}{3} x^3 + X) + (\frac{3}{2} x^2 + Y) + (6x + Z) \label{consts}
+\end{align}
+where $X, Y, Z$ are our unknown constants. We can define another unknown constant as 
+\begin{align}
+    C = X + Y + Z 
+\end{align}
+and rewrite \ref{consts} as 
+\begin{align}
+    f(x) = \frac{7}{3} x^3  + \frac{3}{2} x^2 + 6x + C. 
+\end{align}
+
+This shows us that even though each separate term we're integrating may have it's own constant, we can combine them into a single final constant during integration. 
+
+
+\section{Integration by U-substitution}
+
+\begin{align}
+    \int f(u) \frac{du}{dx}dx = \int f(u) du
+\end{align}
+
+\textbf{Example}
+\begin{align}
+    f(x) = \int x e^{x^2} dx
+\end{align}
+Let $u = x^2$, $du = 2x dx$, $\frac{du}{2x} = dx$
+\begin{align}
+   &= \int e^{x^2} x dx \\
+    &= \int \frac{e^u}{2}du \\
+    &= \frac{1}{2} \int e^u du \\
+    &= \frac{1}{2} e^u \\
+    &= \frac{1}{2} e^{x^2}
+\end{align}
+
+
+
+\section{The importance of discounting: $e^{-rt}$}
 
 
 Consider a funny integral: 
 \begin{align}
     \int_0^\infty e^{-rt}dt
 \end{align}
-Why is this weird? Because the support is 0 to $\infty$. Let's try to do this with a U-sub. \\
+Why is this weird? Because the support is 0 to $\infty$. However, when we integrate it, we will see that the area under this curve is finite (despite the function going to infinity). Let's show this is true with a U-sub. \\
 
 Let 
 \begin{align}
@@ -200,14 +259,15 @@ Consider the function
 \begin{align}
     z(x) = f(x) g(x)
 \end{align}
-We want the intgral of $z(x)$ 
+
+We want the integral of $z(x)$ 
 \begin{align}
-    \int f(x)g(x) dx 
+    Z(x) = \int f(x)g(x) dx 
 \end{align}
 
-Now, we know how to get $dz dx$
+Now, we know how to get $dz(x) /dx$ using the product rule
 \begin{align}
-    \frac{dz}{dx} = f'(x) g(x) + f(x) g'(x) \implies\\
+    \frac{dz(x)}{dx} = f'(x) g(x) + f(x) g'(x) \implies\\
     \int dz = \int (f'(x) g(x) + f(x) g'(x)) dx 
 \end{align}
 
@@ -215,7 +275,7 @@ Remember integrals are linear operators
 \begin{align}
     \int dz = \int f'(x) g(x) dx + \int f(x) g'(x) dx\\
 \end{align}
-Note that $\int dz = z = f(x) g(x)$
+Note that $\int dz = z(x) = f(x) g(x)$
 \begin{align}
     f(x) g(x) = \int f'(x) g(x) dx + \int f(x) g'(x) dx \implies \\
     f(x) g(x) - \int f(x) g'(x) dx = \int f'(x) g(x) dx \\
@@ -226,9 +286,9 @@ Note that $\int dz = z = f(x) g(x)$
 Let 
 \begin{align}
     U = g(x) \\
-    dV = f'(x) \implies \\
+    dV = f'(x)dx \\
     V = f(x) \\
-    dU = g'(x)
+    dU = g'(x)dx
 \end{align}
 Plug these back into our last equation 
 
@@ -239,11 +299,11 @@ which is the equation for integration by parts. \\
 
 Here's an example. Consider the function $A(x)B(x)$ 
 \begin{align}
-    \int A(x) B(x) = A(x) \int B(x) dx - \int A(x) \frac{d B(x)}{dx} dx
+    \int A(x) B(x)dx = A(x) \int B(x) dx - \int A(x) \frac{d B(x)}{dx} dx
 \end{align}
 We've set: 
 \begin{align}
-    dV = B(x) \implies\\
+    dV = B(x)dx \implies\\
     V = \int B(x) dx
 \end{align}
 which is why we have $\int B(x) x$ is in the first term of the right hand side.
@@ -299,7 +359,7 @@ Now we can use integration by parts.
     V = x \\
     dV = 1 dx\\
 \end{align}
-Do NOT forget the $dx$ when you get $dU$!! Now, plug it all back into our integration by parts formal 
+\textbf{Do NOT forget the $dx$ when you get $dU$!!} Now, plug it all back into our integration by parts formal 
 \begin{align}
     \int U dV &= V U - \int V dU\\
     \int ln(x) 1 dx &= x ln(x) - \int x \frac{1}{x} dx \implies \\

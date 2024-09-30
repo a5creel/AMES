@@ -128,15 +128,14 @@
 \chead{Week Six}
 \rhead{AMES}
 
-\title{AMES Class Notes -- Week Six, Day 1}
+\title{AMES Class Notes -- Week Six, Day 1: Integrals}
 \author{Andie Creel}
 
 \begin{document}
 \maketitle
 
-\section{Integrals}
 
-\subsection{Reimann Sums}
+\section{Reimann Sums}
 An integral is the area under a curve. A reimann sum approximates this area by using rectangles of different heights whose width gets smaller and smaller (\textit{ie} width goes to zero).\\
 
 Let $A(\cdot)$ be an area function. $A$ returns the area under a curve. \\
@@ -173,7 +172,7 @@ Integration is just fancy summation! So, as $\epsilon$ gets really small and we 
     \partial A =  \int_{a}^{b} f(x) \partial x.
 \end{align}
 
-\subsection{Additively separable}
+\section{Additively separable}
 Consider a function 
 \begin{align}
     f(x) = h(x) + g(x)
@@ -191,7 +190,7 @@ Because the integral is a linear operator, we do not need to worry about Jensen'
     dA = \int h(x) dx + \int g(x) dx
 \end{align}
 
-\subsection{Considering constants}
+\section{Considering constants}
 Remember that when you take the derivative of a constant, it's zero. When you integrate a function, you will not be able to get the constant back out (you don't know what the constant is),
 
 \begin{align}
@@ -201,7 +200,7 @@ When ever you take an integral, remember to add on your unidentified constant $C
 
 If you're doing a \textbf{definite} integral meaning you have the bounds $a$ and $b$ you do NOT need to worry about the unidentified constant $C$ because it will difference out. However, if you are taking an \textbf{indefinite} integral then we don't know the bounds and so we do need to keep track of the unidentified constant.\\
 
-\subsection{Example }
+\section{Example }
 
 Consider this the function $f(x) = 3$, 
 \begin{align}
@@ -212,31 +211,12 @@ Consider this the function $f(x) = 3$,
     &= 3x + C
 \end{align}
 
-\section{Derivative rules}
+\section{Derivative rules to remember}
 
 \begin{align}
     f(x) = X^n \implies f'(x) = Nx^{N - 1}\\
     f(x) = e^x \implies f'(x) = e^x
 \end{align}
 
-\section{Integral rules}
-\textbf{Integration by U-substitution}
-
-\begin{align}
-    \int f(u) \frac{du}{dx}dx = \int f(u) du
-\end{align}
-
-\textbf{Example}
-\begin{align}
-    \int x e^{x^2}
-\end{align}
-Let $u = x^2$, $du = 2x dx$, $\frac{du}{dx} = 2x$
-\begin{align}
-   &= \int e^{x^2} x dx \\
-    &= \int \frac{e^u}{2}du \\
-    &= \frac{1}{2} \int e^u du \\
-    &= \frac{1}{2} e^u \\
-    &= \frac{1}{2} e^{x^2}
-\end{align}
 
 \end{document}
