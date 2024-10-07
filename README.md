@@ -67,12 +67,13 @@ Email: andie.creel\@yale.edu
 - [Andie's section notes](section_notes/6_section.pdf): help with pset2
 - [Wednesday class notes](class_notes/6_weds/main.pdf): Importance of discount factor (exponential decay), thin and fat tails, integration by parts, integrating logs, double integrals  
 
-# ------- THE FUTURE -------
-
 ### Week seven 
 - [Monday class notes](class_notes/7_mon/main.pdf): probability density function (pdf) and integrals, mean, median, uniform distribution example
 - [Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
 - [Wednesday class note](class_notes/7_weds.pdf): derivative and integral rules, implicit function theorem
+
+# ------- THE FUTURE -------
+
 
 # Linear Algebra 
 
