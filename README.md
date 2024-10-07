@@ -70,7 +70,8 @@ Email: andie.creel\@yale.edu
 ### Week seven 
 - [Monday class notes](class_notes/7_mon/main.pdf): probability density function (pdf) and integrals, mean, median, uniform distribution example
 - [Section recording](https://yale.zoom.us/rec/share/UByKcwsLCteOMkKTldM8GViShUGsxvL3NlMOPwLEaVsQs7x5HnIysTAHnl4lEhWx.tILGLe9-FfFb4etT?startTime=1728336943000): how to solve OLS (goes through algebra)
-- [Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
+  - [picture of board from section](section_notes/7_section.pdf)
+- [Old Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
 - [Wednesday class note](class_notes/7_weds.pdf): derivative and integral rules, implicit function theorem
 
 # ------- THE FUTURE -------
