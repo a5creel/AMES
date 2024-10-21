@@ -75,7 +75,9 @@ Email: andie.creel\@yale.edu
 - [Wednesday class note](class_notes/7_weds/7_weds.pdf): probability density functions (integrals of them, which is cumulative distribution function), normal distributions, uniform distributions, finding the median using a pdf, finding the mean using a pdf
 
 ### Week Eight 
-- [Wednesday Midterm Review](class_notes/8_review.pdf): Derivative rules, integral rules, implicit function theorem
+- [Monday Midterm Review](section_notes/midterm.pdf): exponential function, percent change with derivative of log of function, importance of graphs, find max and min, find inflection points, taylor series, integration by parts
+- [Old Zoom of midterm review](https://yale.zoom.us/rec/share/06grQMktcnp_WvWAtPB1kWkS86RMxa1D4So1NVFy21KPg756QL7ERTOLxK114-in.F1GW-HFe-6dGorGa?startTime=1698096961000)
+
 
 # ------- THE FUTURE -------
 
@@ -84,8 +86,7 @@ Email: andie.creel\@yale.edu
 
 ### Week eight 
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
-- [midterm review](section_notes/midterm.pdf): exponential function, percent change with derivative of log of function, importance of graphs, find max and min, find inflection points, taylor series, integration by parts
-- [Zoom of midterm review](https://yale.zoom.us/rec/share/06grQMktcnp_WvWAtPB1kWkS86RMxa1D4So1NVFy21KPg756QL7ERTOLxK114-in.F1GW-HFe-6dGorGa?startTime=1698096961000)
+
 
 ### Week nine 
 - [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, Kronecker product, trace, linear regression (OLS), Life cycle assessment

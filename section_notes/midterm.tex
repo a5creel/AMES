@@ -3,8 +3,9 @@
 \usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
 
 %% Math and math fonts
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{ amsthm, amssymb, amsfonts}
 \usepackage{bbm} % for \mathbbm{1}
+\usepackage{amsmath}
 
 % date
 \usepackage[nodayofweek]{datetime}
@@ -142,7 +143,7 @@ What does an exponential function really mean?
     f(x) = e^x\\
     f'(x) = e^x
 \end{align}
-$f(x)$ is a function where the \textbf{slope} of the function increases \textbf{by the rate that f(x)} is increasing. That is what the derivative of $e^x$ is still $e^x$. 
+$f(x)$ is a function where the \textbf{slope} of the function increases \textbf{by the rate that f(x)} is increasing. That is why the derivative of $e^x$ is still $e^x$. 
 
 \section{Percent Change}
 Let's say you have a function that models an outcome of interest, 
@@ -150,18 +151,35 @@ Let's say you have a function that models an outcome of interest,
     y = f(x)
 \end{align}
 
-Consider the case where you are interested in the percent change of that outcome (\textit{ie} \% change in $y$), rather than the level of the outcome (\textit{ie} $y$ itself). \\
+Consider the case where you are interested in the percent change of that outcome (\textit{i.e.} \% change in $y$) rather than the level of the outcome (\textit{i.e.} $y$ itself). \\
 
-What is a transformation of the function that would give us percent change in y? Taking of the derivative of the log of the function. 
+What is a transformation of the function that would give us a percent change in y? Taking the derivative of the log of the function. 
 \begin{align}
     g(x) &= ln(f(x))\\
     \text{\% change in y} &= g'(x)\\
-    &= \frac{d ln(f(x))}{dx}\\
+    &= \frac{d}{dx}  ln(f(x))\\
     &= \frac{1}{f(x)} f'(x) \\
-    & = \frac{f'(x)}{f(x)}\\
+    & = \frac{f'(x)}{f(x)} \label{perc_change}\\
     &= \frac{\Delta f(x)}{f(x)}
 \end{align}
-where we've used the properties of logs and the change rule. 
+where we've used the properties of logs and the change rule. \\
+
+\textbf{Note: Log to percent change interpretations apply to more than just $f(x)$} \\
+Any time you see a function that describes a variable in the form of \ref{perc_change}, you can interpret it as a percent change of the variable. For example, let's say you are interested in a variable that is the slope of a function, $z = f'(x)$.  You want to write down the \textit{percent change of $z$, or the percent change in the slope of $f(x)$}. You can write that as, 
+\begin{align}	
+	\text{\% change in z} = \frac{f'(x)}{f''(x)}
+\end{align}
+
+You could simplify this expression by using a log 
+\begin{align}	
+	\text{\% change in z} &= ln(f'(x)) \label{eleven}\\
+	&=  \frac{f'(x)}{f''(x)} \label{twelve}
+\end{align}
+
+because \ref{twelve} follows from \ref{eleven} after using log rules and the chain rule. 
+
+\section{Draw graphs when you know what they are}
+
 \begin{figure}[htp]
     \centering
         \includegraphics[width=0.35\textwidth]{Screen Shot 2023-10-23 at 4.53.45 PM.png}
@@ -169,10 +187,9 @@ where we've used the properties of logs and the change rule.
     % \label{fig:sample}
 \end{figure}
 
-\section{Draw graphs when you know what they are}
 If you think you can draw a graph with the information you have, sketch it out. This will give you intuition. \\
 
-Let's say I have the function $f(x) = -x^2$\\ 
+Let's say I have the function $y = f(x) = -x^2$\\ 
 
 What's the sign of the derivative when x is less than 0? (positive) \\
 
@@ -186,17 +203,22 @@ All these questions are not-tedious to answer when looking at a graph, but harde
 
 Consider the function $f(x)$. \\
 
-What level of $x$ maximizes or minimizes $f(x)$? We want to know when the slope is zero (at the top of the "mound"). Therefore to find the max or min, take the first derivative and set it equal to zero. Solve that equation for $x$, which will be the level of $x$ that maximizes $f(x)$. \\
+What level of $x$ maximizes or minimizes $f(x)$? We want to know when the slope is zero (at the top of the "mound"). Therefore, to find the max or min, take the first derivative and set it equal to zero. Solve that equation for $x$, which will be the level of $x$ that maximizes $f(x)$. \\
 
-How do we know if it's a max or min? Take the second derivative and plug in that value of x. If it's negative, then it's a maximum (frowny face). If it's positive, then it's a minimum (smiley face). 
+How do we know if it's a max or min? Take the second derivative and plug in that value of x. If it's negative, then it's a maximum (frowny face). This is also a concave function (looks like a cave). If it's positive, then it's a minimum (smiley face). This is also a convex function (kind of looks like a v). 
+
+
+\section{Convex Function vs Convex Set}
+A convex function and a convex set are two completely different concepts that use the same world. They are not related. A convex function is a function whose second derivative is positive. A convex set is a set where you can draw a line between any points in the set, and all other points the connecting line passes through are also in the set. For example, a circle is a convex set. A star is not a convex set. 
+ 
 
 \section{Taylor Series}
 
 We know that straight lines are good approximates because a line is a conditional mean, and means are good at minimizing error.\\
 
-Series are good approximators of sequences of numbers, because series are functions. \\
+Series are good approximators of sequences of numbers because series are functions. \\
 
-A \textbf{Taylor Series} is an extremely useful series for approximating the relationship of sequence of numbers (data is a sequence of numbers). Taylor series underpins a lot of the math we do today, particularly for any relationship that isn't linear. 
+A \textbf{Taylor Series} is an extremely useful series for approximating the relationship of a sequence of numbers (data is a sequence of numbers). Taylor series underpins a lot of the math we do today, particularly for any relationship that isn't linear. 
 
 \begin{align}
     f(x) = f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ... + \frac{f^k(a)}{k!}(x-a)^k + R
@@ -227,6 +249,63 @@ Higher order Taylor Series will approximate an underlying function better than a
 
 More on Taylor series: \url{https://github.com/a5creel/AMES/blob/main/class_notes/5_weds/main.pdf}. 
 
+
+\section{Derivative and Integral Rules}
+
+\begin{tabular}{|M|M|M|c|}
+  \hline
+  \text{Function} & \text{Derivative}  & \text{Anti-Derivative} & Name\\
+    \hline
+      F(x) & F'(x) & \int F'(x) dx  & \\
+      \hline
+      x & \frac{dx}{dx} = 1 \rightarrow dx = 1 dx & \int dx = x + c & wrt variable\\
+      \hline
+      \alpha x & \alpha \frac{dx}{dx} = \alpha \rightarrow \alpha dx & \int \alpha dx = \alpha \int dx = \alpha x + c & constant\\
+      \hline
+      x^N & \frac{dF}{dx} = Nx^{N-1} \rightarrow dF = Nx^{N-1} dx & \int N x^{N-1}dx = \frac{1}{N}x^N +c & power rule\\
+      \hline
+      g(x) + h(x) & \frac{d g(x)}{dx} + \frac{dh(x)}{dx}  \rightarrow dF = (g'(x) + h'(x)) dx & \int (g'(x) + h'(x)) dx = \int g'(x) dx + \int h'(x) dx & linear operator \\
+      \hline 
+      e^x & \frac{dF}{dx} = e^x \rightarrow dF = e^x dx & \int e^x dx = e^x + c & exponentials\\
+      \hline
+      ln(x)  & \frac{d ln(x)}{dx} = \frac{1}{x} \rightarrow dF = \frac{1}{x} dx & \int \frac{1}{x} dx = \int \frac{dx}{x} = \int x^{-1}dx = ln(x) + c & logs\\
+      \hline 
+     f(x) =  g(h(x)) & \frac{df}{dx} = \frac{dg}{dh}\frac{dh}{dx} & \int g(h(x)) dx & chain rule/ \\
+      & & u = h(x), \frac{du}{dx} = h'(x) \implies dx = \frac{du}{h'(x)} & u-substitution \\
+      & & \int g(u) \frac{du}{h'(x)} & \\
+      \hline
+      ln(F(x)) & \frac{dF}{dx} = \frac{1}{F(x)} F'(x) =\frac{F'(x)}{F(X)} & \text{do a u-sub}& percent change\\
+      \hline
+      g(x) h(x) & g'(x) h(x) + g(x) h'(x) & \text{integration by parts}  & product rule \\
+      \hline
+      g(x)^{-1}h(x) & \frac{h'(x) g(x_ - g'(x) h(x)}{g(x)^2} & \text{integration by parts} & quotient rule \\
+      \hline
+      
+\end{tabular}
+
+\section{Implicit function theorem}
+Consider 
+\begin{align}
+    F(x,y) \\
+    d F = F_x dx + F_y dy \\ 
+\end{align}
+where 
+\begin{align}
+    F_x = \frac{\partial F}{\partial x} \\
+    F_y = \frac{\partial F}{\partial y}
+\end{align}
+
+When you're at an equilibrium, $F$ will not be changing 
+\begin{align}
+    0 = F_x dx + F_y dy \implies \\
+    - \frac{F_x}{F_y} = \frac{dy}{dx}
+\end{align}
+\textbf{Interpretation}: When at an equilibrium, the change in $y$ w.r.t $x$ will equal the negative ratio of the partial derivatives.  
+
+
+
+
+
 \section{pset 1 Q 1}
 Function: 
 \begin{align}
@@ -254,6 +333,6 @@ To find point of inflection, set second derivative to 0 and solve for x
 I think there is a typo for the inflection point in the answer key. 
 
 \section{integration by parts }
-section 2.1 and 2.2 \url{https://github.com/a5creel/AMES/blob/main/class_notes/6_weds/main.pdf}
+section 4 \url{https://github.com/a5creel/AMES/blob/main/class_notes/6_weds/main.pdf}
 
 \end{document}
