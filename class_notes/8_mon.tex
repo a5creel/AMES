@@ -172,6 +172,11 @@ This can be rewritten as vectors and matrices.
     \end{bmatrix}
 \end{align}
 
+Which we can rewrite with vectors and matrices as, 
+\begin{align}
+    \Vec{N} = \mathbf{M} \Vec{X}
+\end{align}
+
 A reoccurring question: How can you write out a system of equations, and how can you rewrite it as a matrix?
 
 \section{Matrices}
@@ -210,12 +215,33 @@ We can add these matrices because they're of the same dimensions.
             \end{bmatrix}
 \end{align}
 
-Subtraction works the same way. 
+Subtraction works the same way.\\
 
-\section{Multiplication}
+\textbf{Notes:} Addition and subtraction are done element by element. You add all the elements in the [1,1] position, then all the elements in the [1, 2] position, so on and so forth. Notice that to add two matrices together, they must have the same dimensions. 
+
+\section{Scalar Multiplication}
+You could "scale" a whole matrix with a scalar. Consider the $2 \times 2$ matrix, A. 
+
+\begin{align}
+    A = \begin{bmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+        \end{bmatrix}
+\end{align}
+
+You could scale the matrix A by 10, 
+\begin{align}
+    10 \times A = \begin{bmatrix}
+            10 a_{11} & 10 a_{12} \\
+            10 a_{21} & 10 a_{22}
+        \end{bmatrix}
+\end{align}
+
+
+\section{Matrix Multiplication}
 If we have matrix $B$ that's $(m \times n)$ and matrix $D$ that's $(n \times p)$ then the matrix $B \times M$ is going to be $(m \times p)$. \textbf{Order matters} when multiplying matrices. $M \times B$ is NOT conformable, you cannot compute that matrix!! \\
 
-Consider the matrices $A (2 \times 2)$  and $B (2 \times 2)$ again 
+Consider the matrices $A (2 \times 2)$  and $C (2 \times 2)$ again 
 \begin{align}
     A = \begin{bmatrix}
             a_{11} & a_{12} \\
@@ -227,7 +253,7 @@ Consider the matrices $A (2 \times 2)$  and $B (2 \times 2)$ again
         \end{bmatrix}
 \end{align}
 
-Now,  $A \times B$. Matrix multiplication requires row multiplied by columns 
+Now,  $A \times C$. Matrix multiplication requires row multiplied by columns 
 \begin{align}
     A \times B = \begin{bmatrix}
         a_{11} c_{11} + a_{12} c_{21}  & a_{11} c_{12} + a_{12} c_{22} \\
@@ -261,39 +287,6 @@ Pre-multiply $x$ by $A$.
 
 There is no equivalent to division in matrix algebra. However, you can invert a matrix, which we will get to. 
 
-\section{Identify Matrix}
-
-The identity matrix have similar priorities to 1. 
-\begin{align}
-    I = \begin{bmatrix}
-        1 & 0 &  ... \\
-        0 & 1 & ... \\
-        ... & \\
-        0 & 0 & ... & 1
-    \end{bmatrix}
-\end{align}
-There are 1s along the diagonal. An important characteristic of the identity matrix is 
-\begin{align}
-    \underset{(2 \times 2)} A^{-1}  \underset{(2 \times 2)} A = \begin{bmatrix}
-                    1 & 0 \\
-                    0 & 1
-                \end{bmatrix}
-\end{align}
-
-Any matrix pre-multiplied by it's inverse is the identify matrix. 
-
-\section{Rank}
-Rank is the largest unique square matrix you can have inside a matrix.\\
-
-The key here is knowing if a row is unique.  For instance 
-\begin{align}
-    \begin{bmatrix}
-        2 & 4 \\
-        1 & 2
-    \end{bmatrix}
-\end{align}
-Only has 1 unique row because the first row is the second row multiplied by 2. 
-
 \section{Transpose}
 When you transpose a matrix, the first row becomes the first column. 
 \begin{align}
@@ -316,6 +309,51 @@ To square, you always pre-multiply the original by the transpose. This keeps the
 \begin{align}
     \underset{(7 \times 3)}{B^2} = \underset{(3 \times 7)}{B^T} \underset{(7 \times 3)}{B} = \underset{ (3 \times 3)}{C}
 \end{align}
+
+\textbf{Transpose is not the inverse!!! } Which is a common mistake. 
+
+
+\section{Names of elements of a matrix}
+\begin{itemize}
+    \item Diagonal: the elements all the diagonal (top left corner to the lower right)
+    \item Lower Triangular matrix: elements under the diagonal 
+    \item Upper triangular matrix: elements above the diagonal
+\end{itemize}
+
+
+\section{Identify Matrix}
+
+The identity matrix have similar properties to 1. 
+\begin{align}
+    I = \begin{bmatrix}
+        1 & 0 &  ... \\
+        0 & 1 & ... \\
+        ... & \\
+        0 & 0 & ... & 1
+    \end{bmatrix}
+\end{align}
+There are 1s along the diagonal. An important characteristic of the identity matrix is that for any A
+\begin{align}
+    \underset{(2 \times 2)} A^{-1}  \underset{(2 \times 2)} A = \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1
+                \end{bmatrix}
+\end{align}
+
+Any matrix pre-multiplied by it's inverse will be an identity matrix. 
+
+\section{Rank}
+Rank is the largest unique square matrix you can have inside a matrix.\\
+
+The key here is knowing if a row is unique.  For instance 
+\begin{align}
+    \begin{bmatrix}
+        2 & 4 \\
+        1 & 2
+    \end{bmatrix}
+\end{align}
+Only has 1 unique row because the first row is the second row multiplied by 2. 
+
 
 
 \end{document}

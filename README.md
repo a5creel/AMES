@@ -62,30 +62,30 @@ Email: andie.creel\@yale.edu
 - [Wednesday class notes](class_notes/5_weds/main.pdf): total derivatives, implicit function theorem (envelope theorem), Taylor series, logistic grown 
 
 
-### Week six 
+### Week six (Sept 30 - Oct 2)
 - [Monday class notes](class_notes/6_mon_class.pdf): integrals, Riemann sums, additively separable, derivative rules, integral rules, u-substitution 
 - [Andie's section notes](section_notes/6_section.pdf): help with pset2
 - [Wednesday class notes](class_notes/6_weds/main.pdf): Importance of discount factor (exponential decay), thin and fat tails, integration by parts, integrating logs, double integrals  
 
-### Week seven 
+### Week seven (Oct 7 and 9)
 - [Monday class notes](class_notes/7_mon/main.pdf): probability density function (pdf) and integrals, mean, median, uniform distribution example
 - [Section recording](https://yale.zoom.us/rec/share/UByKcwsLCteOMkKTldM8GViShUGsxvL3NlMOPwLEaVsQs7x5HnIysTAHnl4lEhWx.tILGLe9-FfFb4etT?startTime=1728336943000): how to solve OLS (goes through algebra)
   - [picture of board from section](section_notes/7_section.pdf)
 - [Old Section recording](https://yale.zoom.us/rec/play/HdIZ2C4q72FmYB1cjGHjryJ7PR1LTvQLdRk7wU1VL5lPbkL1lcft04o46YPNK9kI_pAXNstlDPR-Bl3L.yLaOoLu5hra3StEB?autoplay=true&startTime=1696887250000): double integral, integration by parts example, finding mean using pdf 
 - [Wednesday class note](class_notes/7_weds/7_weds.pdf): probability density functions (integrals of them, which is cumulative distribution function), normal distributions, uniform distributions, finding the median using a pdf, finding the mean using a pdf
 
-### Week Eight 
+### Week Eight (Oct 21)
 - [Monday Midterm Review](section_notes/midterm.pdf): exponential function, percent change with derivative of log of function, importance of graphs, find max and min, find inflection points, taylor series, integration by parts
 - [Old Zoom of midterm review](https://yale.zoom.us/rec/share/06grQMktcnp_WvWAtPB1kWkS86RMxa1D4So1NVFy21KPg756QL7ERTOLxK114-in.F1GW-HFe-6dGorGa?startTime=1698096961000)
 
 
-# ------- THE FUTURE -------
-
-
 # Linear Algebra 
 
-### Week eight 
+### Week Nine (Oct 28 - Oct 30)
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
+
+
+# ------- THE FUTURE -------
 
 
 ### Week nine 
