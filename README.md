@@ -83,6 +83,8 @@ Email: andie.creel\@yale.edu
 
 ### Week Nine (Oct 28 - Oct 30)
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
+- [Wednesday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, Kronecker product, trace, linear regression (OLS), Life cycle assessment
+
 
 
 # ------- THE FUTURE -------

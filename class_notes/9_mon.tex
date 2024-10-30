@@ -158,35 +158,67 @@ Defn: A matrix that when squared equals itself
     Z^T Z = Z
 \end{align}
 
+This property means that applying the matrix operation twice (or any number of times) has the same effect as applying it once.
+
 \section{Kronecker product}
 
-Kronecker products expand out. You see this is computer algorithms and data management problems. It's a common trick. \\
+You see this is computer algorithms and data management problems. It's a common trick. It's technically a "tenser" operation. A tenser is a $3^+$D matrix object. \\
 
-Let
-\begin{align}
-    A = \begin{bmatrix}
-            a_{11} & a_{12} \\
-            a_{21} & a_{22}
-        \end{bmatrix} \\
-    Z = \begin{bmatrix}
-        Z_1 \\
-        Z_3 
-    \end{bmatrix}\\
-    A \otimes Z = \begin{bmatrix}
-                    a_11 z_1 & a_12 z_1 \\
-                    a_11 z_2 & a_12 z_2 \\
-                    a_21 z_1 & a_22 z_1 \\
-                    a_21 z_2 & a_22 z_2
-                \end{bmatrix}
-\end{align}
+The \textbf{Kronecker product} is an operation that takes two matrices and produces a larger matrix by multiplying each element of the first matrix by the entire second matrix. If \( A \) is an \( m \times n \) matrix and \( B \) is a \( p \times q \) matrix, then the Kronecker product \( A \otimes B \) is an \( mp \times nq \) block matrix, where each entry \( a_{ij} \) in \( A \) is replaced by the block \( a_{ij} B \).
 
-\section{Trace}
-Defn: the product of all diagonal elements. The trace of $A$ is $a_{11} * a_{22}$
+\subsection*{Definition}
+For matrices \( A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \) and \( B = \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} \), the Kronecker product \( A \otimes B \) is:
+
+\[
+A \otimes B = \begin{bmatrix} a_{11}B & a_{12}B \\ a_{21}B & a_{22}B \end{bmatrix} = \begin{bmatrix} a_{11}b_{11} & a_{11}b_{12} & a_{12}b_{11} & a_{12}b_{12} \\ a_{11}b_{21} & a_{11}b_{22} & a_{12}b_{21} & a_{12}b_{22} \\ a_{21}b_{11} & a_{21}b_{12} & a_{22}b_{11} & a_{22}b_{12} \\ a_{21}b_{21} & a_{21}b_{22} & a_{22}b_{21} & a_{22}b_{22} \end{bmatrix}
+\]
+
+The Kronecker product is widely used in signal processing, control theory, and other fields where constructing block matrices is essential.
+
+\section{Trace of a Matrix}
+
+The \textbf{trace} of a matrix is the sum of the elements along its \textit{main diagonal} (the diagonal that runs from the top left to the bottom right of the matrix).
+
+\subsection*{Definition}
+
+For a square matrix \( A \) of size \( n \times n \):
+\[
+A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{bmatrix},
+\]
+the trace of \( A \), denoted as \( \text{tr}(A) \), is given by:
+\[
+\text{tr}(A) = a_{11} + a_{22} + \cdots + a_{nn} = \sum_{i=1}^n a_{ii}.
+\]
+
+\section{Rank of a Matrix}
+
+The \textbf{rank} of a matrix is the dimension of the \textit{column space} (or \textit{row space}) of the matrix. Intuitively, it represents the maximum number of linearly independent columns (or rows) in the matrix.
+
+For a matrix \( A \):
+\begin{itemize}
+    \item The \textit{column space} of \( A \) consists of all possible linear combinations of its columns.
+    \item The rank tells us the number of independent directions in the space spanned by the columns.
+\end{itemize}
+
+\subsection*{Properties of Rank}
+\begin{enumerate}
+    \item \textbf{Range}: The rank of an \( m \times n \) matrix \( A \) is at most \( \min(m, n) \).
+    \item \textbf{Full Rank}: 
+    \begin{itemize}
+        \item If the rank of \( A \) is equal to \( n \) (for an \( m \times n \) matrix), then \( A \) is said to have \textit{full column rank}, meaning all columns are linearly independent. 
+        \item Note: the dimensions of a matrix are always give rows by columns, which is why we know that $n$ is referring to the number of columns.
+        \item If the rank of \( A \) is equal to \( m \), then \( A \) has \textit{full row rank}.
+    \end{itemize}
+\end{enumerate}
+
+The rank is fundamental in linear algebra, especially for solving linear systems, determining invertibility, and performing dimensionality reduction in applications such as data science.
+
+
 
 \section{Linear regression}
 Consider the equation estimating equation 
 \begin{align}
-    y = a + bx + cz + \epsilon
+    y = a + bx + cz + \epsilon \label{reg_eqn}
 \end{align}
 
 We can rewrite this as
@@ -201,7 +233,7 @@ where
         a\\
         b\\
         c
-    \end{bmatrix}\\
+    \end{bmatrix} \label{params}\\
     X = \begin{bmatrix}
         1 & x_1& z_1\\
         1 & x_2 & z_2\\
@@ -231,7 +263,7 @@ Square the error term:
 
 The squared error term is a scalar $\underset{(1 \times 1)}{\epsilon^T \epsilon}$. \\
 
-We want to minimize the squared error term by choosing $\beta$. To do so, take derivative of squared error and set equal to zero, solve for $\beta$. 
+We want to find the $\beta$ that minimizes the sum of squared errors. To do so, take derivative of squared error wrt to $\beta^T$ and set equal to zero, then solve for $\beta$. 
 
 \begin{align}
     \frac{\partial \epsilon^T  \epsilon }{ \partial \beta} = 0 - \underset{K \times 1}{2X^T Y} + \underset{K \times 1}{2 X^T X \beta} = 0 \implies \\
@@ -239,7 +271,9 @@ We want to minimize the squared error term by choosing $\beta$. To do so, take d
     \beta = {(X^T X)}^{-1} X^T Y
 \end{align}
 
-Where ${(X^T X)}^{-1}$ is an inversion (because we cannot divide matrices). 
+Where ${(X^T X)}^{-1}$ is an inversion (because we cannot divide matrices). \\
+
+We have solved for $\beta$, which is a vector of all the parameters that we saw in equation \ref{reg_eqn} (look at equation \ref{params}). Remember, the first element of $\beta$ is the intercept \textit{because} the first column of $\mathbf{X}$ is all 1s (rather than any variable). The column of 1s is important and forces the first element of $\beta$ to be the intercept. 
 
 \section{Life cycle assessment example}
 
