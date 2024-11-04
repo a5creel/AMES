@@ -5,6 +5,7 @@
 %% Math and math fonts
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{bbm} % for \mathbbm{1}
+\usepackage{amsmath}
 
 % date
 \usepackage[nodayofweek]{datetime}
@@ -130,63 +131,24 @@
 \chead{Linar Algebra, cont}
 \rhead{AMES}
 
-\title{AMES Class Notes -- Week 9, Wednesday: Linear Algebra, cont}
+\title{AMES Class Notes -- Week 10, Monday: Linear Algebra, cont}
 \author{Andie Creel}
 
 \begin{document}
 \maketitle
 
-\section{Pset 1 Q1}
-Consider a population where the population level can be modeled: 
-\begin{align}
-    N_t = (b-d)N_{t-1}
-\end{align}
-
-And survival rate is:
-\begin{align}
-    S_ij = 1 -d
-\end{align}
-Where $S_ij$ is the survival rate of individuals $i$ years old make it to $j$ years old.\\
-
-Everyone dies after 3 years. \\
-
-We can model this as:
-\begin{align}
-    \overset{t+1}{N_{0_{t+1}}} &= \overset{t}{b_0 N_{0_t}} + b_1  N_{1_t}+ b_2  N_{3_t} + b_3  N_{3_t}\\
-    N_{1_{t+1}} &= S_{0,1} N_{0_t} + 0 + 0 + 0\\
-    N_{2_{t+1}} &= 0+ S_{1,2} N_{1_t}+ 0 + 0\\
-    N_{3_{t+1}} &= 0 + 0 + S_{2,3} N_{2_t} + 0
-\end{align}
-
-Where we're looking at the number of individuals that are $m$ years old in time period $t+1$, $N_{m_{t+1}}$.\\
-
-Can we write this more clearly with matrices?
-
-\begin{align}
-    \begin{bmatrix}
-        N_{0_{t+1}}\\
-        N_{1_{t+1}} \\
-        N_{2_{t+1}} \\
-        N_{3_{t+1}}\\
-    \end{bmatrix} &= 
-    \begin{bmatrix}
-        b_0 & b_1 & b_2 & b_3\\
-        S_{0,1} & 0 & 0 &0 \\
-        0 & S_{1,2} & 0 &0 \\
-        0 & 0 & S_{2,3} &0 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        N_{0_{t}}\\
-        N_{1_{t}} \\
-        N_{2_{t}} \\
-        N_{3_{t}}\\
-    \end{bmatrix} \\
-    \underset{4 \times 1}{N_{t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_t}
-\end{align}
 
 \section{Inverting a matrix}
+We will see how to invert at $2 \times 2$ matrix and a $3 \times 3$ matrix. In both examples, we will see that the equation equals 
+\begin{align}
+    A^{-1} = \frac{1}{|A|} adj(A) \label{og_def}
+\end{align}
+where $|A|$ is the \textbf{determinant} and $adj(A)$ is the \textbf{adjoint matrix}.\\
 
-\subsection{$2 \times 2$ matrix}
+The reason we need to be able to invert matrix is because we cannot divide by a matrix. So this is an important operation we need for solving systems of linear equations. 
+
+
+\subsection{Inverting a $2 \times 2$ matrix}
 
 Remember rules with 1. They have equivalents with the identity matrix. 
 \begin{align}
@@ -228,54 +190,72 @@ What is $BA = A^{-1}A = I$?
     \end{bmatrix}
 \end{align}
 
-The first element in the first row of $AB$ implies 
+The first element in the first row of $AB$ implies because we're noticing the the element in position $[1,1]$ of the AB matrix is equal to the element in position $[1,1]$ of the identity matrix. Next, we're just doing some algebra to solve for $b_{11}$,
 \begin{align}
-    b_{11}a_{11} + b_{12}a_{21} = 0\\
-    \implies b_{11} = \frac{1 - b_{12} a_{21}}{a_{11}} 
+    b_{11}a_{11} + b_{12}a_{21} = 1\\
+    \implies b_{11} = \frac{1 - b_{12} a_{21}}{a_{11}} \label{b_11}
 \end{align}
 
-The second element in the first row of $AB$ implies 
+The second element in the first row (position $[1, 2]$) of $AB$ implies 
 \begin{align}
     b_{11}a_{12} + b_{12}a_{22} = 0 
 \end{align}
-we can plug in what we got for $b_{11}$ earlier to get 
+we can plug in what we got for $b_{11}$ earlier in equation \ref{b_11} to get 
 \begin{align}
      \frac{1 - b_{12} a_{21}}{a_{11}} a_{12} + b_{12}a_{22} = 0 \\
+\end{align}
+
+which we can solve algebraically to for $b_{12}$ to get
+
+\begin{align}
      \implies b_{12} = \frac{a_{22}}{a_{11} a_{22} - a_{12} a_{21}}
 \end{align}
-which we can plug into eqn 17 to get rid of the $b_{12}$. 
+which we can plug into eqn \ref{b_11} to get rid of the $b_{12}$ and have a solution for $b_{11}$ that's only a function of elements from the A matrix. 
 \begin{align}
     b_{11} = \frac{1 - \frac{a_{22}}{a_{11} a_{22} - a_{12} a_{21}} a_{21}}{a_{11}} \\
-    = - \frac{a_{12}}{a_{11} a_{22} - a_{12} a_{21}} 
+\end{align}
+which simplifies to 
+\begin{align}
+   b_{11} = \frac{a_{22}}{a_{11} a_{22} - a_{12} a_{21}}. 
 \end{align}
 
-a pattern is beginning to emerge, and we can see that 
+The solutions to the other elements are (just giving them so we don't have to solve for them algebraically over and over again): 
 \begin{align}
-    \frac{1}{a_{11} a_{22} - a_{12} a_{21}} \begin{bmatrix}
+    b_{12} = \frac{-a_{12}}{a_{11} a_{22} - a_{12} a_{21}}\\
+    b_{21} = \frac{-a_{21}}{a_{11} a_{22} - a_{12} a_{21}} \\
+    b_{22} = \frac{a_{11}}{a_{11} a_{22} - a_{12} a_{21}} 
+\end{align}
+
+Remember that we're trying to solve for matrix $B$ right now, which is the inverse of $A$. Notice that there is a pattern here where each element of the inverse matrix is multiplied by the fraction $\frac{1}{a_{11} a_{22} - a_{12} a_{21}}$. So we can write the solution to our inverse matrix as 
+
+\begin{align}
+    B = A^{-1} = \frac{1}{a_{11} a_{22} - a_{12} a_{21}} \begin{bmatrix}
         a_{22} & -a_{12}\\
         -a_{21} & a_{11}
-    \end{bmatrix} = 
-    A^{-1}
+    \end{bmatrix} \label{2_sol}
 \end{align}
 
-The the first term is the inverse of the determinant \[a_{11} a_{22} - a_{12} a_{21}\] and the second term is the adjoint matrix \[\begin{bmatrix}
+The the first term is the inverse of the \textbf{determinant}, where the determinant is \[|A| = a_{11} a_{22} - a_{12} a_{21}\] and the second term is the \textbf{adjoint matrix} \[adj(A) = \begin{bmatrix}
         a_{22} & -a_{12}\\
         -a_{21} & a_{11}
     \end{bmatrix}.\]
 
-Notice that if the determinant is 0, which will happen if you have a row of zeros \textit{aka} if your matrix is not full rank, then your inverse matrix will not be defined because you'll have $\frac{1}{0}.$\\
+So our solution in equation \ref{2_sol} is in the form we saw in equation \ref{og_def}. \\
+
+Notice that if the determinant is 0, which will happen if you have a row of zeros \textit{aka} if your matrix is not full rank, then your inverse matrix will not be defined because you'll have $\frac{1}{0}.$ If this is the case, the inverse of the matrix does not exist.\\
 
 \subsection{Determinants}
 
 The \textit{determinant} will \textit{determine} if you can invert a matrix. \\
 
-Previously in class we would solve a system of equations for where two lines crossed. If the lines were different (and not parallel), then they would cross somewhere and we could find a point where the two lines are equal at that point. However, if you had two lines that were equal, aka they are the same line, then there is no single point where the two are equal. A \textbf{determinant} will let you know if your system of equations has a solution. If the determinant is 0, then two lines are the same or they are parallel (not unique). \\
+Previously in class we would solve a system of equations for where two lines crossed. If the lines were different (and not parallel), then they would cross somewhere and we could find a point where the two lines are equal at that point. However, if you had two lines that were equal, aka they are the same line, then there is no single point where the two are equal. A \textbf{determinant} will let you know if your system of equations has a solution. If the determinant is 0, then two lines are the same or they are parallel (not unique). The reason we're talking about rows and columns of matrices as if they are lines is because the rows and columns of a system of matrices gives us a system of equations.  \\
 
 This issue shows up if some of your variables are perfectly co-linear aka parallel. If you have variables that are co-linear, you won't be able to do a multi-variate regression and the determinant will be zero (unless you have tons and tons of data). 
 
 
 \subsection{Inverting $3 \times 3$ matrix}
 
+Consider the matrix A. 
 \begin{align}
     A = \begin{bmatrix}
                 a_{11} & a_{12} & a_{13} \\
@@ -284,7 +264,9 @@ This issue shows up if some of your variables are perfectly co-linear aka parall
     \end{bmatrix}
 \end{align}
 
-Take the minors: 
+\textbf{The goal is to solve for the inverse of A,} $A^{-1}$. Remember equation \ref{og_def}. We need to get the adjoint matrix and the determinant. \\
+
+\textbf{Step 1:} Take the all \textbf{minors} (9 total), $M_{ij}$: 
 \begin{align}
     M_{11} = \Bigg| \begin{bmatrix}
                     a_{22} & a_{23} \\
@@ -295,15 +277,63 @@ Take the minors:
                     a_{31} & a_{32}
     \end{bmatrix} \Bigg|   = a_{11} a_{32} - a_{12} a_{31}
 \end{align}
+and so on.... \\
 
-Get the cofactors: 
+
+You could make a $(3 \times 3)$ matrix of minors, where each minor you take goes in the $(i,j)$ position (note that minors are scalars). But, before we we make this, we need to edit the signs of each of these elements. To do that, we use a co-factor equation. \\
+
+\textbf{Step 2:} Get the co-factors and construct the \textbf{co-factor matrix} $(3 \times 3)$. Each element of the co-factor matrix is a function of the minors, which is why we solved for them first: 
 \begin{align}
-    C_{ij} = (-1)^{i + j} M_{ij}
+    C_{ij} = (-1)^{i + j} * M_{ij}   \\
+    = \begin{bmatrix}
+        c_{11} & c_{12} & c_{13}\\
+        c_{21} & c_{22} & c_{23}\\
+        c_{31} & c_{32} & c_{33}\\
+    \end{bmatrix}
 \end{align}
 
-To be continued! 
+\textbf{Step 3:} Then transpose the co-factor matrix (the columns become rows). This is the \textbf{adjoint matrix} of A when $A$ is $3 \times 3$
+\begin{align}
+    adj(A) = C^T = \begin{bmatrix}
+        c_{11} & c_{21} & c_{31}\\
+        c_{12} & c_{22} & c_{32}\\
+        c_{13} & c_{23} & c_{33}\\
+    \end{bmatrix}
+\end{align}
 
+\textbf{Step 4:} Find the \textbf{determinant of A}, which can conveniently be written as 
+\begin{align}
+    |A| &= a_{11}c_{11} + a_{12} c_{12} + a_{13} c_{13}\\
+        &= a_{12}c_{12} + a_{22} c_{22} + a_{32} c_{32} \\
+        &= ...
+\end{align}
+so you have a bunch of  ways to solve for the determinant. You can choose which of these equations you want to use. Choose any row or column, try to find one that has a lot of 0s to make it easier to calculate. \\
 
+\textbf{Step 5:} Finally, you can solve for \textbf{inverse of A}, $A^{-1}$,  using all these components, 
+\begin{align}
+    A^{-1} = \frac{1}{|A|}adj(A)
+\end{align}
+and equation \ref{og_def}
+
+\section{Cramer's rule for solving $Ax = b$ without taking an inverse}
+
+Cramer's Rule is a mathematical theorem and a method for solving a system of linear equations with as many equations as unknowns (a square system). It provides an explicit formula for each of the unknown variables in terms of determinants. This is nice because determinants are way easier to find than adjoin matrices.  Cramer's Rule is named after the Swiss mathematician Gabriel Cramer.\\
+
+Here's how Cramer's Rule works for a system of linear equations with $n$ variables ($x_1, x_2, \ldots, x_n$) and $n$ equations:\\
+
+1. Write the system of equations in matrix form as $Ax = b$, where $A$ is the coefficient matrix, $x$ is the vector of unknowns, and $b$ is the vector of constants on the right-hand side.\\
+
+2. Compute the determinant of the coefficient matrix $A$, denoted as $|A|$.\\
+
+3. Create $n$ new matrices by replacing each column of $A$ with the column vector $b$. These matrices are denoted as $A_1, A_2, \ldots, A_n$.\\
+
+4. Compute the determinants of these matrices: $|A_1|, |A_2|, \ldots, |A_n|$.\\
+
+5. The solution to the system of equations is given by $x_i = \frac{|A_i|}{|A|}$ for each variable $x_i$.\\
+
+It's important to note that Cramer's Rule only works when the determinant of the coefficient matrix $A$ ($|A|$) is non-zero, meaning the system of equations has a unique solution. If $|A|$ is zero, it means that the system of equations is either inconsistent (no solution) or has infinitely many solutions, and Cramer's Rule cannot be applied.\\
+
+Cramer's Rule can be computationally intensive for larger systems because it involves calculating multiple determinants. In practice, other methods like Gaussian elimination or matrix factorization techniques are often preferred for solving systems of linear equations.\\
 
 
 

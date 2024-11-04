@@ -84,16 +84,14 @@ Email: andie.creel\@yale.edu
 ### Week Nine (Oct 28 - Oct 30)
 - [Monday class notes](class_notes/8_mon.pdf): matrix addition and subtraction, multiplication, identity matrix, rank, transpose of a matrix 
 - [Wednesday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, Kronecker product, trace, linear regression (OLS), Life cycle assessment
+- [Old Section recording](https://yale.zoom.us/rec/play/eFOC3kVkqWOvfn6lNGsQSpsFmvCFk_lqj5lHqviVeIC__t9VlTMNapesMmQYWvlQpBSsNDrbfQE0ND4K.4mQcji2-5eJAkylI?autoplay=true&startTime=1698701474000): review of u-substitutions (week 6, Monday class notes) and discussion of weighting matrices and how they apply to linear regression (week nine, Monday class notes)
 
+### Week Ten (Nov 4 - Nov 6)
+- [Section Notes](section_notes/10_pset4_Q1.pdf): Setting up a population growth model 
+- [Monday Class Notes](class_notes/9_weds.pdf): inverting matrices 
 
 
 # ------- THE FUTURE -------
-
-
-### Week nine 
-- [Monday class notes](class_notes/9_mon.pdf): squaring matrices, idempotent matrix, Kronecker product, trace, linear regression (OLS), Life cycle assessment
-- [Section recording](https://yale.zoom.us/rec/play/eFOC3kVkqWOvfn6lNGsQSpsFmvCFk_lqj5lHqviVeIC__t9VlTMNapesMmQYWvlQpBSsNDrbfQE0ND4K.4mQcji2-5eJAkylI?autoplay=true&startTime=1698701474000): review of u-substitutions (week 6, Monday class notes) and discussion of weighting matrices and how they apply to linear regression (week nine, Monday class notes)
-- [Wednesday class notes](class_notes/9_weds.pdf): setting up a population growth problem (pset 4), inverting matrices 
 
 
 ### Week ten 
