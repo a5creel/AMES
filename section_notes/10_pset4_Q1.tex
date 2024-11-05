@@ -1,0 +1,189 @@
+\documentclass{article}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\pagestyle{fancy}
+
+\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
+
+%% Math and math fonts
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{bbm} % for \mathbbm{1}
+
+% date
+\usepackage[nodayofweek]{datetime}
+
+% Color
+\usepackage{color, xcolor}
+
+% Misc
+\usepackage{environ}  % \collect@body in asmmath
+\usepackage{graphicx} % \includegraphics options
+\usepackage{mdframed} % text boxes
+\usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage{comment} % Comments
+\usepackage{fancyhdr} % Headers and footers
+
+% Tables
+\usepackage{array}
+
+% Sub-figures and figure placement
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{float} 
+
+% Graphing
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tikz}
+
+% Title Placement
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+
+%set indent to 
+\setlength{\parindent}{0pt}
+
+% Hyper refs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor  = blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor = blue,
+    anchorcolor = blue
+}
+
+% % Citation management
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authordate,open={(},close={)}}
+
+\newcolumntype{M}{>{$}c<{$}} % Define a new column type for math mode
+
+
+% ----------------------------------------
+% TITLE
+% ----------------------------------------
+
+\pagestyle{fancy}
+
+\lhead{Creel}
+\chead{Linar Algebra, cont}
+\rhead{AMES}
+
+\title{AMES Section Notes -- Week 10, Setting Up population Growth}
+\author{Andie Creel}
+
+\begin{document}
+\maketitle
+
+
+
+\section{Pset 1 Q1}
+Consider a population where the population level can be modeled: 
+\begin{align}
+    N_t = (b-d)N_{t-1}
+\end{align}
+
+And survival rate is:
+\begin{align}
+    S_ij = 1 -d
+\end{align}
+Where $S_ij$ is the survival rate of individuals $i$ years old make it to $j$ years old.\\
+
+Everyone dies after 3 years. \\
+
+We can model this as:
+\begin{align}
+    \overset{t+1}{N_{0_{t+1}}} &= \overset{t}{b_0 N_{0_t}} + b_1  N_{1_t}+ b_2  N_{3_t} + b_3  N_{3_t}\\
+    N_{1_{t+1}} &= S_{0,1} N_{0_t} + 0 + 0 + 0\\
+    N_{2_{t+1}} &= 0+ S_{1,2} N_{1_t}+ 0 + 0\\
+    N_{3_{t+1}} &= 0 + 0 + S_{2,3} N_{2_t} + 0
+\end{align}
+
+Where we're looking at the number of individuals that are $m$ years old in time period $t+1$, $N_{m_{t+1}}$.\\
+
+Can we write this more clearly with matrices?
+
+\begin{align}
+    \begin{bmatrix}
+        N_{0_{t+1}}\\
+        N_{1_{t+1}} \\
+        N_{2_{t+1}} \\
+        N_{3_{t+1}}\\
+    \end{bmatrix} &= 
+    \begin{bmatrix}
+        b_0 & b_1 & b_2 & b_3\\
+        S_{0,1} & 0 & 0 &0 \\
+        0 & S_{1,2} & 0 &0 \\
+        0 & 0 & S_{2,3} &0 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        N_{0_{t}}\\
+        N_{1_{t}} \\
+        N_{2_{t}} \\
+        N_{3_{t}}\\
+    \end{bmatrix} \\
+    \underset{4 \times 1}{N_{t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_t}
+\end{align}
+
+\end{document}
