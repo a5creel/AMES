@@ -89,18 +89,16 @@ Email: andie.creel\@yale.edu
 ### Week Ten (Nov 4 - Nov 6)
 - [Old Section Notes](section_notes/10_pset4_Q1.pdf): Setting up a population growth model 
 - [Monday Class Notes](class_notes/9_weds.pdf): inverting matrices 
-- [Section recording](https://yale.zoom.us/rec/share/4nf581vMRP9JRBTF-bdbFaxyxqNjmaEzA1KKkOhyAuOqTGgXLuuamPmyAQJep-Q_.K_WpbP3zjz2de9CT?startTime=1730762055000): how to write matrix multiplication funciton in R
+- [Section recording](https://yale.zoom.us/rec/share/4nf581vMRP9JRBTF-bdbFaxyxqNjmaEzA1KKkOhyAuOqTGgXLuuamPmyAQJep-Q_.K_WpbP3zjz2de9CT?startTime=1730762055000): how to write matrix multiplication function in R
     - [r script](section_notes/in_class_pset4_Q13.pdf)
+- [Wendesday Class Notes](class_notes/10_mon.pdf): Cramer's rule, jacobian and Hessians (convexity and concavity, quasi)
+- [Old Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
+
 
 
 
 
 # ------- THE FUTURE -------
-
-
-### Week ten 
-- [Monday class notes](class_notes/10_mon.pdf): steps to invert a 3 by 3 matrix, Cramer's rule, jacobian and Hessians (convexity and concavity, quasi)
-- [Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
 
 # Differential Equations 
 

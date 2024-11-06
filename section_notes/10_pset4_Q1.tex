@@ -148,7 +148,7 @@ And survival rate is:
 \begin{align}
     S_ij = 1 -d
 \end{align}
-Where $S_ij$ is the survival rate of individuals $i$ years old make it to $j$ years old.\\
+Where $S_{ij}$ is the survival rate of individuals $i$ years old make it to $j$ years old.\\
 
 Everyone dies after 3 years. \\
 
@@ -182,8 +182,14 @@ Can we write this more clearly with matrices?
         N_{1_{t}} \\
         N_{2_{t}} \\
         N_{3_{t}}\\
-    \end{bmatrix} \\
+    \end{bmatrix} 
+\end{align}
+
+We can then rewrite this in matrix notation by naming these matrices, 
+\begin{align}
     \underset{4 \times 1}{N_{t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_t}
 \end{align}
+
+
 
 \end{document}

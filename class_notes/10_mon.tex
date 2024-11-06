@@ -130,69 +130,13 @@
 \chead{Linar Algebra, cont}
 \rhead{AMES}
 
-\title{AMES Class Notes -- Week 10, Monday: Linear Algebra, cont}
+\title{AMES Class Notes -- Week 10: Linear Algebra, cont}
 \author{Andie Creel}
 
 \begin{document}
 \maketitle
 
-\section{Inverting $3 \times 3$ matrix}
-Consider the matrix A. 
-\begin{align}
-    A = \begin{bmatrix}
-                a_{11} & a_{12} & a_{13} \\
-                a_{21} & a_{22} & a_{23} \\
-                a_{31} & a_{32} & a_{33}
-    \end{bmatrix}
-\end{align}
 
-The goal is to solve for the inverse of A, $A^{-1}$.\\
-
-
-Step 1: Take the all minors: 
-\begin{align}
-    M_{11} = \Bigg| \begin{bmatrix}
-                    a_{22} & a_{23} \\
-                    a_{32} & a_{33}
-    \end{bmatrix} \Bigg| = a_{22}a_{33} - a_{23} a_{32} \\
-    M_{23} = \Bigg| \begin{bmatrix}
-                    a_{11} & a_{12} \\
-                    a_{31} & a_{32}
-    \end{bmatrix} \Bigg|   = a_{11} a_{32} - a_{12} a_{31}
-\end{align}
-and so on... \\
-
-Step 2: Get the co-factors to construct the co-factor matrix: 
-\begin{align}
-    C_{ij} = (-1)^{i + j} | M_{ij} |  \\
-    = \begin{bmatrix}
-        c_{11} & c_{12} & c_{13}\\
-        c_{21} & c_{22} & c_{23}\\
-        c_{31} & c_{32} & c_{33}\\
-    \end{bmatrix}
-\end{align}
-
-Step 4: Then transpose the co-factor matrix, which equals the adjoint matrix of A
-\begin{align}
-    adj(A) = C^T = \begin{bmatrix}
-        c_{11} & c_{21} & c_{31}\\
-        c_{12} & c_{22} & c_{32}\\
-        c_{13} & c_{23} & c_{33}\\
-    \end{bmatrix}
-\end{align}
-
-Step 5: Find the determinant of A, which can conveniently be written as 
-\begin{align}
-    |A| &= a_{11}c_{11} + a_{12} c_{12} + a_{13} c_{13}\\
-        &= a_{12}c_{12} + a_{22} c_{22} + a_{32} c_{32} \\
-        &= ...
-\end{align}
-so you have a bunch of easy ways to solve for the determinant (choose any row or column). \\
-
-Step 6: Finally, you can solve for inverse of A, 
-\begin{align}
-    A^{-1} = \frac{1}{|A|}adj(A)
-\end{align}
 
 \section{Cramer's rule}
 
