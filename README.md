@@ -95,16 +95,14 @@ Email: andie.creel\@yale.edu
 - [Old Section Zoom Recording](https://yale.zoom.us/rec/share/DcaOagpyLqq8naFj4VIdKcRIf80c7TNyR2z_23-Y3z8mtqEX1NJwkceO7qEPjH10.nur9edVdvhrvobmB?startTime=1699309891000): Solving a system of 3 equations using Cramer's rule, element to element comparison of matrices
 
 
-
-
-
-# ------- THE FUTURE -------
-
 # Differential Equations 
 
 ### Week eleven 
 - [Monday class notes](class_notes/11_mon/main.pdf): Differential equation, recursion eqn, difference eqn, differential eqn, using differential equation to find stock level in time period T, steady states
 - [Wednesday class notes](class_notes/11_weds/main.pdf): Review stable and unstable equilibrium (steady states), equilibrium in a lotka voltera model (use of implicit function theorem to determine dynamics around an equilibrium), different types of equilibrium in phase planes, modeling tipping points 
+
+
+# ------- THE FUTURE -------
 
 ### Week twelve 
 - [Monday class notes](class_notes/12_mon.pdf): Eigen values and a bit on eigen vectors 

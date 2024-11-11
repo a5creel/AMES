@@ -156,19 +156,21 @@ Think if you have rabbits and they are breading in different time periods
 \[\frac{\Delta x}{\Delta t} = x_{t+1} - x_t = f(x_t)\]
 
 \textbf{Differential equation:} Notice that we currently have the difference equation written for discrete time. Let's take a limit the limit to get it to continuous time. This is what makes a \textit{difference} equation a \textit{differential equation}, where the state $x$ is a function of the time period $t$, $x(t)$ (\textbf{time non-autonomous}). 
-\begin{align*}
+\begin{align}
     \Delta t \rightarrow 0\\
-    \dot x = \frac{\partial x(t)}{\partial t} = f(x(t))
-\end{align*}
+    \dot x = \frac{\partial x(t)}{\partial t} = f(x(t)) = f(x, t). \label{nonauto}
+\end{align}
+In this case, the time period $t$ genuinely matters  For example, if you run a Christmas tree farm, the date may really matter. This is what it is why it's time \textit{non}-autonomous. \\
 
-we can suppress the $t$ and instead just focus on the state of the world, regardless of the time period (\textbf{time autonomous})
-\begin{align*}
-    \dot x = \frac{\partial x}{\partial t} = f(x)
-\end{align*}
+
+Alternatively, we can suppress the $t$ and instead just focus on the state of the world, regardless of the time period (\textbf{time autonomous})
+\begin{align}
+    \dot x = \frac{\partial x}{\partial t} = f(x) \label{auto}
+\end{align}
 
 Sometimes the system we're interested in will be \textit{time autonomous} meaning that the year or date doesn't really matter. It's just the state of the world that matters. \\
 
-Other times, time may really matter, where the time period does affect the the state of the world directly. For instance, if we're interested in a seasonal patter, the time will matter. However, if we're just interested in what people do on warm days, it does \textit{not} matter if that warm day happens in the summer or if it's random very warm day in the fall. 
+In conclusion, sometimes time may really matter, where the time period does affect the the state of the world directly (like in equation \ref{nonauto}). For instance, if we're interested in a seasonal patter, the time will matter. However, if we're just interested in what people do on warm days, it does \textit{not} matter if that warm day happens in the summer or if it's random very warm day in the fall (like in equation \ref{auto}). 
 
 \section{Using differential equation to get x(T)}
 
@@ -235,34 +237,37 @@ Now consider if $a = 0$. This simplifies to the exponential growth equation we'v
 If you have a \textit{linear \textbf{rate} of change} then the \textbf{level} of the stock will \textbf{grow exponentially}. Most thing grow exponentially, if something is growing linearly (and it's not logged) that's very strange. \\
 
 
-\textbf{Importance for data:} Knowing that these cannot both be linear (that's impossible) means that you need to choose whether the \underline{change in the growth rate} will be linear through time, or if the \underline{change in the population level} will be linear through time. 
+\textbf{Importance for data:} Knowing that these cannot both be linear (that's impossible) means that modelers need to choose whether the \underline{change in the growth rate} will be modeled linearly through time, or if the \underline{change in the population level} will be modeled linearly through time. Only one of these things can be linear. As modeler, you need to think through which one.\\
+
+If you or something else goes to model something with exponential growth, you should ask what rate of change is linear. 
 
 
 \section{Steady States}
 A steady state is when a stock isn't changing. Therefore the rate of change is zero, 
 \begin{align*}
-    \frac{\partial x(t)}{\partial t} = 0
+    \frac{\partial N(t)}{\partial t} = 0
 \end{align*}
 
 A very common rate of change (logistic growth) is
 \begin{align*}
-    \frac{\partial x}{\partial t} = \alpha x (1 - x) 
+    \frac{\partial N}{\partial t} = \alpha N(t) (1 - N(t)) 
 \end{align*}
+We can solve this rate of change equation for its "roots", \textit{aka} that values of $N(t)$ that lead to $\partial N / \partial t =0$. The two values are $N(t) = 0$ and $N(t) = 1$. \\
 
-For what levels of $x$ is $\frac{\partial x}{\partial t}$ greater than or less than 0? AKA when is the stock growing and when is the stock shrinking? 
+For what levels of $N$ is $\frac{\partial xN}{\partial t}$ greater than or less than 0? AKA when is the stock growing and when is the stock shrinking? 
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.5\linewidth]{Screen Shot 2023-11-13 at 11.52.17 AM.png}
-    \caption{phase line of $\frac{\partial x}{\partial t}$}
+    \caption{phase line of $\frac{\partial N}{\partial t}$}
     %\label{fig:enter-label}
 \end{figure}
 
-$\frac{\partial x}{\partial t} < 0$ when $x < 0$ \\
-$\frac{\partial x}{\partial t} > 0$ when $x > 0, x < 1$ \\
-$\frac{\partial x}{\partial t} < 0$ when $x > 1$ \\
+$\frac{\partial N}{\partial t} < 0$ (shrinking) when $N < 0$ \\
+$\frac{\partial N}{\partial t} > 0$ (growing) when $N > 0, N < 1$ \\
+$\frac{\partial n}{\partial t} < 0$ (shrinking) when $N > 1$ \\
 
-Therefore, 0 is an unstable   and 1 is a stable equilibrium. 
+Therefore, 0 is an unstable and 1 is a stable equilibrium. 
 
 
 \end{document}
