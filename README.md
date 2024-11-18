@@ -101,15 +101,13 @@ Email: andie.creel\@yale.edu
 - [Monday class notes](class_notes/11_mon/main.pdf): Differential equation, recursion eqn, difference eqn, differential eqn, using differential equation to find stock level in time period T, steady states
 - [Wednesday class notes](class_notes/11_weds/main.pdf): Review stable and unstable equilibrium (steady states), equilibrium in a lotka voltera model (use of implicit function theorem to determine dynamics around an equilibrium), different types of equilibrium in phase planes, modeling tipping points 
 
-
-# ------- THE FUTURE -------
-
 ### Week twelve 
 - [Monday class notes](class_notes/12_mon.pdf): Eigen values and a bit on eigen vectors 
-- [Section](section_notes/12_section.pdf): Pset 5, Q1 and Q2
-- [recording of section](https://yale.zoom.us/rec/share/Lc1Mm89IJ7RyrpwzBJlflfnh-GRtfqk3fbrPsxELvOM5jo99JsztRlKfdWk58zHW.RjZ9c2j--2hYFGFg?startTime=1701124522000)
+- [Old section notes](section_notes/12_section.pdf): Pset 5, Q1 and Q2
+- [Old recording of section](https://yale.zoom.us/rec/share/Lc1Mm89IJ7RyrpwzBJlflfnh-GRtfqk3fbrPsxELvOM5jo99JsztRlKfdWk58zHW.RjZ9c2j--2hYFGFg?startTime=1701124522000)
 - [Wednesday class notes](class_notes/12_weds/main.pdf): summary of eigenvalues and eigenvectors, solve for eigenvector, variance and covariance matrices, principle component analysis, graph analysis 
 
+# ------- THE FUTURE -------
 
 
 # Constrained Optimization 
