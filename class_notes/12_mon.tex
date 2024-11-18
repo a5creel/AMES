@@ -17,6 +17,7 @@
 \usepackage{graphicx} % \includegraphics options
 \usepackage{mdframed} % text boxes
 \usepackage{indentfirst} % Indent first paragraph after section header
+\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
 \usepackage{comment} % Comments
 \usepackage{fancyhdr} % Headers and footers
 
@@ -147,9 +148,12 @@ Consider the equation
 by taking the derivative, we were able to linearize this equation so we can estimate the slope of this function (locally) in a linear manner. 
 
 \section{Motivation of eigen values}
-The Eigen values will tell us about the dynamics around an equilibrium. They don't help us solve for the equilibrium, we do that by solving system of equations for the stock levels in the system that lead to it not changing, \textit{i.e.} $\frac{d x}{d t} = 0 \implies x^*$. The eigen values will tell us if the equilibrium is stable, unstable, conditionally stable, as well as information about if the system approaches the equilibrium in a spiral or straight on. 
+The Eigen values will tell us about the dynamics around an equilibrium. They don't help us solve for the equilibrium, we do that by solving system of equations for the stock levels in the system that lead to it not changing, \textit{i.e.} $\frac{d x}{d t} = 0 \implies x^*$. Instead, the eigen values will tell us if the equilibrium is stable, unstable, conditionally stable, as well as information about if the system approaches the equilibrium in a spiral or straight on. 
 
 \section{Solving for Eigen values}
+
+\subsection{Solving for equilibrium, $(x^*, y^*)$}
+
 Consider two stocks, $x$ and $y$, that are changing through time. The equations for how they change through time are given, 
 \begin{align}
     \frac{\partial x}{\partial t} = \dot x = -0.1x + y \\
@@ -169,7 +173,7 @@ What is a our Jacobian matrix? Remember, the Jacobian matrix tells us about the 
     \end{bmatrix}
 \end{align}
 
-We want to know the behavior at the equilibrium, \textit{i.e.} when the stocks $x$ and $y$ are not changing. Find the values of $x$ and $y$ that lead to an equilibrium and plug them into $J$. 
+We want to know the behavior at the equilibrium, \textit{i.e.} when the stocks $x$ and $y$ are not changing. Find the values of $x$ and $y$ that lead to an equilibrium and plug them into $J$. To do so, we want to find the $x,y$ combination that lead to $\dot x = 0$ and $\dot y = 0$. This gives a system of 2 equations which we can solve for a the equilibrium values of $x$ and $y$. 
 
 \begin{align}
     \dot x = -0.1x + y = 0 \\
@@ -178,13 +182,15 @@ We want to know the behavior at the equilibrium, \textit{i.e.} when the stocks $
     \implies y^* = 10
 \end{align}
 
-This solutions means the Jacobian is 
+Plugging these equilibrium values back into the Jacobian yields 
 \begin{align}
     J = \begin{bmatrix}
             -0.1& 1\\
             0.01 & 0.1
     \end{bmatrix} \label{jacobian}
 \end{align}
+
+\subsection{Solving for eigen value}
 
 Let's now solve for our Eigen values. Consider how $\dot N = \begin{bmatrix}
     \dot x\\
@@ -204,12 +210,15 @@ Let's now solve for our Eigen values. Consider how $\dot N = \begin{bmatrix}
 \end{bmatrix} \label{setup}
 \end{align}
 
-where $q$ are special values of $x ( = q_1)$ and $y (= q_2)$ and $\lambda$ will be our eigenvalues and it is a scalar. \\
+where $q$ are are stand ins for our equilibrium values of $x ( = q_1)$ and $y (= q_2)$. $\lambda$ will be our eigenvalues and each eigen values is a scalar. There are multiple. \\
 
 From \ref{setup}, we get 
 \begin{align}
     Jq = \lambda q
 \end{align}
+
+\textbf{Just like the Jacobian matrix tells us about the behavior around the equilibrium $(x^*, y^*)$, the eigen values tell us about the dynamics around the equilibrium as well.} \\
+
 
 Let's rename $J = A$. 
 \begin{align}
@@ -257,20 +266,26 @@ If we want \ref{det} to be 0, that means we want the determinant of the LHS to e
 \end{align}
 We now have both of our eigen values from \ref{eigenvals}. \\
 
-\textbf{Evaluating eigen values:}\\
-If both eigen values are positive, it's unstable. \\
-If both eigen values are negative, it's stable. \\
-If one is positive, and the other is negative, it's conditionally stable. \\
-If in eigen value has an imaginary number in it $i = \sqrt{-1}$ such that $\lambda = R + Zi$ that means we have a spiraling equilibrium. If $R$ is positive is spirals out, if $R$ is negative it spirals in. \\
+\subsection{Interpreting eigen values:}
+Again, Eigen values tell you about the behavior around the equilibrium point, so $q_1 = x^*$ and $q_2 = y^*$. So we can plug in our equilibrium values of $x^*$ and $y^*$ that we solved for when we solved our system of equations. 
 
-Now, let's plug in the numbers from our original problem and our Jacobian \ref{jacobian} into our solution for the eigen values from \ref{solution}, 
+\begin{itemize}
+    \item If both eigen values are positive, it's unstable.
+    \item If both eigen values are negative, it's stable.
+    \item If one is positive, and the other is negative, it's conditionally stable.
+    \item If in eigen value has an imaginary number in it $i = \sqrt{-1}$ such that $\lambda = R + Zi$ that means we have a spiraling equilibrium. If $R$ is positive is spirals out, if $R$ is negative it spirals in.
+\end{itemize}
+
+\subsection{Returning to our number example}
+
+Now, let's plug in the numbers from our original problem and our Jacobian (Eqn \ref{jacobian}) into our solution for the eigen values from Eqn \ref{solution}. Remember that $A = J$, so the Jacobian values, $j_{ij}$, are plugged into $a_{ij}$. 
 \begin{align}
     \lambda^2 + \lambda (0.1 - 0.1) + (-0.1(0.1) - 0.01) = \lambda^2 + 0 \lambda - 0.02 = 0 \\
     \implies \lambda = \frac{-0 \pm \sqrt{0 - 4(0.02)}}{2} = \pm \sqrt{0.02}
 \end{align}
 Our eigen values are positive and negative, therefore our system is conditionally system.\\ 
 
-\textbf{A few notes on jargon}\\
+\subsection{A few notes on jargon}
 Eigen values are sometimes called \textit{characteristic value}. Also, \ref{solution} will be called the \textit{characteristic polynomial}. \\
 
 You may see the \textit{Routh-Horwitz Condition}, which means the system is stables. \\
