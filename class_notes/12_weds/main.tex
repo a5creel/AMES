@@ -189,18 +189,21 @@ where $A$ is the the Jacobian matrix and $q$ is our eigen vector.
         q_1 \\
         q_2
     \end{bmatrix} = 0 \\
-    \implies (a_{11} - \lambda) q_1 + a_{12} q_2 = 0 \label{system} \\
-    a_{21} q_1 + (a_{22} - \lambda) q_2 = 0 
+    \implies (a_{11} - \lambda) q_1 + a_{12} q_2 = 0 \label{system_1} \\
+    a_{21} q_1 + (a_{22} - \lambda) q_2 = 0 \label{system_2}
 \end{align}
 
 The $q$ is only defined relative to another. Conditioned on a given $\lambda$, there is a $q_2$ for any $q_1$ that solves this system. \\
 
-So we will say the vector length is 1 for convenience. This sets up the equation 
+So we will say the eigen vector is length 1 for convenience. This sets up the equation 
 \begin{align}
     q_1^2 + q_2^2 = 1 \label{pythag}
 \end{align}
 
-So solve the system of equations in \ref{system} then plug them into \ref{pythag} to get your values of $q$. 
+This then gives us 3 equations (eqn \ref{system_1}, \ref{system_2}, and \ref{pythag})  and 3 unknowns ($q_1, q_2, \lambda).$ We can solve this system of equations for the eigen value $\lambda$ and the eigen vector $\begin{bmatrix}
+    q_1\\
+    q_2
+\end{bmatrix}$.
 
 \section{Variance and covariance}
 
@@ -211,7 +214,7 @@ Our variance and covariance matrix would be
     \begin{bmatrix}
         \sigma_x^2 & \sigma_x^2 \sigma_y^2\\
         \sigma_y^2\sigma_x^2 & \sigma_y^2
-    \end{bmatrix}
+    \end{bmatrix} \label{cov}
 \end{align}
 
 where 
@@ -228,17 +231,57 @@ We could rescale our data so that the mean is zero, \textit{i.e.} $\bar x = 0$ a
     \sigma_{xy} = \sigma_{yx} = Cov(x,y) = \frac{1}{N} \sum_N x_i y_i.
 \end{align}
 
-We could use linear algebra to get the covariance matrix. Remember that $x$ and $y$ would be $N \time 1$ and $M$ would be $N \times 2$
+Instead of using summations to find covariance and variance, we could use linear algebra to get the covariance matrix. Remember that $x$ and $y$ would be $N \times 1$ and $M$ would be $N \times 2$
 \begin{align}
     Var(x) = x^T x \\
     Var(y) = y^T y\\
     Cov(M) = M^T M
 \end{align}
 
-where $Var(x)$ and $Var(y)$ are scalars and $cov(M)$ is a $k \times k$ matrix. 
+where $Var(x)$ and $Var(y)$ are scalars and $cov(M)$ is the $2 \times 2$ covariance matrix in eqn \ref{cov}. \\
 
-\section{Principle components analysis}
-In the context of Principal Component Analysis (PCA) or covariance matrices, the eigenvectors represent the principal components or directions of maximum variance in the data. The eigenvalues indicate magnitude of variance along these directions. \\
+If we had a 
+
+
+\section{Principal Components Analysis (PCA)}
+
+\textbf{Principal Components Analysis (PCA)} is a statistical technique used to reduce the dimensionality of a dataset while retaining as much variance as possible. It does this by transforming the original variables into a new set of uncorrelated variables called \textit{principal components}.
+
+\subsection*{Steps of PCA}
+
+\begin{enumerate}
+    \item \textbf{Center the Data}: Subtract the mean of each variable to center the dataset at the origin.
+    \item \textbf{Compute the Covariance Matrix}: Calculate the covariance matrix of the centered data to understand the relationships between variables.
+    \item \textbf{Eigen Decomposition}: Compute the eigenvalues and eigenvectors of the covariance matrix.
+    \begin{itemize}
+        \item \textit{Eigenvectors}: Represent the directions of the principal components.
+        \item \textit{Eigenvalues}: Represent the variance captured by each principal component.
+    \end{itemize}
+    \item \textbf{Select Principal Components}: Order the eigenvectors by their corresponding eigenvalues (from largest to smallest). The eigenvectors with the largest eigenvalues are the principal components that explain the most variance.
+    \item \textbf{Project the Data}: Transform the data into the space defined by the selected principal components, reducing the dimensionality if desired.
+\end{enumerate}
+
+The PCA creates a lower dimension dataset that is made of variables that are linear combinations of variables in the original dataset. This preserves the variation in the original dataset, while lowering the dimension of the new dataset. 
+
+\subsection*{Relation to the Covariance Matrix}
+
+The covariance matrix plays a central role in PCA because it quantifies the relationships between variables:
+\begin{itemize}
+    \item The covariance matrix \( M \) is an \( k \times k\) matrix for \( k \) variables, where the entry \( \sigma_{ij} \) represents the covariance between the \( i \)-th and \( j \)-th variables.
+    \item PCA finds the \textit{eigenvectors} of the covariance matrix, which correspond to the directions of maximum variance in the data.
+    \item The \textit{eigenvalues} of the covariance matrix measure how much variance is captured along each eigenvector (principal component).
+\end{itemize}
+
+\subsection*{Why the Covariance Matrix?}
+
+The covariance matrix encapsulates the structure of the data, such as:
+\begin{itemize}
+    \item How much variance each variable contributes.
+    \item The relationships (correlations) between variables.
+\end{itemize}
+
+By analyzing the eigenvectors and eigenvalues of the covariance matrix, PCA identifies the directions (principal components) that maximize variance, allowing dimensionality reduction while preserving as much information as possible.\\
+
 
 In this course, you don't need to memorize how to do this. But it's good to understand what a principle components analysis is. A PCA determines what are the main variables (principle components) that drive results may be. 
 
@@ -253,7 +296,7 @@ In this course, you don't need to memorize how to do this. But it's good to unde
 
 With a graph, we can make a \textbf{degree matrix}, which is the number of connections each node has. It's a diagonal matrix. We can make an \textbf{adjacency matrix} so we see which nodes are connected to which. And we could make a \textbf{laplacion matrix} which would be the degree matrix minus the adjacency which tells us about the "speed" of movement between nodes. \\
 
-The adjacency matrix of a graph is a square matrix that represents the connections between vertices. For an undirected graph, the adjacency matrix is symmetric. The \textit{eigenvalues and eigenvectors of the adjacency matrix} provide insights into the graph's connectivity. The \textit{eigenvalues of the Laplacian matrix} are closely related to the number of connected components in a graph. The multiplicity of the eigenvalue in the Laplacian matrix is equal to the number of connected components in the graph. The corresponding eigenvectors provide information about the connectivity within each connected component.
+The adjacency matrix of a graph is a square matrix that represents the connections between vertices. For an undirected graph, the adjacency matrix is symmetric. The \textit{eigenvalues and eigenvectors of the adjacency matrix} provide insights into the graph's connectivity. The \textit{eigenvalues of the Laplacian matrix} are closely related to the number of connected components in a graph. The multiplicity of the eigenvalue in the Laplacian matrix is equal to the number of connected components in the graph. The corresponding eigenvectors provide information about the connectivity within each connected component.\\
 
 Again, you don't need to know all this for this class, but know that it exists. 
 
