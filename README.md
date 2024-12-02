@@ -107,9 +107,6 @@ Email: andie.creel\@yale.edu
 - [Old recording of section](https://yale.zoom.us/rec/share/Lc1Mm89IJ7RyrpwzBJlflfnh-GRtfqk3fbrPsxELvOM5jo99JsztRlKfdWk58zHW.RjZ9c2j--2hYFGFg?startTime=1701124522000)
 - [Wednesday class notes](class_notes/12_weds/main.pdf): summary of eigenvalues and eigenvectors, solve for eigenvector, variance and covariance matrices, principle component analysis, graph analysis 
 
-# ------- THE FUTURE -------
-
-
 # Constrained Optimization 
 
 ### Week thirteen 
