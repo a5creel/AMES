@@ -165,7 +165,7 @@ Where EV is electric vehicle preference and CC is climate change concern.
 
 \subsection{For this model, what does $\beta$ represent in terms of the underlying data? (50\%)}
 
-This slope doesn't make any sense in terms of the underlying data. The data is discrete, but was coded with a continuous variable. Therefore, it's possible to run the above regression. But, just because it is possible does not mean it makes any sense. \\
+The key part of this questions is the phrase \textit{in terms of the underlying data}. This slope doesn't make any sense in terms of the underlying data. The data is discrete, but was coded with a continuous variable. Therefore, it's possible to run the above regression. But, just because it is possible does not mean it makes any sense. \\
 
 For example, you can write a to-do list and label it 1, 2, 3, 4, 5 but you wouldn't run a regression on the numbers in your to-do list. 
 
@@ -193,9 +193,9 @@ Let's say the survival rate can be written as,
 \end{align}
 where $S_{y, y+1}$ is the survival rate of individuals $y$ years old make it to $y+1$ years old and $d_y$ is the death rate of individuals $y$ years old.\\
 
-Everyone dies after 3 years. \\
+Everyone dies after 3 years (\textit{aka} at age four). \\
 
-Babies $y = 0$ give birth to $0$ babies per capita per year, 1-year olds give birth to $b_1$ babies per capita per year, 2-year olds give birth to $b_2$ babies per capita per year and 3-year olds give birth to $b_3$ per capita babies per year.\\
+Babies (defined as $y = 0$) give birth to $0$ babies per capita per year, 1-year olds give birth to $b_1$ babies per capita per year, 2-year olds give birth to $b_2$ babies per capita per year and 3-year olds give birth to $b_3$ per capita babies per year.\\
 
 \textit{Conceptual question}: How many 1-year olds are born? A: zero. 1-year olds are not born, the way to be a 1-year is to be a zero-year old who survives. However, there are other age stage models where this isn't as "linear". For example, consider a population of trees. Trees could grow from small trees to big trees, and could also shrink from big trees to small trees in something like a storm.  
 
@@ -232,8 +232,10 @@ Where we're looking at the number of individuals that are $y$ years old in time 
         N_{2, t} \\
         N_{3, t}\\
     \end{bmatrix} \\
-    \underset{4 \times 1}{N_{t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_t}
+    \underset{4 \times 1}{N_{y, t+1}} &= \underset{4 \times 4}{A} \underset{4 \times 1}{N_{y,t}}
 \end{align}
+
+where we have an output vector, a parameter matrix and an input vector. 
 
 \section{Setting up a life cycle analysis (input output table)} 
 Life cycle analyses are used to consider the total demand for a good (so the demand for it as an input good for other consumer goods plus consumer demand). \\
@@ -242,7 +244,9 @@ In these problems, we'll have \textbf{total demand}
 \[\underset{N \times 1}{X},\] 
 for the $N$ industries and then \textbf{input demand} 
 \[\underset{N \times N}{A} \underset{N \times 1 }{X}\] 
-which uses the input-output matrix $A$ to get input demand as a function of total demand $X$. Finally, we have \textbf{consumer demand}, 
+which uses the input-output matrix $A$ to get input demand as a function of total demand $X$. The matrix $A$ can be thought of as indicating the fraction of total output that's required as inputs for other products.\\
+
+Finally, we have \textbf{consumer demand}, 
 \[ \underset{N \times 1}{d}\]. 
 
 \subsection{Total amount demanded}
@@ -306,6 +310,8 @@ This is how the \textbf{arithmetic mean} was derived. When we wanted to find an 
 
 
 \subsection{When conditioning on another variable}
+Note that the \textbf{conditional mean} is a line.\\
+
 Now let's consider if you're interested in an outcome variable, conditioned on an independent variable? That's when we use linear regression, like the following estimating equation,
 \begin{align}
     y_i = a + bx_i + \epsilon_i
@@ -378,7 +384,7 @@ My personal testing strategy (take or leave):
     \item Pay attention to the \% worth. Feel willing to skips parts that have low percentages if you get stuck on them 
     \item Do the parts that you know the best first so you get all your "easy" points without running out of time
     \item Even if you can't solve  a problem, write down what the question is on (\textit{i.e.} this is an age staged population model). Sketch our your solution strategy even if you can't solve it 
-    \item There are a couple of R questions. Consider your coding ability before you spend a lot of time trying to solve them. Consider writing pseudo code, especially if you're running out of time.
+    \item Last year, there were a couple of R questions. Consider your coding ability before you spend a lot of time trying to solve them. Consider writing pseudo code, especially if you're running out of time.
 \end{itemize}
 
 
