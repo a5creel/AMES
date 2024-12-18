@@ -4,69 +4,6 @@
 
 %% Math and math fonts
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
-\usepackage{bbm} % for \mathbbm{1}
-
-% date
-\usepackage[nodayofweek]{datetime}
-
-% Color
-\usepackage{color, xcolor}
-
-% Misc
-\usepackage{environ}  % \collect@body in asmmath
-\usepackage{graphicx} % \includegraphics options
-\usepackage{mdframed} % text boxes
-\usepackage{indentfirst} % Indent first paragraph after section header
-\usepackage[shortlabels]{enumitem} % Control enumerate items with [(a)]
-\usepackage{comment} % Comments
-\usepackage{fancyhdr} % Headers and footers
-\usepackage{amsmath}
-
-% Tables
-\usepackage{array}
-
-% Sub-figures and figure placement
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float} 
-\usepackage{amsmath}
-
-% Graphing
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.17}
-\usepackage{tikz}
-
-% Title Placement
-\usepackage{titling}
-\setlength{\droptitle}{-6em}
-
-%set indent to 
-\setlength{\parindent}{0pt}
-
-% Hyper refs
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor  = blue,
-    filecolor=magenta,      
-    urlcolor=blue,
-    citecolor = blue,
-    anchorcolor = blue
-}
-
-% % Citation management
-\usepackage{natbib}
-\bibliographystyle{abbrvnat}
-\setcitestyle{authordate,open={(},close={)}}
-
-\pagestyle{fancy}
-
-\usepackage[paper=letterpaper,margin=2.5cm]{geometry} % Set Margins
-
-%% Math and math fonts
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
-\usepackage{bbm} % for \mathbbm{1}
 
 % date
 \usepackage[nodayofweek]{datetime}
@@ -110,7 +47,6 @@
     linkcolor=blue,
     urlcolor  = blue,
     filecolor=magenta,      
-    urlcolor=blue,
     citecolor = blue,
     anchorcolor = blue
 }
@@ -135,6 +71,7 @@
 
 \begin{document}
 \maketitle
+\raggedright
 Notation: \\
 w.r.t: with respect to
 
@@ -169,10 +106,10 @@ The derivative tells us what the change in $s$ (or $f(w)$ because $s = f(w)$) is
 Consider the function $f(x) = ax$. We can find the derivative of $f(x) = ax$ using our derivative definition. \\
 
 \begin{align}
-    \frac{df(x)}{dx} &\equiv \lim_{\epsilon \to \infty} \frac{f(x+ \epsilon) - f(x)}{\epsilon}\\
-    &= \lim_{\epsilon \to \infty} \frac{a*(x + \epsilon) - ax}{\epsilon}\\
-    &= \lim_{\epsilon \to \infty} \frac{ax + a\epsilon - ax}{\epsilon}\\
-    &= \lim_{\epsilon \to \infty} a\\
+    \frac{df(x)}{dx} &\equiv \lim_{\epsilon \to 0} \frac{f(x+ \epsilon) - f(x)}{\epsilon}\\
+    &= \lim_{\epsilon \to 0} \frac{a*(x + \epsilon) - ax}{\epsilon}\\
+    &= \lim_{\epsilon \to 0} \frac{ax + a\epsilon - ax}{\epsilon}\\
+    &= \lim_{\epsilon \to 0} a\\
     &= a \\
     \frac{df(x)}{dx} &= a
 \end{align}
@@ -214,7 +151,7 @@ and the derivative is
 
 There are many ways to notate a first derivative
 \begin{align}
-    \frac{df(x)}{dx} = f'(x) = f^1(x) = \frac{\Delta f}{\Delta x} \lim_{\epsilon \rightarrow 0} f(x) = \frac{\text{rise}}{\text{run}}
+    \frac{df(x)}{dx} = f'(x) = f^1(x) = \frac{\Delta f}{\Delta x} \lim_{\epsilon \rightarrow 0} \frac{f(x+\epsilon) - f(x)}{\epsilon} = \frac{\text{rise}}{\text{run}}
 \end{align}
 It is not an accident that this looks like a fraction! But derivatives are just $\frac{\text{rise}}{\text{run}}$ fractions, where the change in the denominator is really really small. \\
 
@@ -222,14 +159,14 @@ It is not an accident that this looks like a fraction! But derivatives are just 
 In sustainable development, we often think about trends through time and therefore consider functions of time. We naturally are then interested in how that function \textit{changes} through time. Therefore, take the derivative of that function w.r.t time also has it's own fancy notation (that comes from Newton)
 
 \begin{align}
-    \frac{d x(t)}{dt} = \dot x
+    \frac{d x(t)}{dt} = \dot{x}
 \end{align}
 
 \subsection{Second derivative}
 
 We can also take second derivatives, which also has a few different ways to denote it:
 \begin{align}
-    f''(x) = f^2(x) = \frac{d^2 f(x)}{dx^2}
+    f''(x) = f^{(2)}(x) = \frac{d^2 f(x)}{dx^2}
 \end{align}
 
 Example: 
@@ -280,7 +217,7 @@ The product rule is that if $u(x)$ and $v(x)$ are differentiable functions, then
 \section{Logs and derivatives}
 Consider the function: 
 \begin{align}
-    f(x) = ln(x)
+    f(x) = \ln(x)
 \end{align}
 The derivative is 
 \begin{align}
@@ -289,7 +226,7 @@ The derivative is
 
 Now consider the function 
 \begin{align}
-    f(x) &= ln(g(x)).
+    f(x) &= \ln(g(x)).
 \end{align}
 To find the derivative we will use a log rule and the chain rule 
 \begin{align}
@@ -302,7 +239,7 @@ is the \textbf{PERCENT CHANGE}. Percent change is a very useful statistic that w
 \subsection{Percent change}
 
 \begin{align}
-    \frac{d ln(f(x))}{dx} = \frac{f'(x)}{f(x)} = \text{percent change}
+    \frac{d \ln(f(x))}{dx} = \frac{f'(x)}{f(x)} = \text{percent change}
 \end{align}
 
 Taking the derivative of the log of a function w.r.t $x$ is a great way to find the percent change. \\
@@ -314,34 +251,34 @@ Relative to what (\textit{you should ask!})? Whatever is in your denominator. If
 \section{Log rules and e}
 Recall how we defined $e$ using a series:
 \begin{align}
-    e = \lim_{N \to \infty} (1 + \frac{1}{N})^N
+    e = \lim_{N \to \infty} \left(1 + \frac{1}{N}\right)^N
 \end{align}
 
-Now consider the function $ln(x)$ and the definition of a derivative. We will show $\frac{d ln(x)}{dx} = \frac{1}{x}$.\\
+Now consider the function $\ln(x)$ and the definition of a derivative. We will show $\frac{d \ln(x)}{dx} = \frac{1}{x}$.\\
 
 Proof
 \begin{align}
-    \frac{dln(x)}{dx} &= \lim_{\epsilon \to 0} \frac{ln(x+\epsilon) - ln(x)}{\epsilon} \\
-    &= \lim_{\epsilon \to 0} \frac{1}{\epsilon} ln\Bigg(\frac{x+\epsilon}{x} \Bigg) \\
-    &= \lim_{\epsilon \to 0}  ln\Bigg(1+ \frac{\epsilon}{x} \Bigg)^{\frac{1}{\epsilon}}
+    \frac{d \ln(x)}{dx} &= \lim_{\epsilon \to 0} \frac{\ln(x+\epsilon) - \ln(x)}{\epsilon} \\
+    &= \lim_{\epsilon \to 0} \frac{1}{\epsilon} \ln\left(\frac{x+\epsilon}{x}\right) \\
+    &= \lim_{\epsilon \to 0} \ln\left(1+ \frac{\epsilon}{x}\right)^{\frac{1}{\epsilon}}
 \end{align}
 
 Make up a useful substitution: $u = \frac{\epsilon}{x}$
 \begin{align}
-    &= \lim_{\epsilon \to 0} \frac{1}{x} ln\Bigg(1+ u \Bigg)^{\frac{1}{u}}
+    &= \lim_{\epsilon \to 0} \frac{1}{x} \ln\left(1+ u \right)^{\frac{1}{u}}
 \end{align}
 
 Now make up another useful subsitution: $u = \frac{1}{N}$
 \begin{align}
-    &= \frac{1}{x} ln\Bigg(\lim_{N \to \infty}  (1+ N)^{\frac{1}{N}}\Bigg)
+    &= \frac{1}{x} \ln\left(\lim_{N \to \infty}  \left(1+ \frac{1}{N}\right)^N\right)
 \end{align}
 
 use the definition of $e$ 
 \begin{align}
-    &= \frac{1}{x} ln(e)\\
+    &= \frac{1}{x} \ln(e)\\
     &= \frac{1}{x}
 \end{align}
 
-Ta da! We've used the definition of a derivative to prove our derivative rule for logs, $ln(x)$. 
+Ta da! We've used the definition of a derivative to prove our derivative rule for logs, $\ln(x)$. 
 
 \end{document}
