@@ -1,5 +1,5 @@
 # AMES
-This repository contains the notes I prepared as a teaching fellow for Eli Fenichel's Applied Math for Environmental Scientists Course at the Yale School of the Environment in the Fall of 2024. 
+This repository contains the notes I prepared as a teaching fellow for Eli Fenichel's Applied Math for Environmental Scientists Course at the Yale School of the Environment in the Fall of 2025. 
 
 The repository has two primary folders, `class notes` and `section notes`. `Class notes` are taken during Eli's in-class lectures. `Section notes` are prepared by myself before Monday evening sections. I do not expect you to read the section notes before the section. However, they can be helpful to have in front of you during section. 
 
@@ -7,7 +7,7 @@ Note: You can ignore the .tex files. The PDFs are what are viewable and what you
 
 
 ### Office hours
-My office hours are Mondays from 5:15 - 6:45 p.m. in Kroon 319. The first half will typically be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
+My office hours are Tuesdays from 5:00 - 6:30 p.m. in Sage 41C. The first half will typically be my prepared material, which will prepare you for the problem sets. The second half will be open office hours where I can answer any questions. 
 
 Email: andie.creel\@yale.edu 
 
